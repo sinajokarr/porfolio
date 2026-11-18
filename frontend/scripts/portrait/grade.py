@@ -49,7 +49,7 @@ def main(photo, mask_path, out, og=None):
     # 3b. Remove the bright-wall "light wrap" around the silhouette (it reads as a halo on a dark scene).
     eroded = np.asarray(Image.fromarray((alpha * 255).astype(np.uint8)).filter(ImageFilter.MinFilter(17)), dtype=np.float32) / 255
     wrap = blur(np.clip(alpha - eroded, 0, 1), 4)
-    lum = lum * (1 - 0.55 * wrap)
+    lum = lum * (1 - 0.7 * wrap)
 
     # 4. Clarity: mild unsharp mask on luminance only.
     lum = np.clip(lum + (lum - blur(lum, 2.2)) * 0.55, 0, 1)
@@ -63,7 +63,7 @@ def main(photo, mask_path, out, og=None):
     mag = np.hypot(gx, gy) + 1e-6
     facing = np.clip((-gx * LIGHT_DIR[0] - gy * LIGHT_DIR[1]) / mag, 0, 1)
     band = np.clip(alpha - blur(np.asarray(Image.fromarray((alpha * 255).astype(np.uint8)).filter(ImageFilter.MinFilter(13)), dtype=np.float32) / 255, 4), 0, 1)
-    rim = blur(band * facing, 2.0)[..., None] * 0.75
+    rim = blur(band * facing, 3.5)[..., None] * 0.42
     toned = 1 - (1 - toned) * (1 - rim * (LAVENDER / 255))  # screen blend
 
     # 7. Fade the lower body into darkness (alpha) so the figure rises out of the scene.

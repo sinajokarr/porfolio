@@ -405,3 +405,86 @@ html.motion [data-hero] {
     display: none;
   }
 }
+
+/* ---------- Hero portrait: chrome sculpture + graded photo ---------- */
+.hero-layer {
+  will-change: transform;
+}
+/* Live WebGL fades in over the identical still, then the still is dropped so nothing ghosts. */
+.hero-sculpture canvas {
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+.hero-sculpture.is-live canvas {
+  opacity: 1;
+}
+.hero-sculpture.is-live .hero-sculpture-still {
+  visibility: hidden;
+  transition: visibility 0s 1.3s;
+}
+/* RTL: mirror the sculpture so it leans away from the text, as it does in LTR. */
+[dir="rtl"] .hero-sculpture > * {
+  transform: scaleX(-1);
+}
+/* A soft shadow on the metal behind him: separation without an outline. */
+.hero-photo {
+  filter: drop-shadow(-14px 22px 34px rgb(3 4 10 / 0.7));
+}
+/* Slow silver sheen across the photo, masked to his silhouette; rests most of the cycle. */
+.hero-sheen {
+  -webkit-mask: url(/hero-portrait.webp) center / 100% 100% no-repeat;
+  mask: url(/hero-portrait.webp) center / 100% 100% no-repeat;
+  background: linear-gradient(100deg, transparent 38%, rgb(222 224 255 / 0.1) 46%, rgb(255 255 255 / 0.17) 50%, rgb(222 224 255 / 0.1) 54%, transparent 62%) 0 0 / 300% 100% no-repeat;
+  mix-blend-mode: screen;
+  opacity: 0;
+}
+.hero-reveal .hero-sheen {
+  animation: hero-sheen 16s ease-in-out 2.6s infinite;
+}
+@keyframes hero-sheen {
+  0% {
+    background-position: 0 0;
+    opacity: 1;
+  }
+  40%,
+  100% {
+    background-position: 100% 0;
+    opacity: 1;
+  }
+}
+/* Entrance: the photo rises out of a soft mask and comes into focus; the sculpture settles in behind. */
+.hero-reveal .hero-portrait {
+  animation: portrait-reveal 1.8s var(--ease-out-expo) 0.2s both;
+}
+.hero-reveal .hero-sculpture {
+  animation: sculpture-reveal 2.6s var(--ease-out-expo) 0.6s both;
+}
+@keyframes portrait-reveal {
+  from {
+    clip-path: inset(100% 0 0 0 round 40% 40% 0 0);
+    filter: blur(14px) brightness(1.4);
+    scale: 1.06;
+  }
+  to {
+    clip-path: inset(0 0 0 0 round 0);
+    filter: none;
+    scale: 1;
+  }
+}
+@keyframes sculpture-reveal {
+  from {
+    opacity: 0;
+    scale: 0.94;
+    translate: 0 4%;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    translate: 0 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-sheen {
+    display: none;
+  }
+}

@@ -68,7 +68,9 @@ TEMPLATES = [
 
 # PostgreSQL in every real environment. SQLite fallback only so `manage.py check` works without a DB.
 DATABASES = {"default": env.db("DATABASE_URL", default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}")}
-DATABASES["default"]["CONN_MAX_AGE"] = env.int("DATABASE_CONN_MAX_AGE", default=60)
+# Persistent connections suit Gunicorn's long-lived workers; the dev server opens a thread per request and
+# would leak one connection per thread, so development closes connections after each request.
+DATABASES["default"]["CONN_MAX_AGE"] = env.int("DATABASE_CONN_MAX_AGE", default=0 if DEBUG else 60)
 
 # Database cache: shared across Gunicorn workers so throttling works without Redis.
 # ponytail: DB cache is enough for one small site; switch to Redis if traffic grows.

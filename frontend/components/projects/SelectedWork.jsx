@@ -9,11 +9,11 @@ export default function SelectedWork({ projects }) {
   // Websites first, then software (Array.sort is stable, so the CMS order is kept inside each group).
   const featured = projects.filter((p) => p.featured).sort((a, b) => (a.kind === "client" ? 0 : 1) - (b.kind === "client" ? 0 : 1));
   return (
-    <section id="work" className="relative overflow-hidden bg-ink py-28 md:py-40" aria-labelledby="work-title">
+    <section id="work" className="relative overflow-hidden bg-ink py-24 md:py-32" aria-labelledby="work-title">
       <div aria-hidden="true" className="pointer-events-none absolute -start-40 top-20 size-[36rem] rounded-full bg-[radial-gradient(closest-side,rgb(129_140_248/0.08),transparent)]" />
       <div className="container-x relative grid gap-12 xl:grid-cols-[minmax(15rem,0.85fr)_3fr] xl:gap-10">
         <div className="relative xl:pb-20">
-          <h2 id="work-title" className="display text-[clamp(2.2rem,3.6vw,3.2rem)]" data-reveal="mask">
+          <h2 id="work-title" className="display text-[clamp(2rem,2.7vw,2.6rem)]" data-reveal="mask">
             {t("heading1")}
             <br />
             <span className="text-chrome">{t("heading2")}</span>

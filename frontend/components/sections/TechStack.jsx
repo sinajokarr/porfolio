@@ -47,35 +47,38 @@ export function TechOrbit({ label }) {
         </div>
       </div>
       <ul className="sr-only">{ORBIT.map((i) => <li key={i.slug}>{i.title}</li>)}</ul>
-      <figcaption className="mt-6 text-center text-sm text-mist">{label}</figcaption>
+      {label && <figcaption className="mt-6 text-center text-sm text-mist">{label}</figcaption>}
     </figure>
   );
 }
 
-/** Full grouped list — used on the About page, where the depth belongs. */
+/** Capabilities & Technologies: grouped by use (the readable content) with the orbit as the visual. */
 export default function TechStack() {
   const t = useTranslations("stack");
   return (
-    <section id="stack" className="bg-ink py-24 md:py-32" aria-labelledby="stack-title">
+    <section id="stack" className="bg-ink pb-24 md:pb-32" aria-labelledby="stack-title">
       <div className="container-x">
-        <div className="card-dark p-8 md:p-14">
-          <h2 id="stack-title" className="display text-[clamp(2rem,3.4vw,3rem)]" data-reveal="mask">{t("heading")}</h2>
-          <p className="mt-5 max-w-lg leading-relaxed text-mist" data-reveal>{t("intro")}</p>
-          <div className="mt-12 grid gap-8 border-t border-white/[0.07] pt-10 sm:grid-cols-2 lg:grid-cols-4">
-            {GROUPS.map((g) => (
-              <div key={g.key} data-reveal>
-                <h3 className="text-sm font-medium text-white">{t(g.key)}</h3>
-                <ul className="mt-4 space-y-2.5" dir="ltr">
-                  {g.items.map(([name, icon]) => (
-                    <li key={name} className="flex items-center gap-2.5 text-[0.93rem] text-white/75 rtl:justify-end">
-                      {icon ? <Logo icon={icon} size={15} /> : <span className="grid size-[15px] place-items-center"><span className="size-1 rounded-full bg-accent" /></span>}
-                      {name}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+        <div className="card-dark grid items-center gap-12 overflow-hidden p-8 md:p-14 lg:grid-cols-[1.3fr_1fr]">
+          <div>
+            <h2 id="stack-title" className="display text-[clamp(2rem,3.4vw,3rem)]" data-reveal="mask">{t("heading")}</h2>
+            <p className="mt-5 max-w-lg leading-relaxed text-mist" data-reveal>{t("intro")}</p>
+            <div className="mt-10 grid gap-8 border-t border-white/[0.07] pt-9 sm:grid-cols-2">
+              {GROUPS.map((g) => (
+                <div key={g.key} data-reveal>
+                  <h3 className="text-sm font-medium text-white">{t(g.key)}</h3>
+                  <ul className="mt-4 flex flex-wrap gap-2" dir="ltr">
+                    {g.items.map(([name, icon]) => (
+                      <li key={name} className="chip gap-2 !py-1.5">
+                        {icon && <Logo icon={icon} size={13} />}
+                        {name}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
+          <TechOrbit label="" />
         </div>
       </div>
     </section>

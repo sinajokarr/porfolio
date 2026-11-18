@@ -19,11 +19,11 @@ export function StatusBadge({ status, className = "" }) {
 export default function ProjectCard({ project, className = "" }) {
   const t = useTranslations("work");
   return (
-    <article className={`group relative isolate flex aspect-[4/4.4] flex-col justify-end overflow-hidden rounded-[var(--radius-card)] border border-white/10 bg-ink-800 ${className}`}>
+    <article className={`group relative isolate flex aspect-[4/4.9] flex-col justify-end overflow-hidden rounded-[var(--radius-card)] border border-white/10 bg-ink-800 ${className}`}>
       <div className="absolute inset-0 -z-10 transition-transform duration-[1400ms] ease-[var(--ease-out-expo)] group-hover:scale-[1.06]">
         <ProjectVisual slug={project.slug} thumbnail={project.thumbnail} />
       </div>
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,transparent_35%,rgb(8_9_12/0.65)_62%,rgb(8_9_12/0.95)_100%)]" />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,transparent_22%,rgb(8_9_12/0.8)_52%,rgb(8_9_12/0.97)_72%)]" />
       <div className="absolute inset-0 -z-10 opacity-0 transition-opacity duration-700 group-hover:opacity-100 bg-[radial-gradient(70%_50%_at_50%_100%,rgb(170_169_245/0.18),transparent)]" />
 
       <StatusBadge status={project.status} className="absolute start-5 top-5" />
@@ -44,6 +44,7 @@ export default function ProjectCard({ project, className = "" }) {
             {project.category}
           </Link>
         </h3>
+        <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-white/60">{project.summary}</p>
         <ul className="mt-4 flex flex-wrap gap-2" aria-label="Technologies">
           {project.technology_tags.slice(0, 3).map((tag) => <li key={tag} className="chip">{tag}</li>)}
         </ul>

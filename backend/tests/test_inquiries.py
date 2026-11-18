@@ -94,3 +94,14 @@ def test_admin_requires_staff(client, django_user_model):
     admin = django_user_model.objects.create_superuser("owner", password="a-long-password-123")
     client.force_login(admin)
     assert client.get("/admin/inquiries/inquiry/").status_code == 200
+
+
+def test_short_form_defaults_to_email_contact(client):
+    data = payload()
+    for field in ("phone", "company", "preferred_contact_method"):
+        data.pop(field)
+    data["locale"] = "ru"
+    response = client.post(URL, data, content_type="application/json")
+    assert response.status_code == 201
+    inquiry = Inquiry.objects.get()
+    assert inquiry.preferred_contact_method == "email" and inquiry.locale == "ru"

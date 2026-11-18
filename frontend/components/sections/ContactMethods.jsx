@@ -1,6 +1,6 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { LinkedinIcon, WhatsappIcon } from "@/components/ui/icons";
+import { GithubIcon, LinkedinIcon, WhatsappIcon } from "@/components/ui/icons";
 import { CONTACT } from "@/lib/site";
 
 /** Direct-contact cards for the /contact page, next to the inquiry form. */
@@ -11,6 +11,7 @@ export default function ContactMethods() {
     { href: CONTACT.emailHref, label: t("email"), value: CONTACT.email, Icon: Mail, track: "contact_email_click" },
     { href: CONTACT.phoneHref, label: t("phone"), value: CONTACT.phone, Icon: Phone, track: "contact_phone_click" },
     { href: CONTACT.linkedin, label: t("linkedin"), value: "in/sinajokar", Icon: LinkedinIcon, track: "linkedin_profile_click", external: true },
+    { href: CONTACT.github, label: "GitHub", value: "github.com/sinajokarr", Icon: GithubIcon, track: "github_project_click", external: true },
   ];
   return (
     <div>

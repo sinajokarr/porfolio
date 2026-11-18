@@ -31,7 +31,11 @@ export default function ContactCta() {
 
       <div className="container-x">
         <div className="max-w-2xl">
-          <h2 id="contact-title" className="display text-[clamp(2.4rem,4.8vw,4.2rem)]" data-reveal="mask">{t("heading")}</h2>
+          <h2 id="contact-title" className="display text-[clamp(2.2rem,3.8vw,3.4rem)]" data-reveal="mask">
+            {t("heading")}
+            <br />
+            <span className="text-chrome">{t("headingAccent")}</span>
+          </h2>
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-white/70" data-reveal>{t("desc1")}</p>
           <div className="mt-10" data-reveal>
             <Link href="/contact" className="btn btn-light px-8" data-track="service_inquiry_click">

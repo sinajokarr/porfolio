@@ -1,10 +1,10 @@
 # Sina Jokar — Portfolio & Client Acquisition Website
 
-Multilingual (EN / TR / FA-RTL) portfolio and inquiry platform.
+Multilingual (EN / TR / FA-RTL / RU) portfolio and inquiry platform.
 
 | Part | Stack |
 | --- | --- |
-| `frontend/` | Next.js 16 (App Router, JavaScript), Tailwind CSS 4, next-intl, GSAP + ScrollTrigger, Three.js / React Three Fiber, React Hook Form + Zod |
+| `frontend/` | Next.js 16 (App Router, JavaScript), Tailwind CSS 4, next-intl, GSAP + ScrollTrigger, React Hook Form + Zod. Hero = 2.5D layered portrait (CSS/SVG, no WebGL) |
 | `backend/` | Python 3.13, Django 6.1, Django REST Framework, PostgreSQL, drf-spectacular, WhiteNoise, Gunicorn |
 | `content/` | `services.json`, `projects.json` — seed data for Django **and** the frontend's offline fallback |
 
@@ -19,6 +19,7 @@ Browser ─► Next.js (SSG pages, /en /tr /fa)
               └─ email notification for each inquiry (stored first, so a mail failure never loses a lead)
 ```
 
+* The homepage follows the visitor journey: Hero → Services → Selected Work → Capabilities & Technologies → Process → About → Contact (with the inquiry form). The Google Ads simulator (Growth Lab) lives on `/services/performance-marketing`.
 * Pages are statically generated and revalidate content from the API every 5 minutes. If the API is unreachable, they render from `content/*.json`.
 * Django Admin is the CMS: services, projects (status, featured, GitHub/live links, thumbnails, translations) and inquiries.
 
@@ -105,3 +106,23 @@ npm run lint
 * No testimonials, client counts, years of experience or campaign results are shown. The Growth Lab is labelled as illustrative estimates.
 * The portrait is the owner-supplied photo, graded monochrome (`frontend/public/sina-jokar.webp`).
 # porfolio
+
+## Hero portrait
+
+`frontend/public/hero-portrait.webp` is the owner's photo with the background removed (Apple Vision, on-device) and a monochrome studio grade — lighting and colour only, the face is not altered. To regenerate it from a new or higher-resolution photo (recommended: ≥ 1600 px tall):
+
+```bash
+python3 -m venv /tmp/imgenv && /tmp/imgenv/bin/pip install pyobjc-framework-Vision pyobjc-framework-Quartz pillow numpy
+/tmp/imgenv/bin/python frontend/scripts/portrait/cutout.py photo.jpg /tmp/mask.png
+/tmp/imgenv/bin/python frontend/scripts/portrait/grade.py photo.jpg /tmp/mask.png frontend/public/hero-portrait.webp --og frontend/public/og-portrait.png
+```
+
+## iCloud Drive warning (this Mac)
+
+The project lives on the Desktop, which is synced by iCloud with "Optimize Mac Storage". When the disk is low, macOS evicts files and builds hang while it re-downloads them. `frontend/node_modules` and `backend/.venv` are therefore symlinks to `node_modules.nosync` / `.venv.nosync` (iCloud skips `*.nosync`). After `npm install`, re-create the link:
+
+```bash
+cd frontend && rm -rf node_modules.nosync && mv node_modules node_modules.nosync && ln -s node_modules.nosync node_modules
+```
+
+Moving the project out of the Desktop (e.g. `~/Projects`) removes the problem entirely.

@@ -3,13 +3,14 @@ import { expect, test } from "@playwright/test";
 
 test("root redirects to a locale", async ({ page }) => {
   await page.goto("/");
-  await expect(page).toHaveURL(/\/(en|tr|fa)$/);
+  await expect(page).toHaveURL(/\/(en|tr|fa|ru)$/);
 });
 
 for (const [locale, dir, heading] of [
   ["en", "ltr", "I Build Digital Products."],
   ["tr", "ltr", "Dijital Ürünler Geliştiriyorum."],
   ["fa", "rtl", "محصولات دیجیتال می‌سازم."],
+  ["ru", "ltr", "Создаю цифровые продукты."],
 ]) {
   test(`${locale}: lang/dir and hero`, async ({ page }) => {
     await page.goto(`/${locale}`);
@@ -30,7 +31,7 @@ test("language switcher keeps the current page", async ({ page, isMobile }) => {
 
 test("service and project routes render in every locale", async ({ page }) => {
   for (const path of ["/services/website-development", "/projects/sinshop", "/about", "/contact", "/privacy"]) {
-    for (const l of ["en", "tr", "fa"]) {
+    for (const l of ["en", "tr", "fa", "ru"]) {
       const res = await page.goto(`/${l}${path}`);
       expect(res.status(), `${l}${path}`).toBe(200);
     }
@@ -74,9 +75,23 @@ test("reduced motion shows content without animation", async ({ browser }) => {
 });
 
 test("no horizontal overflow", async ({ page }) => {
-  for (const l of ["en", "fa"]) {
+  for (const l of ["en", "fa", "ru"]) {
     await page.goto(`/${l}`);
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
     expect(overflow, l).toBeLessThanOrEqual(0);
   }
+});
+
+test("homepage follows the visitor journey", async ({ page }) => {
+  await page.goto("/en");
+  const ids = await page.locator("main section[id]").evaluateAll((els) => els.map((e) => e.id));
+  expect(ids).toEqual(["services", "work", "stack", "process", "about", "contact"]);
+  await page.getByRole("link", { name: "Explore My Services" }).click();
+  await expect(page).toHaveURL(/#services$/);
+});
+
+test("growth lab lives on the performance marketing page", async ({ page }) => {
+  await page.goto("/en/services/performance-marketing");
+  await expect(page.locator("#growth-lab")).toBeVisible();
+  await expect(page.getByText("Illustrative estimates")).toBeVisible();
 });

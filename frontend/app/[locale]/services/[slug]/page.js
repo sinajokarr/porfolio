@@ -2,6 +2,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import HeroIntro from "@/components/animations/HeroIntro";
+import GrowthLab from "@/components/marketing/GrowthLab";
 import ContactCta from "@/components/sections/ContactCta";
 import ServiceIcon from "@/components/services/ServiceIcon";
 import PageHeader from "@/components/ui/PageHeader";
@@ -82,6 +83,8 @@ export default async function ServicePage({ params }) {
           </div>
         </section>
       )}
+      {/* The marketing simulator lives where it is relevant: on the performance-marketing page. */}
+      {s.slug === "performance-marketing" && <GrowthLab />}
       <ContactCta />
     </>
   );

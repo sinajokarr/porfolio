@@ -45,3 +45,10 @@ def test_content_api_is_read_only(client, seeded):
 def test_schema_available(client):
     response = client.get("/api/v1/schema/")
     assert response.status_code == 200 and b"/api/v1/inquiries/" in response.content
+
+
+def test_russian_content(client, seeded):
+    service = client.get("/api/v1/services/full-stack-development/?lang=ru").json()
+    project = client.get("/api/v1/projects/sinshop/?lang=ru").json()
+    assert service["language"] == "ru" and service["title"] == "Full-stack разработка"
+    assert project["language"] == "ru" and project["features"]

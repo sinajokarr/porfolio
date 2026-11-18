@@ -1,6 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import HeroIntro from "@/components/animations/HeroIntro";
-import { AboutProfile } from "@/components/sections/AboutTeaser";
+import About from "@/components/sections/About";
 import ContactCta from "@/components/sections/ContactCta";
 import Process from "@/components/sections/Process";
 import TechStack from "@/components/sections/TechStack";
@@ -19,9 +19,9 @@ export default async function AboutPage({ params }) {
   const t = await getTranslations("about");
   return (
     <>
-      <PageHeader eyebrow={t("eyebrow")} title={t("heading")} intro={t("p1")} />
+      <PageHeader eyebrow={t("eyebrow")} title={t("heading")} />
       <HeroIntro />
-      <AboutProfile />
+      <About full />
       <Process />
       <TechStack />
       <ContactCta />
