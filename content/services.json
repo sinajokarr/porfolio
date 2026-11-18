@@ -1,0 +1,789 @@
+[
+  {
+    "slug": "website-development",
+    "icon": "monitor",
+    "category": "primary",
+    "translations": {
+      "en": {
+        "title": "Website Design & Development",
+        "tagline": "Beautiful Websites. Built for Business.",
+        "summary": "I create professional, responsive websites designed to represent your brand, communicate your services, and make it easier for customers to take action.",
+        "description": [
+          "Your website is often the first interaction a customer has with your business.",
+          "I design and develop professional websites that combine refined visual experiences, fast performance, intuitive navigation, and clear business objectives.",
+          "Whether you need a corporate website, multilingual platform, e-commerce store, or high-converting landing page, I create digital experiences designed to represent your brand professionally and make it easier for customers to take action."
+        ],
+        "features": [
+          "Corporate websites",
+          "Custom business websites",
+          "E-commerce websites",
+          "Multilingual websites",
+          "Landing pages",
+          "Responsive design",
+          "Website redesign",
+          "Technical optimization"
+        ],
+        "benefits": [
+          "A stronger, more professional first impression",
+          "A better experience for visitors on mobile",
+          "Easier inquiries — fewer steps between interest and contact",
+          "Clear communication of what you offer",
+          "Search-friendly technical foundations",
+          "Flexibility to grow with your business"
+        ],
+        "cta": "Discuss Your Project"
+      },
+      "tr": {
+        "title": "Web Tasarımı ve Geliştirme",
+        "tagline": "Etkileyici Web Siteleri. İşletmeniz İçin Tasarlandı.",
+        "summary": "Markanızı temsil eden, hizmetlerinizi net anlatan ve müşterilerinizin harekete geçmesini kolaylaştıran profesyonel, mobil uyumlu web siteleri oluşturuyorum.",
+        "description": [
+          "Web siteniz, çoğu zaman bir müşterinin işletmenizle ilk temas noktasıdır.",
+          "Özenli görsel deneyimi, hızlı performansı, kolay gezinmeyi ve net iş hedeflerini bir araya getiren profesyonel web siteleri tasarlıyor ve geliştiriyorum.",
+          "Kurumsal bir web sitesi, çok dilli bir platform, e-ticaret mağazası ya da dönüşüm odaklı bir açılış sayfası fark etmez; markanızı profesyonelce temsil eden ve müşterilerinizin harekete geçmesini kolaylaştıran dijital deneyimler oluşturuyorum."
+        ],
+        "features": [
+          "Kurumsal web siteleri",
+          "İşletmenize özel web siteleri",
+          "E-ticaret siteleri",
+          "Çok dilli web siteleri",
+          "Açılış sayfaları",
+          "Mobil uyumlu tasarım",
+          "Web sitesi yenileme",
+          "Teknik optimizasyon"
+        ],
+        "benefits": [
+          "Daha güçlü ve profesyonel bir ilk izlenim",
+          "Mobilde daha iyi bir ziyaretçi deneyimi",
+          "İlgi ile iletişim arasında daha az adım",
+          "Sunduğunuz hizmetlerin net anlatımı",
+          "Arama motoru dostu teknik altyapı",
+          "İşletmenizle birlikte büyüyebilen esneklik"
+        ],
+        "cta": "Projenizi Konuşalım"
+      },
+      "fa": {
+        "title": "طراحی و توسعه وب‌سایت",
+        "tagline": "وب‌سایت‌های زیبا، ساخته‌شده برای کسب‌وکار.",
+        "summary": "وب‌سایت‌های حرفه‌ای و واکنش‌گرا می‌سازم که برند شما را معرفی کنند، خدماتتان را روشن توضیح دهند و اقدام مشتری را ساده‌تر کنند.",
+        "description": [
+          "وب‌سایت شما معمولاً اولین نقطه آشنایی مشتری با کسب‌وکارتان است.",
+          "وب‌سایت‌هایی طراحی و توسعه می‌دهم که تجربه بصری سنجیده، سرعت بالا، ناوبری ساده و اهداف روشن تجاری را با هم ترکیب می‌کنند.",
+          "چه به وب‌سایت شرکتی نیاز داشته باشید، چه پلتفرم چندزبانه، فروشگاه اینترنتی یا لندینگ‌پیج متمرکز بر جذب مشتری، تجربه‌ای دیجیتال می‌سازم که برند شما را حرفه‌ای معرفی کند و اقدام مشتری را ساده‌تر کند."
+        ],
+        "features": [
+          "وب‌سایت شرکتی",
+          "وب‌سایت اختصاصی کسب‌وکار",
+          "فروشگاه اینترنتی",
+          "وب‌سایت چندزبانه",
+          "لندینگ‌پیج",
+          "طراحی واکنش‌گرا",
+          "بازطراحی وب‌سایت",
+          "بهینه‌سازی فنی"
+        ],
+        "benefits": [
+          "اولین برداشت قوی‌تر و حرفه‌ای‌تر",
+          "تجربه بهتر برای بازدیدکنندگان موبایل",
+          "مسیر کوتاه‌تر از علاقه تا تماس",
+          "معرفی روشن خدمات شما",
+          "زیرساخت فنی سازگار با موتورهای جست‌وجو",
+          "انعطاف برای رشد همراه با کسب‌وکار"
+        ],
+        "cta": "درباره پروژه‌تان صحبت کنیم"
+      },
+      "ru": {
+        "title": "Дизайн и разработка сайтов",
+        "tagline": "Красивые сайты, созданные для бизнеса.",
+        "summary": "Создаю профессиональные адаптивные сайты, которые представляют ваш бренд, понятно рассказывают об услугах и помогают клиентам сделать следующий шаг.",
+        "description": [
+          "Сайт часто становится первым знакомством клиента с вашей компанией.",
+          "Я проектирую и разрабатываю сайты, в которых продуманный дизайн, высокая скорость, понятная навигация и ясные бизнес-цели работают вместе.",
+          "Корпоративный сайт, многоязычная платформа, интернет-магазин или лендинг для рекламы — я создаю цифровой продукт, который достойно представляет ваш бренд и помогает клиентам обратиться к вам."
+        ],
+        "features": [
+          "Корпоративные сайты",
+          "Сайты для бизнеса под ключ",
+          "Интернет-магазины",
+          "Многоязычные сайты",
+          "Лендинги",
+          "Адаптивный дизайн",
+          "Редизайн сайта",
+          "Техническая оптимизация"
+        ],
+        "benefits": [
+          "Более сильное и профессиональное первое впечатление",
+          "Удобство для посетителей с мобильных устройств",
+          "Меньше шагов от интереса до обращения",
+          "Понятное описание ваших услуг",
+          "Техническая основа, удобная для поисковых систем",
+          "Гибкость для роста вашего бизнеса"
+        ],
+        "cta": "Обсудить проект"
+      }
+    }
+  },
+  {
+    "slug": "full-stack-development",
+    "icon": "code",
+    "category": "primary",
+    "translations": {
+      "en": {
+        "title": "Full-Stack Development",
+        "tagline": "Custom Software for Real Business Needs.",
+        "summary": "I build web applications, backend systems, and API-driven solutions designed to solve practical problems and support business operations.",
+        "description": [
+          "Not every business challenge can be solved with an off-the-shelf website.",
+          "I build custom web applications, backend systems, and REST APIs that help businesses manage information, streamline digital workflows, and connect different services.",
+          "My development approach emphasizes maintainable architecture, secure data handling, reliable business logic, and thoughtful user experiences. From the interface customers see to the backend systems powering it, I work on both sides of the application."
+        ],
+        "features": [
+          "Custom web applications",
+          "Python and Django development",
+          "REST API development",
+          "React frontend development",
+          "Database architecture",
+          "Administrative dashboards",
+          "Business integrations",
+          "Backend optimization"
+        ],
+        "benefits": [
+          "Software adapted to the way you actually work",
+          "Better organisation of business information",
+          "Fewer repetitive manual steps",
+          "Reliable connections between the services you use",
+          "Maintainable foundations for future development"
+        ],
+        "cta": "Discuss Your Project"
+      },
+      "tr": {
+        "title": "Full-Stack Yazılım Geliştirme",
+        "tagline": "Gerçek İş İhtiyaçları İçin Özel Yazılım.",
+        "summary": "Pratik sorunları çözen ve iş süreçlerini destekleyen web uygulamaları, backend sistemleri ve API tabanlı çözümler geliştiriyorum.",
+        "description": [
+          "Her iş ihtiyacı hazır bir web sitesiyle çözülemez.",
+          "İşletmelerin bilgilerini yönetmesine, dijital iş akışlarını sadeleştirmesine ve farklı servisleri birbirine bağlamasına yardımcı olan özel web uygulamaları, backend sistemleri ve REST API'ler geliştiriyorum.",
+          "Geliştirme yaklaşımımda sürdürülebilir mimari, güvenli veri yönetimi, güvenilir iş mantığı ve düşünülmüş kullanıcı deneyimi ön plandadır. Müşterilerin gördüğü arayüzden onu çalıştıran backend sistemlerine kadar uygulamanın her iki tarafında da çalışıyorum."
+        ],
+        "features": [
+          "Özel web uygulamaları",
+          "Python ve Django geliştirme",
+          "REST API geliştirme",
+          "React arayüz geliştirme",
+          "Veritabanı mimarisi",
+          "Yönetim panelleri",
+          "İş entegrasyonları",
+          "Backend optimizasyonu"
+        ],
+        "benefits": [
+          "Gerçek çalışma şeklinize uyarlanmış yazılım",
+          "İş bilgilerinin daha düzenli yönetimi",
+          "Daha az tekrarlayan manuel adım",
+          "Kullandığınız servisler arasında güvenilir bağlantılar",
+          "Gelecekteki geliştirmeler için sürdürülebilir altyapı"
+        ],
+        "cta": "Projenizi Konuşalım"
+      },
+      "fa": {
+        "title": "برنامه‌نویسی فول‌استک",
+        "tagline": "نرم‌افزار اختصاصی برای نیازهای واقعی کسب‌وکار.",
+        "summary": "اپلیکیشن‌های تحت وب، سیستم‌های بک‌اند و راهکارهای مبتنی بر API می‌سازم که مسائل واقعی را حل کنند و از عملیات کسب‌وکار پشتیبانی کنند.",
+        "description": [
+          "همه چالش‌های یک کسب‌وکار با یک وب‌سایت آماده حل نمی‌شوند.",
+          "اپلیکیشن‌های تحت وب، سیستم‌های بک‌اند و REST API اختصاصی می‌سازم تا کسب‌وکارها اطلاعاتشان را مدیریت کنند، فرایندهای دیجیتال را ساده‌تر کنند و سرویس‌های مختلف را به هم متصل کنند.",
+          "در توسعه، معماری قابل‌نگهداری، مدیریت امن داده، منطق تجاری قابل‌اعتماد و تجربه کاربری سنجیده برایم اولویت دارد. از رابطی که مشتری می‌بیند تا سیستم بک‌اندی که پشت آن کار می‌کند، روی هر دو سمت اپلیکیشن کار می‌کنم."
+        ],
+        "features": [
+          "اپلیکیشن تحت وب اختصاصی",
+          "توسعه با پایتون و جنگو",
+          "توسعه REST API",
+          "فرانت‌اند با React",
+          "معماری پایگاه داده",
+          "داشبوردهای مدیریتی",
+          "یکپارچه‌سازی سیستم‌ها",
+          "بهینه‌سازی بک‌اند"
+        ],
+        "benefits": [
+          "نرم‌افزاری متناسب با روش واقعی کار شما",
+          "نظم بیشتر در اطلاعات کسب‌وکار",
+          "کاهش کارهای تکراری دستی",
+          "اتصال قابل‌اعتماد سرویس‌هایی که استفاده می‌کنید",
+          "زیرساخت قابل‌نگهداری برای توسعه‌های بعدی"
+        ],
+        "cta": "درباره پروژه‌تان صحبت کنیم"
+      },
+      "ru": {
+        "title": "Full-stack разработка",
+        "tagline": "Индивидуальное ПО для реальных задач бизнеса.",
+        "summary": "Разрабатываю веб-приложения, серверные системы и решения на основе API, которые решают практические задачи и поддерживают работу бизнеса.",
+        "description": [
+          "Не каждую задачу бизнеса можно решить готовым сайтом.",
+          "Я создаю веб-приложения, серверные системы и REST API, которые помогают управлять информацией, упрощать рабочие процессы и связывать разные сервисы между собой.",
+          "В работе для меня важны поддерживаемая архитектура, безопасная работа с данными, надёжная бизнес-логика и продуманный интерфейс. Я работаю с обеими сторонами приложения — от того, что видит клиент, до серверной части."
+        ],
+        "features": [
+          "Веб-приложения под ваши задачи",
+          "Разработка на Python и Django",
+          "Разработка REST API",
+          "Интерфейсы на React",
+          "Архитектура баз данных",
+          "Административные панели",
+          "Интеграции с бизнес-системами",
+          "Оптимизация серверной части"
+        ],
+        "benefits": [
+          "ПО, адаптированное к тому, как вы на самом деле работаете",
+          "Порядок в бизнес-информации",
+          "Меньше повторяющейся ручной работы",
+          "Надёжная связь между сервисами, которыми вы пользуетесь",
+          "Поддерживаемая основа для дальнейшего развития"
+        ],
+        "cta": "Обсудить проект"
+      }
+    }
+  },
+  {
+    "slug": "performance-marketing",
+    "icon": "chart",
+    "category": "primary",
+    "translations": {
+      "en": {
+        "title": "Performance Marketing",
+        "tagline": "Make Every Digital Interaction More Meaningful.",
+        "summary": "I help businesses plan and improve their digital advertising and measurement systems through Google Ads, analytics, conversion tracking, and optimized landing page experiences.",
+        "description": [
+          "Digital advertising is most effective when strategy, website experience, and measurement work together.",
+          "I help businesses structure Google Ads campaigns, understand search intent, improve landing pages, and establish conversion tracking that makes campaign activity easier to evaluate.",
+          "My focus is on connecting relevant traffic with meaningful business actions, whether that means inquiries, calls, form submissions, or qualified leads."
+        ],
+        "features": [
+          "Google Ads",
+          "Search campaign planning",
+          "Keyword research",
+          "Lead generation strategies",
+          "Google Analytics 4",
+          "Google Tag Manager",
+          "Conversion tracking",
+          "Landing page optimization"
+        ],
+        "benefits": [
+          "More structured campaign planning",
+          "Visibility into the actions that matter",
+          "Ads and landing pages that say the same thing",
+          "Clearer reporting on advertising performance",
+          "A measurable foundation for ongoing optimisation"
+        ],
+        "cta": "Discuss Your Project"
+      },
+      "tr": {
+        "title": "Performans Pazarlaması",
+        "tagline": "Her Dijital Etkileşimi Daha Anlamlı Hale Getirin.",
+        "summary": "Google Ads, analitik, dönüşüm takibi ve optimize edilmiş açılış sayfalarıyla işletmelerin dijital reklam ve ölçüm sistemlerini planlamalarına ve geliştirmelerine yardımcı oluyorum.",
+        "description": [
+          "Dijital reklamcılık; strateji, web sitesi deneyimi ve ölçüm birlikte çalıştığında en etkili sonucu verir.",
+          "İşletmelerin Google Ads kampanyalarını yapılandırmalarına, arama niyetini anlamalarına, açılış sayfalarını iyileştirmelerine ve kampanya faaliyetlerini değerlendirmeyi kolaylaştıran dönüşüm takibini kurmalarına yardımcı oluyorum.",
+          "Odak noktam; ilgili trafiği talepler, aramalar, form gönderimleri veya nitelikli potansiyel müşteriler gibi anlamlı iş sonuçlarıyla buluşturmaktır."
+        ],
+        "features": [
+          "Google Ads",
+          "Arama kampanyası planlaması",
+          "Anahtar kelime araştırması",
+          "Potansiyel müşteri kazanım stratejileri",
+          "Google Analytics 4",
+          "Google Tag Manager",
+          "Dönüşüm takibi",
+          "Açılış sayfası optimizasyonu"
+        ],
+        "benefits": [
+          "Daha yapılandırılmış kampanya planlaması",
+          "Önemli aksiyonlar üzerinde daha fazla görünürlük",
+          "Reklam ve açılış sayfası arasında tutarlı mesaj",
+          "Reklam performansı hakkında daha net raporlama",
+          "Sürekli optimizasyon için ölçülebilir bir temel"
+        ],
+        "cta": "Projenizi Konuşalım"
+      },
+      "fa": {
+        "title": "پرفورمنس مارکتینگ",
+        "tagline": "هر تعامل دیجیتال را ارزشمندتر کنید.",
+        "summary": "با گوگل ادز، آنالیتیکس، ردیابی تبدیل و لندینگ‌پیج‌های بهینه، به کسب‌وکارها کمک می‌کنم تبلیغات دیجیتال و سیستم‌های اندازه‌گیری‌شان را برنامه‌ریزی و بهتر کنند.",
+        "description": [
+          "تبلیغات دیجیتال زمانی بیشترین اثر را دارد که استراتژی، تجربه وب‌سایت و اندازه‌گیری با هم کار کنند.",
+          "به کسب‌وکارها کمک می‌کنم کمپین‌های گوگل ادز را ساختارمند کنند، نیت جست‌وجوی مخاطب را بشناسند، لندینگ‌پیج‌ها را بهبود دهند و ردیابی تبدیلی راه‌اندازی کنند که ارزیابی کمپین را ساده‌تر می‌کند.",
+          "تمرکزم بر رساندن ترافیک مرتبط به اقدام‌های ارزشمند است؛ از ثبت درخواست و تماس تلفنی تا ارسال فرم و جذب سرنخ‌های واجد شرایط."
+        ],
+        "features": [
+          "گوگل ادز",
+          "برنامه‌ریزی کمپین جست‌وجو",
+          "تحقیق کلمات کلیدی",
+          "استراتژی جذب سرنخ",
+          "گوگل آنالیتیکس ۴",
+          "گوگل تگ منیجر",
+          "ردیابی تبدیل",
+          "بهینه‌سازی لندینگ‌پیج"
+        ],
+        "benefits": [
+          "برنامه‌ریزی ساختارمندتر کمپین",
+          "دید روشن‌تر به اقدام‌های مهم",
+          "هم‌خوانی پیام تبلیغ و لندینگ‌پیج",
+          "گزارش شفاف‌تر از عملکرد تبلیغات",
+          "پایه‌ای قابل‌اندازه‌گیری برای بهینه‌سازی مداوم"
+        ],
+        "cta": "درباره پروژه‌تان صحبت کنیم"
+      },
+      "ru": {
+        "title": "Performance-маркетинг",
+        "tagline": "Пусть каждое цифровое взаимодействие приносит результат.",
+        "summary": "Помогаю бизнесу планировать и улучшать интернет-рекламу и систему аналитики: Google Ads, веб-аналитика, отслеживание конверсий и оптимизированные посадочные страницы.",
+        "description": [
+          "Интернет-реклама работает лучше всего, когда стратегия, сайт и аналитика действуют заодно.",
+          "Я помогаю выстроить структуру кампаний в Google Ads, понять поисковые намерения аудитории, улучшить посадочные страницы и настроить отслеживание конверсий, чтобы результаты рекламы было легко оценивать.",
+          "Моя цель — связать релевантный трафик с действиями, которые важны для бизнеса: заявками, звонками, отправкой форм и качественными лидами."
+        ],
+        "features": [
+          "Google Ads",
+          "Планирование поисковых кампаний",
+          "Подбор ключевых слов",
+          "Стратегии привлечения заявок",
+          "Google Analytics 4",
+          "Google Tag Manager",
+          "Отслеживание конверсий",
+          "Оптимизация посадочных страниц"
+        ],
+        "benefits": [
+          "Более структурное планирование кампаний",
+          "Прозрачность по действиям, которые действительно важны",
+          "Реклама и посадочная страница говорят одно и то же",
+          "Понятная отчётность по эффективности рекламы",
+          "Измеримая основа для дальнейшей оптимизации"
+        ],
+        "cta": "Обсудить проект"
+      }
+    }
+  },
+  {
+    "slug": "landing-pages",
+    "icon": "layout",
+    "category": "specialized",
+    "translations": {
+      "en": {
+        "title": "Landing Page Development",
+        "summary": "Focused pages built for one campaign and one action — fast, measurable and consistent with your ads.",
+        "description": [
+          "A landing page should answer one question clearly and make the next step obvious.",
+          "I build fast, mobile-first landing pages with a clear message, a short form, and conversion tracking set up from day one."
+        ],
+        "features": [
+          "Campaign-specific messaging",
+          "Short, validated inquiry forms",
+          "Mobile-first layout",
+          "Conversion events ready for Google Ads and GA4",
+          "A/B-ready structure"
+        ],
+        "cta": "Plan a Landing Page"
+      },
+      "tr": {
+        "title": "Açılış Sayfası Geliştirme",
+        "summary": "Tek bir kampanya ve tek bir aksiyon için hazırlanmış; hızlı, ölçülebilir ve reklamlarınızla uyumlu sayfalar.",
+        "description": [
+          "Bir açılış sayfası tek bir soruya net yanıt vermeli ve bir sonraki adımı açıkça göstermelidir.",
+          "Net mesajı, kısa formu ve ilk günden kurulmuş dönüşüm takibi olan hızlı, mobil öncelikli açılış sayfaları geliştiriyorum."
+        ],
+        "features": [
+          "Kampanyaya özel mesaj",
+          "Kısa ve doğrulamalı talep formları",
+          "Mobil öncelikli yerleşim",
+          "Google Ads ve GA4 için hazır dönüşüm olayları",
+          "A/B testine uygun yapı"
+        ],
+        "cta": "Açılış Sayfanızı Planlayalım"
+      },
+      "fa": {
+        "title": "توسعه لندینگ‌پیج",
+        "summary": "صفحه‌هایی متمرکز برای یک کمپین و یک اقدام؛ سریع، قابل‌اندازه‌گیری و هم‌راستا با تبلیغات شما.",
+        "description": [
+          "لندینگ‌پیج باید به یک سؤال پاسخ روشن بدهد و قدم بعدی را واضح کند.",
+          "لندینگ‌پیج‌هایی سریع و موبایل‌محور با پیام روشن، فرم کوتاه و ردیابی تبدیل از روز اول می‌سازم."
+        ],
+        "features": [
+          "پیام اختصاصی هر کمپین",
+          "فرم‌های کوتاه با اعتبارسنجی",
+          "چیدمان موبایل‌محور",
+          "رویدادهای تبدیل آماده برای گوگل ادز و GA4",
+          "ساختار آماده آزمون A/B"
+        ],
+        "cta": "لندینگ‌پیج‌تان را برنامه‌ریزی کنیم"
+      },
+      "ru": {
+        "title": "Разработка лендингов",
+        "summary": "Страницы под одну кампанию и одно действие — быстрые, измеримые и согласованные с рекламой.",
+        "description": [
+          "Лендинг должен чётко отвечать на один вопрос и делать следующий шаг очевидным.",
+          "Я создаю быстрые лендинги с приоритетом мобильных устройств, понятным сообщением, короткой формой и отслеживанием конверсий с первого дня."
+        ],
+        "features": [
+          "Сообщение под конкретную кампанию",
+          "Короткие формы с проверкой данных",
+          "Вёрстка с приоритетом мобильных",
+          "События конверсий для Google Ads и GA4",
+          "Структура, готовая к A/B-тестам"
+        ],
+        "cta": "Спланировать лендинг"
+      }
+    }
+  },
+  {
+    "slug": "conversion-tracking",
+    "icon": "target",
+    "category": "specialized",
+    "translations": {
+      "en": {
+        "title": "Google Ads Conversion Tracking",
+        "summary": "Know which campaigns, keywords and ads lead to calls, forms and qualified inquiries.",
+        "description": [
+          "Without reliable conversion data, campaign decisions are guesswork.",
+          "I configure Google Ads conversion actions for forms, calls and key clicks, verify that they fire correctly, and document what each one measures."
+        ],
+        "features": [
+          "Conversion action planning",
+          "Form submission tracking",
+          "Phone and WhatsApp click tracking",
+          "Enhanced conversions (where appropriate)",
+          "Verification and documentation"
+        ],
+        "cta": "Fix My Tracking"
+      },
+      "tr": {
+        "title": "Google Ads Dönüşüm Takibi",
+        "summary": "Hangi kampanya, anahtar kelime ve reklamın arama, form ve nitelikli taleplere dönüştüğünü görün.",
+        "description": [
+          "Güvenilir dönüşüm verisi olmadan kampanya kararları tahmine dayanır.",
+          "Formlar, aramalar ve önemli tıklamalar için Google Ads dönüşüm işlemlerini yapılandırıyor, doğru çalıştıklarını kontrol ediyor ve her birinin neyi ölçtüğünü belgeliyorum."
+        ],
+        "features": [
+          "Dönüşüm işlemi planlaması",
+          "Form gönderimi takibi",
+          "Telefon ve WhatsApp tıklama takibi",
+          "Gelişmiş dönüşümler (uygun olduğunda)",
+          "Doğrulama ve dokümantasyon"
+        ],
+        "cta": "Takibimi Düzeltelim"
+      },
+      "fa": {
+        "title": "ردیابی تبدیل گوگل ادز",
+        "summary": "بدانید کدام کمپین، کلمه کلیدی و تبلیغ به تماس، فرم و درخواست واقعی منجر می‌شود.",
+        "description": [
+          "بدون داده تبدیل قابل‌اعتماد، تصمیم‌گیری درباره کمپین حدس و گمان است.",
+          "اقدام‌های تبدیل گوگل ادز را برای فرم‌ها، تماس‌ها و کلیک‌های مهم تنظیم می‌کنم، درستی ثبت آن‌ها را بررسی می‌کنم و مستند می‌کنم که هرکدام چه چیزی را اندازه می‌گیرد."
+        ],
+        "features": [
+          "برنامه‌ریزی اقدام‌های تبدیل",
+          "ردیابی ارسال فرم",
+          "ردیابی کلیک تماس و واتساپ",
+          "Enhanced Conversions در صورت نیاز",
+          "بررسی صحت و مستندسازی"
+        ],
+        "cta": "ردیابی‌ام را درست کنیم"
+      },
+      "ru": {
+        "title": "Отслеживание конверсий Google Ads",
+        "summary": "Узнайте, какие кампании, ключевые слова и объявления приводят к звонкам, заявкам и качественным обращениям.",
+        "description": [
+          "Без надёжных данных о конверсиях решения по рекламе принимаются наугад.",
+          "Я настраиваю конверсии Google Ads для форм, звонков и важных кликов, проверяю корректность их работы и документирую, что именно измеряет каждая из них."
+        ],
+        "features": [
+          "Планирование конверсий",
+          "Отслеживание отправки форм",
+          "Отслеживание кликов по телефону и WhatsApp",
+          "Расширенные конверсии (где уместно)",
+          "Проверка и документация"
+        ],
+        "cta": "Настроить отслеживание"
+      }
+    }
+  },
+  {
+    "slug": "analytics-gtm",
+    "icon": "activity",
+    "category": "specialized",
+    "translations": {
+      "en": {
+        "title": "Google Analytics 4 & Google Tag Manager",
+        "summary": "A clean GA4 and GTM setup with meaningful events, consent-aware tags and reports you can actually read.",
+        "description": [
+          "Most analytics accounts collect plenty of data and very little insight.",
+          "I set up GA4 and Google Tag Manager around the actions that matter to your business, keep the container organised, and respect visitor consent."
+        ],
+        "features": [
+          "GA4 property and data stream setup",
+          "Organised GTM container",
+          "Custom events for key actions",
+          "Consent Mode configuration",
+          "UTM conventions"
+        ],
+        "cta": "Set Up My Analytics"
+      },
+      "tr": {
+        "title": "Google Analytics 4 ve Google Tag Manager",
+        "summary": "Anlamlı olaylar, izin odaklı etiketler ve gerçekten okunabilen raporlarla düzenli bir GA4 ve GTM kurulumu.",
+        "description": [
+          "Çoğu analitik hesabı çok veri toplar ama az içgörü sunar.",
+          "GA4 ve Google Tag Manager'ı işletmeniz için önemli olan aksiyonlar etrafında kuruyor, container'ı düzenli tutuyor ve ziyaretçi iznine saygı gösteriyorum."
+        ],
+        "features": [
+          "GA4 mülkü ve veri akışı kurulumu",
+          "Düzenli GTM container yapısı",
+          "Önemli aksiyonlar için özel olaylar",
+          "Consent Mode yapılandırması",
+          "UTM standartları"
+        ],
+        "cta": "Analitiğimi Kuralım"
+      },
+      "fa": {
+        "title": "گوگل آنالیتیکس ۴ و گوگل تگ منیجر",
+        "summary": "راه‌اندازی منظم GA4 و GTM با رویدادهای معنادار، تگ‌های سازگار با رضایت کاربر و گزارش‌هایی که واقعاً قابل‌استفاده‌اند.",
+        "description": [
+          "بیشتر حساب‌های آنالیتیکس داده زیادی جمع می‌کنند اما بینش کمی می‌دهند.",
+          "GA4 و گوگل تگ منیجر را بر اساس اقدام‌های مهم کسب‌وکار شما راه‌اندازی می‌کنم، کانتینر را منظم نگه می‌دارم و رضایت بازدیدکننده را رعایت می‌کنم."
+        ],
+        "features": [
+          "راه‌اندازی پراپرتی و دیتا استریم GA4",
+          "کانتینر منظم GTM",
+          "رویدادهای سفارشی برای اقدام‌های مهم",
+          "تنظیم Consent Mode",
+          "قواعد یکسان UTM"
+        ],
+        "cta": "آنالیتیکس را راه‌اندازی کنیم"
+      },
+      "ru": {
+        "title": "Google Analytics 4 и Google Tag Manager",
+        "summary": "Аккуратная настройка GA4 и GTM: осмысленные события, учёт согласия пользователей и понятные отчёты.",
+        "description": [
+          "Большинство аккаунтов аналитики собирают много данных и мало полезных выводов.",
+          "Я настраиваю GA4 и Google Tag Manager вокруг действий, важных для вашего бизнеса, поддерживаю порядок в контейнере и учитываю согласие посетителей."
+        ],
+        "features": [
+          "Настройка ресурса и потока данных GA4",
+          "Упорядоченный контейнер GTM",
+          "Собственные события для ключевых действий",
+          "Настройка Consent Mode",
+          "Единые правила UTM-меток"
+        ],
+        "cta": "Настроить аналитику"
+      }
+    }
+  },
+  {
+    "slug": "technical-seo-performance",
+    "icon": "gauge",
+    "category": "specialized",
+    "translations": {
+      "en": {
+        "title": "Technical SEO & Website Performance",
+        "summary": "Faster pages, clean markup and the technical foundations search engines need to understand your site.",
+        "description": [
+          "Speed and structure affect both visitors and search engines.",
+          "I audit and improve Core Web Vitals, metadata, multilingual hreflang setup, sitemaps and structured data. I don't promise rankings — I fix the foundations that make good rankings possible."
+        ],
+        "features": [
+          "Core Web Vitals improvements",
+          "Image and font optimisation",
+          "Metadata and Open Graph",
+          "Multilingual hreflang setup",
+          "Sitemaps, robots.txt and structured data"
+        ],
+        "cta": "Audit My Website"
+      },
+      "tr": {
+        "title": "Teknik SEO ve Web Sitesi Performansı",
+        "summary": "Daha hızlı sayfalar, temiz yapı ve arama motorlarının sitenizi anlaması için gereken teknik altyapı.",
+        "description": [
+          "Hız ve yapı hem ziyaretçileri hem de arama motorlarını etkiler.",
+          "Core Web Vitals, meta veriler, çok dilli hreflang yapısı, site haritaları ve yapılandırılmış veriyi inceleyip iyileştiriyorum. Sıralama sözü vermiyorum; iyi sıralamaları mümkün kılan temeli güçlendiriyorum."
+        ],
+        "features": [
+          "Core Web Vitals iyileştirmeleri",
+          "Görsel ve yazı tipi optimizasyonu",
+          "Meta veriler ve Open Graph",
+          "Çok dilli hreflang yapısı",
+          "Site haritası, robots.txt ve yapılandırılmış veri"
+        ],
+        "cta": "Sitemi İnceleyelim"
+      },
+      "fa": {
+        "title": "سئوی فنی و بهبود سرعت وب‌سایت",
+        "summary": "صفحه‌های سریع‌تر، ساختار تمیز و زیرساخت فنی لازم برای اینکه موتورهای جست‌وجو سایت شما را بهتر بفهمند.",
+        "description": [
+          "سرعت و ساختار هم روی بازدیدکننده اثر می‌گذارد و هم روی موتور جست‌وجو.",
+          "Core Web Vitals، متادیتا، تنظیمات hreflang چندزبانه، نقشه سایت و داده‌های ساختاریافته را بررسی و بهبود می‌دهم. وعده رتبه نمی‌دهم؛ پایه‌ای را درست می‌کنم که رتبه خوب را ممکن می‌کند."
+        ],
+        "features": [
+          "بهبود Core Web Vitals",
+          "بهینه‌سازی تصاویر و فونت‌ها",
+          "متادیتا و Open Graph",
+          "تنظیم hreflang برای سایت چندزبانه",
+          "نقشه سایت، robots.txt و داده ساختاریافته"
+        ],
+        "cta": "سایتم را بررسی کنیم"
+      },
+      "ru": {
+        "title": "Техническое SEO и скорость сайта",
+        "summary": "Быстрые страницы, чистая разметка и техническая основа, которая помогает поисковым системам понимать ваш сайт.",
+        "description": [
+          "Скорость и структура влияют и на посетителей, и на поисковые системы.",
+          "Я проверяю и улучшаю Core Web Vitals, метаданные, настройки hreflang для многоязычных сайтов, карты сайта и структурированные данные. Я не обещаю позиции в выдаче — я исправляю основу, без которой хорошие позиции невозможны."
+        ],
+        "features": [
+          "Улучшение Core Web Vitals",
+          "Оптимизация изображений и шрифтов",
+          "Метаданные и Open Graph",
+          "Настройка hreflang для многоязычных сайтов",
+          "Карта сайта, robots.txt и структурированные данные"
+        ],
+        "cta": "Проверить сайт"
+      }
+    }
+  },
+  {
+    "slug": "ecommerce-development",
+    "icon": "cart",
+    "category": "specialized",
+    "translations": {
+      "en": {
+        "title": "E-Commerce Development",
+        "summary": "Online stores with reliable carts, orders and stock handling — designed for browsing, built for checkout.",
+        "description": [
+          "An online store is only as good as the moment a customer pays.",
+          "I build storefronts and commerce backends with careful order, stock and payment handling, multilingual product content and an admin your team can use."
+        ],
+        "features": [
+          "Product catalogue and filters",
+          "Cart and checkout flows",
+          "Stock-safe order handling",
+          "Payment provider integration",
+          "Multilingual product content"
+        ],
+        "cta": "Discuss Your Store"
+      },
+      "tr": {
+        "title": "E-Ticaret Geliştirme",
+        "summary": "Güvenilir sepet, sipariş ve stok yönetimine sahip online mağazalar; gezinmek için tasarlanır, satın almak için geliştirilir.",
+        "description": [
+          "Bir online mağaza, müşterinin ödeme yaptığı an kadar iyidir.",
+          "Sipariş, stok ve ödeme süreçlerini özenle yöneten mağaza arayüzleri ve e-ticaret backend sistemleri, çok dilli ürün içerikleri ve ekibinizin kolayca kullanabileceği bir yönetim paneli geliştiriyorum."
+        ],
+        "features": [
+          "Ürün kataloğu ve filtreler",
+          "Sepet ve ödeme akışları",
+          "Stok güvenli sipariş yönetimi",
+          "Ödeme sağlayıcı entegrasyonu",
+          "Çok dilli ürün içeriği"
+        ],
+        "cta": "Mağazanızı Konuşalım"
+      },
+      "fa": {
+        "title": "توسعه فروشگاه اینترنتی",
+        "summary": "فروشگاه‌های آنلاین با سبد خرید، سفارش و مدیریت موجودی قابل‌اعتماد؛ طراحی‌شده برای گشت‌وگذار و ساخته‌شده برای خرید.",
+        "description": [
+          "ارزش یک فروشگاه اینترنتی در لحظه پرداخت مشتری مشخص می‌شود.",
+          "ویترین فروشگاه و بک‌اند تجارت الکترونیک را با مدیریت دقیق سفارش، موجودی و پرداخت، محتوای چندزبانه محصولات و پنل مدیریتی قابل‌استفاده برای تیم شما می‌سازم."
+        ],
+        "features": [
+          "کاتالوگ محصولات و فیلترها",
+          "سبد خرید و فرایند پرداخت",
+          "ثبت سفارش با حفظ صحت موجودی",
+          "اتصال به درگاه پرداخت",
+          "محتوای چندزبانه محصولات"
+        ],
+        "cta": "درباره فروشگاه‌تان صحبت کنیم"
+      },
+      "ru": {
+        "title": "Разработка интернет-магазинов",
+        "summary": "Интернет-магазины с надёжной корзиной, заказами и учётом остатков — удобные для выбора, надёжные при оформлении.",
+        "description": [
+          "Интернет-магазин хорош настолько, насколько хорош момент оплаты.",
+          "Я разрабатываю витрины и серверную часть магазинов с аккуратной обработкой заказов, остатков и платежей, многоязычным каталогом и админ-панелью, удобной для вашей команды."
+        ],
+        "features": [
+          "Каталог товаров и фильтры",
+          "Корзина и оформление заказа",
+          "Заказы без продажи сверх остатков",
+          "Подключение платёжных систем",
+          "Многоязычный контент товаров"
+        ],
+        "cta": "Обсудить магазин"
+      }
+    }
+  },
+  {
+    "slug": "api-integrations",
+    "icon": "plug",
+    "category": "specialized",
+    "translations": {
+      "en": {
+        "title": "Custom API & Business Integrations",
+        "summary": "Connect your website, CRM, payment providers and internal tools so information flows without copy-and-paste.",
+        "description": [
+          "Disconnected tools create duplicate work and missed details.",
+          "I design REST APIs and integrations that move data reliably between systems, with authentication, validation, error handling and documentation."
+        ],
+        "features": [
+          "REST API design and documentation",
+          "Third-party API integrations",
+          "Webhooks and notifications",
+          "Authentication and permissions",
+          "Background processing"
+        ],
+        "cta": "Connect My Systems"
+      },
+      "tr": {
+        "title": "Özel API ve İş Entegrasyonları",
+        "summary": "Web sitenizi, CRM'inizi, ödeme sağlayıcılarınızı ve iç araçlarınızı bağlayın; bilgiler kopyala-yapıştır olmadan aksın.",
+        "description": [
+          "Birbirinden kopuk araçlar tekrarlanan işlere ve gözden kaçan detaylara yol açar.",
+          "Sistemler arasında veriyi güvenilir şekilde taşıyan REST API'ler ve entegrasyonlar tasarlıyorum; kimlik doğrulama, doğrulama, hata yönetimi ve dokümantasyon dahil."
+        ],
+        "features": [
+          "REST API tasarımı ve dokümantasyonu",
+          "Üçüncü taraf API entegrasyonları",
+          "Webhook ve bildirimler",
+          "Kimlik doğrulama ve yetkiler",
+          "Arka plan işlemleri"
+        ],
+        "cta": "Sistemlerimi Bağlayalım"
+      },
+      "fa": {
+        "title": "API اختصاصی و یکپارچه‌سازی سیستم‌ها",
+        "summary": "وب‌سایت، CRM، درگاه پرداخت و ابزارهای داخلی‌تان را به هم وصل کنید تا اطلاعات بدون کپی‌وپیست جریان پیدا کند.",
+        "description": [
+          "ابزارهای جدا از هم باعث دوباره‌کاری و جاافتادن جزئیات می‌شوند.",
+          "REST API و اتصال‌هایی طراحی می‌کنم که داده را به‌صورت قابل‌اعتماد بین سیستم‌ها منتقل کنند؛ همراه با احراز هویت، اعتبارسنجی، مدیریت خطا و مستندسازی."
+        ],
+        "features": [
+          "طراحی و مستندسازی REST API",
+          "اتصال به API سرویس‌های دیگر",
+          "وب‌هوک و اعلان‌ها",
+          "احراز هویت و سطح دسترسی",
+          "پردازش پس‌زمینه"
+        ],
+        "cta": "سیستم‌هایم را به هم وصل کنیم"
+      },
+      "ru": {
+        "title": "API и интеграции бизнес-систем",
+        "summary": "Свяжите сайт, CRM, платёжные системы и внутренние инструменты, чтобы данные передавались без ручного копирования.",
+        "description": [
+          "Разрозненные инструменты создают двойную работу и потерянные детали.",
+          "Я проектирую REST API и интеграции, которые надёжно передают данные между системами, — с аутентификацией, проверкой данных, обработкой ошибок и документацией."
+        ],
+        "features": [
+          "Проектирование и документация REST API",
+          "Интеграции со сторонними API",
+          "Вебхуки и уведомления",
+          "Аутентификация и права доступа",
+          "Фоновая обработка задач"
+        ],
+        "cta": "Связать системы"
+      }
+    }
+  }
+]

@@ -1,0 +1,634 @@
+[
+  {
+    "slug": "sinshop",
+    "kind": "engineering",
+    "status": "development",
+    "featured": true,
+    "technology_tags": [
+      "Django",
+      "DRF",
+      "Next.js",
+      "React",
+      "Celery",
+      "Redis",
+      "JWT"
+    ],
+    "github_url": "https://github.com/sinajokarr/sinshop",
+    "live_url": "",
+    "translations": {
+      "en": {
+        "title": "SinShop",
+        "category": "Multilingual Commerce Platform",
+        "headline": "Commerce Infrastructure Built for Reliable Transactions.",
+        "summary": "A Django REST API and a locale-aware Next.js storefront for product discovery, carts, orders and payment workflows — in English, Persian, Turkish and Russian.",
+        "problem": "In e-commerce, the hard part is not showing products — it is keeping carts, stock and orders consistent when many people buy at the same time, and handing payment off to a gateway safely.",
+        "scope": "A full-stack commerce project: a Django REST Framework backend for accounts, catalogue, carts, orders and payments, and a Next.js App Router storefront with locale-prefixed routes and Persian RTL.",
+        "architecture": "Browser → Next.js storefront → same-origin API rewrite → Django REST Framework → database. Celery workers with a Redis broker handle background tasks; payment initiation and verification go through a ZarinPal gateway boundary.",
+        "features": [
+          "Phone-number user model with JWT login and refresh",
+          "Catalogue with search, ordering, filters, discounts and stock",
+          "Guest and authenticated carts with ownership checks",
+          "Checkout that locks cart, items and products in one transaction",
+          "Order items that snapshot unit prices at purchase time",
+          "ZarinPal payment request and callback verification",
+          "Next.js storefront in four languages, including Persian RTL",
+          "OpenAPI schema, Swagger UI, throttling, health and readiness probes"
+        ],
+        "challenges": [
+          "Preventing overselling when two customers check out the same product",
+          "Keeping order totals correct after prices change",
+          "Supporting both guest and signed-in carts without leaking ownership"
+        ],
+        "decisions": [
+          "Row-level locks during checkout so stock is decremented exactly once",
+          "DecimalField for every monetary value — no floating-point money",
+          "Immutable order items with price snapshots",
+          "Explicit CORS allow-list and separate anonymous / user throttle rates"
+        ],
+        "note": "Payment calls require valid ZarinPal merchant configuration, which is not included in the repository. The storefront can be explored with its local demo catalogue."
+      },
+      "tr": {
+        "title": "SinShop",
+        "category": "Çok Dilli E-Ticaret Platformu",
+        "headline": "Güvenilir İşlemler İçin Tasarlanmış E-Ticaret Altyapısı.",
+        "summary": "Ürün keşfi, sepet, sipariş ve ödeme akışları için bir Django REST API ve dil duyarlı bir Next.js mağaza arayüzü — İngilizce, Farsça, Türkçe ve Rusça.",
+        "problem": "E-ticarette asıl zorluk ürünleri göstermek değil; aynı anda çok sayıda kişi alışveriş yaparken sepet, stok ve siparişleri tutarlı tutmak ve ödemeyi güvenli şekilde ödeme altyapısına aktarmaktır.",
+        "scope": "Full-stack bir e-ticaret projesi: hesaplar, katalog, sepet, sipariş ve ödemeler için Django REST Framework backend'i ve dil önekli rotalar ile Farsça RTL desteğine sahip Next.js App Router mağaza arayüzü.",
+        "architecture": "Tarayıcı → Next.js mağaza → aynı kaynaklı API yönlendirmesi → Django REST Framework → veritabanı. Arka plan görevlerini Redis aracılı Celery işçileri yürütür; ödeme başlatma ve doğrulama ZarinPal ödeme sınırından geçer.",
+        "features": [
+          "JWT giriş ve yenileme ile telefon numarası tabanlı kullanıcı modeli",
+          "Arama, sıralama, filtre, indirim ve stok bilgisi içeren katalog",
+          "Sahiplik kontrollü misafir ve üye sepetleri",
+          "Sepeti, kalemleri ve ürünleri tek bir işlemde kilitleyen ödeme adımı",
+          "Satın alma anındaki birim fiyatı saklayan sipariş kalemleri",
+          "ZarinPal ödeme isteği ve geri dönüş doğrulaması",
+          "Farsça RTL dahil dört dilde Next.js mağaza",
+          "OpenAPI şeması, Swagger UI, hız sınırlama, health ve readiness uç noktaları"
+        ],
+        "challenges": [
+          "İki müşteri aynı ürünü satın alırken fazla satışı önlemek",
+          "Fiyatlar değiştikten sonra sipariş toplamlarını doğru tutmak",
+          "Misafir ve üye sepetlerini sahiplik sızıntısı olmadan desteklemek"
+        ],
+        "decisions": [
+          "Stok yalnızca bir kez düşsün diye ödeme sırasında satır düzeyinde kilitleme",
+          "Tüm parasal değerler için DecimalField — kayan noktalı para yok",
+          "Fiyat anlık görüntüsü tutan değiştirilemez sipariş kalemleri",
+          "Açık CORS izin listesi ve ayrı anonim / kullanıcı hız limitleri"
+        ],
+        "note": "Ödeme çağrıları, depoda bulunmayan geçerli bir ZarinPal üye işyeri yapılandırması gerektirir. Mağaza arayüzü yerel demo kataloğuyla incelenebilir."
+      },
+      "fa": {
+        "title": "SinShop",
+        "category": "پلتفرم فروشگاهی چندزبانه",
+        "headline": "زیرساخت فروشگاهی، ساخته‌شده برای تراکنش‌های قابل‌اعتماد.",
+        "summary": "یک REST API با جنگو و ویترین فروشگاهی Next.js با پشتیبانی چندزبانه برای مرور محصولات، سبد خرید، سفارش و پرداخت؛ به انگلیسی، فارسی، ترکی و روسی.",
+        "problem": "بخش دشوار فروشگاه اینترنتی نمایش محصولات نیست؛ حفظ هماهنگی سبد خرید، موجودی و سفارش‌ها وقتی چند نفر هم‌زمان خرید می‌کنند و سپردن امن پرداخت به درگاه است.",
+        "scope": "یک پروژه فول‌استک فروشگاهی: بک‌اند Django REST Framework برای حساب کاربری، کاتالوگ، سبد خرید، سفارش و پرداخت، و ویترین Next.js App Router با مسیرهای زبان‌دار و پشتیبانی راست‌به‌چپ فارسی.",
+        "architecture": "مرورگر ← ویترین Next.js ← بازنویسی API هم‌مبدأ ← Django REST Framework ← پایگاه داده. وظایف پس‌زمینه با Celery و Redis انجام می‌شود و شروع و تأیید پرداخت از مرز درگاه زرین‌پال عبور می‌کند.",
+        "features": [
+          "مدل کاربر مبتنی بر شماره تلفن با ورود و تمدید JWT",
+          "کاتالوگ با جست‌وجو، مرتب‌سازی، فیلتر، تخفیف و موجودی",
+          "سبد خرید مهمان و کاربر واردشده با بررسی مالکیت",
+          "فرایند پرداخت که سبد، اقلام و محصولات را در یک تراکنش قفل می‌کند",
+          "اقلام سفارش که قیمت واحد را در لحظه خرید ثبت می‌کنند",
+          "درخواست پرداخت و تأیید بازگشت از زرین‌پال",
+          "ویترین Next.js در چهار زبان، از جمله فارسی راست‌به‌چپ",
+          "اسکیمای OpenAPI، Swagger UI، محدودیت نرخ درخواست، health و readiness"
+        ],
+        "challenges": [
+          "جلوگیری از فروش بیش از موجودی وقتی دو مشتری هم‌زمان یک کالا را می‌خرند",
+          "درست ماندن مبلغ سفارش پس از تغییر قیمت‌ها",
+          "پشتیبانی هم‌زمان از سبد مهمان و کاربر بدون نشت مالکیت"
+        ],
+        "decisions": [
+          "قفل سطح سطر هنگام پرداخت تا موجودی دقیقاً یک بار کم شود",
+          "DecimalField برای همه مقادیر پولی؛ بدون اعداد اعشاری شناور",
+          "اقلام سفارش تغییرناپذیر با ثبت قیمت لحظه خرید",
+          "فهرست مجاز صریح برای CORS و نرخ محدودیت جدا برای کاربر مهمان و واردشده"
+        ],
+        "note": "فراخوانی‌های پرداخت به تنظیمات معتبر پذیرنده زرین‌پال نیاز دارد که در مخزن قرار ندارد. ویترین با کاتالوگ نمایشی محلی قابل بررسی است."
+      },
+      "ru": {
+        "title": "SinShop",
+        "category": "Многоязычная e-commerce платформа",
+        "headline": "Инфраструктура интернет-магазина для надёжных транзакций.",
+        "summary": "REST API на Django и витрина на Next.js с поддержкой нескольких языков: каталог, корзина, заказы и оплата — на английском, персидском, турецком и русском.",
+        "problem": "Сложность e-commerce не в том, чтобы показать товары, а в том, чтобы корзины, остатки и заказы оставались согласованными, когда покупают одновременно многие, и чтобы оплата безопасно передавалась платёжному шлюзу.",
+        "scope": "Full-stack проект: бэкенд на Django REST Framework для аккаунтов, каталога, корзин, заказов и оплаты, и витрина на Next.js App Router с языковыми маршрутами и персидским RTL.",
+        "architecture": "Браузер → витрина Next.js → проксирование API с того же домена → Django REST Framework → база данных. Фоновые задачи выполняют воркеры Celery с брокером Redis; запуск и подтверждение оплаты проходят через границу платёжного шлюза ZarinPal.",
+        "features": [
+          "Модель пользователя по номеру телефона, вход и обновление JWT",
+          "Каталог с поиском, сортировкой, фильтрами, скидками и остатками",
+          "Гостевые корзины и корзины пользователей с проверкой владельца",
+          "Оформление заказа с блокировкой корзины, позиций и товаров в одной транзакции",
+          "Позиции заказа сохраняют цену на момент покупки",
+          "Запрос оплаты ZarinPal и проверка обратного вызова",
+          "Витрина Next.js на четырёх языках, включая персидский RTL",
+          "Схема OpenAPI, Swagger UI, ограничение частоты запросов, health и readiness"
+        ],
+        "challenges": [
+          "Не допустить продажи сверх остатка, когда два покупателя оформляют один товар",
+          "Сохранить корректные суммы заказов после изменения цен",
+          "Поддержать гостевые и авторизованные корзины без утечки владения"
+        ],
+        "decisions": [
+          "Блокировка строк при оформлении заказа, чтобы остаток уменьшался ровно один раз",
+          "DecimalField для всех денежных значений — никаких чисел с плавающей точкой",
+          "Неизменяемые позиции заказа со снимком цены",
+          "Явный список разрешённых источников CORS и отдельные лимиты для гостей и пользователей"
+        ],
+        "note": "Для платёжных запросов нужна действующая конфигурация продавца ZarinPal, которой нет в репозитории. Витрину можно посмотреть на локальном демо-каталоге."
+      }
+    }
+  },
+  {
+    "slug": "nexusticket",
+    "kind": "engineering",
+    "status": "development",
+    "featured": true,
+    "technology_tags": [
+      "Django",
+      "DRF",
+      "JWT",
+      "Celery",
+      "Redis",
+      "MySQL",
+      "Docker",
+      "pytest"
+    ],
+    "github_url": "https://github.com/sinajokarr/NexusTicket",
+    "live_url": "",
+    "translations": {
+      "en": {
+        "title": "NexusTicket",
+        "category": "Event Ticketing REST API",
+        "headline": "Engineering Reliability into Ticket Reservations.",
+        "summary": "A backend-focused Django REST API for event publishing, ticket reservations, inventory control and a signed demo-payment workflow.",
+        "problem": "Ticket sales are a race: inventory is limited, many users reserve at once, and unpaid reservations must not hold seats forever.",
+        "scope": "A REST API covering accounts, events, ticket classes, reviews, multi-line reservations, coupons, reservation expiry and a demo payment flow — with OpenAPI documentation and an automated test suite.",
+        "architecture": "HTTP client → Django REST Framework → email-based authentication with JWT → database. A Celery worker using Redis as broker cancels unpaid reservations after 15 minutes and returns their inventory.",
+        "features": [
+          "Email-based user model with JWT registration, login and refresh",
+          "Events, artists, categories and ticket classes with search, ordering and filters",
+          "Organizer/staff-only writes and user-scoped orders",
+          "Single- and multi-line reservations with capacity validation and coupons",
+          "Row locking on ticket classes and events during reservation",
+          "Celery task that expires pending orders and restores inventory",
+          "Signed, one-time demo-payment request and settlement",
+          "OpenAPI schema with Swagger UI and ReDoc; pytest suite and GitHub Actions"
+        ],
+        "challenges": [
+          "Two users reserving the last tickets at the same moment",
+          "Releasing seats from abandoned reservations without race conditions",
+          "Making sure only purchasers can review an event"
+        ],
+        "decisions": [
+          "select_for_update inside a transaction to lock inventory rows during reservation",
+          "Inventory and coupon usage restored transactionally on cancellation or expiry",
+          "Object-level permissions instead of ad-hoc checks in views",
+          "Demo payments signed and single-use, clearly separated from a real provider"
+        ],
+        "note": "The payment workflow is a signed demo implementation for API testing — it is not connected to a real payment provider. Docker Compose is a local development stack."
+      },
+      "tr": {
+        "title": "NexusTicket",
+        "category": "Etkinlik Biletleme REST API",
+        "headline": "Bilet Rezervasyonlarında Güvenilirlik Mühendisliği.",
+        "summary": "Etkinlik yayınlama, bilet rezervasyonu, envanter kontrolü ve imzalı demo ödeme akışı için backend odaklı bir Django REST API.",
+        "problem": "Bilet satışı bir yarıştır: envanter sınırlıdır, birçok kullanıcı aynı anda rezervasyon yapar ve ödenmemiş rezervasyonlar koltukları sonsuza kadar tutmamalıdır.",
+        "scope": "Hesaplar, etkinlikler, bilet sınıfları, yorumlar, çok kalemli rezervasyonlar, kuponlar, rezervasyon süresinin dolması ve demo ödeme akışını kapsayan; OpenAPI dokümantasyonu ve otomatik test paketi içeren bir REST API.",
+        "architecture": "HTTP istemcisi → Django REST Framework → JWT ile e-posta tabanlı kimlik doğrulama → veritabanı. Redis aracılı bir Celery işçisi, ödenmemiş rezervasyonları 15 dakika sonra iptal eder ve envanteri geri verir.",
+        "features": [
+          "JWT ile kayıt, giriş ve yenileme sunan e-posta tabanlı kullanıcı modeli",
+          "Arama, sıralama ve filtreli etkinlik, sanatçı, kategori ve bilet sınıfları",
+          "Yalnızca organizatör/personel yazma yetkisi ve kullanıcıya özel siparişler",
+          "Kapasite doğrulaması ve kuponlu tek veya çok kalemli rezervasyonlar",
+          "Rezervasyon sırasında bilet sınıfı ve etkinlik satırlarının kilitlenmesi",
+          "Bekleyen siparişleri iptal edip envanteri geri yükleyen Celery görevi",
+          "İmzalı ve tek kullanımlık demo ödeme isteği ve onayı",
+          "Swagger UI ve ReDoc ile OpenAPI şeması; pytest paketi ve GitHub Actions"
+        ],
+        "challenges": [
+          "Son biletleri aynı anda rezerve eden iki kullanıcı",
+          "Terk edilen rezervasyonlardaki koltukları yarış durumu olmadan serbest bırakmak",
+          "Yalnızca bilet alanların etkinliği değerlendirebilmesini sağlamak"
+        ],
+        "decisions": [
+          "Rezervasyonda envanter satırlarını kilitlemek için işlem içinde select_for_update",
+          "İptal veya süre dolumunda envanter ve kupon kullanımının işlemsel olarak geri yüklenmesi",
+          "View içinde dağınık kontroller yerine nesne düzeyinde yetkiler",
+          "Gerçek sağlayıcıdan açıkça ayrılmış, imzalı ve tek kullanımlık demo ödemeler"
+        ],
+        "note": "Ödeme akışı API testleri için imzalı bir demo uygulamasıdır; gerçek bir ödeme sağlayıcısına bağlı değildir. Docker Compose yerel geliştirme ortamıdır."
+      },
+      "fa": {
+        "title": "NexusTicket",
+        "category": "REST API فروش بلیت رویداد",
+        "headline": "مهندسی قابلیت اطمینان در رزرو بلیت.",
+        "summary": "یک REST API بک‌اندمحور با جنگو برای انتشار رویداد، رزرو بلیت، کنترل موجودی و فرایند پرداخت نمایشی امضاشده.",
+        "problem": "فروش بلیت یک رقابت است: موجودی محدود است، کاربران زیادی هم‌زمان رزرو می‌کنند و رزروهای پرداخت‌نشده نباید صندلی‌ها را برای همیشه نگه دارند.",
+        "scope": "یک REST API شامل حساب کاربری، رویدادها، کلاس‌های بلیت، نظرات، رزرو چندقلمی، کوپن، انقضای رزرو و پرداخت نمایشی؛ همراه با مستندات OpenAPI و مجموعه تست خودکار.",
+        "architecture": "کلاینت HTTP ← Django REST Framework ← احراز هویت مبتنی بر ایمیل با JWT ← پایگاه داده. یک ورکر Celery با Redis رزروهای پرداخت‌نشده را پس از ۱۵ دقیقه لغو و موجودی را بازمی‌گرداند.",
+        "features": [
+          "مدل کاربر مبتنی بر ایمیل با ثبت‌نام، ورود و تمدید JWT",
+          "رویداد، هنرمند، دسته‌بندی و کلاس بلیت با جست‌وجو، مرتب‌سازی و فیلتر",
+          "دسترسی نوشتن فقط برای برگزارکننده/کارکنان و سفارش‌های محدود به هر کاربر",
+          "رزرو تک‌قلمی و چندقلمی با بررسی ظرفیت و کوپن",
+          "قفل‌کردن سطرهای کلاس بلیت و رویداد هنگام رزرو",
+          "وظیفه Celery برای لغو سفارش‌های معلق و بازگرداندن موجودی",
+          "درخواست و تسویه پرداخت نمایشی امضاشده و یک‌بارمصرف",
+          "اسکیمای OpenAPI با Swagger UI و ReDoc؛ تست با pytest و GitHub Actions"
+        ],
+        "challenges": [
+          "دو کاربر که هم‌زمان آخرین بلیت‌ها را رزرو می‌کنند",
+          "آزادسازی صندلی‌های رزروهای رهاشده بدون شرایط رقابتی",
+          "اطمینان از اینکه فقط خریداران بتوانند برای رویداد نظر ثبت کنند"
+        ],
+        "decisions": [
+          "استفاده از select_for_update درون تراکنش برای قفل سطرهای موجودی",
+          "بازگرداندن تراکنشی موجودی و مصرف کوپن هنگام لغو یا انقضا",
+          "مجوزهای سطح شیء به‌جای بررسی‌های پراکنده در view",
+          "پرداخت نمایشی امضاشده و یک‌بارمصرف، کاملاً جدا از درگاه واقعی"
+        ],
+        "note": "فرایند پرداخت یک پیاده‌سازی نمایشی امضاشده برای تست API است و به درگاه پرداخت واقعی متصل نیست. Docker Compose فقط برای محیط توسعه محلی است."
+      },
+      "ru": {
+        "title": "NexusTicket",
+        "category": "REST API для продажи билетов на мероприятия",
+        "headline": "Надёжность в бронировании билетов.",
+        "summary": "Ориентированный на бэкенд REST API на Django для публикации мероприятий, бронирования билетов, контроля остатков и подписанного демонстрационного процесса оплаты.",
+        "problem": "Продажа билетов — это гонка: количество мест ограничено, многие бронируют одновременно, а неоплаченные брони не должны удерживать места бесконечно.",
+        "scope": "REST API с аккаунтами, мероприятиями, категориями билетов, отзывами, бронированием нескольких позиций, купонами, истечением брони и демо-оплатой — с документацией OpenAPI и автоматическими тестами.",
+        "architecture": "HTTP-клиент → Django REST Framework → аутентификация по email с JWT → база данных. Воркер Celery с брокером Redis через 15 минут отменяет неоплаченные брони и возвращает места.",
+        "features": [
+          "Модель пользователя по email: регистрация, вход и обновление JWT",
+          "Мероприятия, артисты, категории и типы билетов с поиском, сортировкой и фильтрами",
+          "Запись только для организаторов и персонала, заказы видны только владельцу",
+          "Бронирование одной или нескольких позиций с проверкой вместимости и купонами",
+          "Блокировка строк типов билетов и мероприятий при бронировании",
+          "Задача Celery, которая отменяет ожидающие заказы и возвращает остатки",
+          "Подписанный одноразовый запрос и подтверждение демо-оплаты",
+          "Схема OpenAPI со Swagger UI и ReDoc; тесты pytest и GitHub Actions"
+        ],
+        "challenges": [
+          "Два пользователя одновременно бронируют последние билеты",
+          "Освобождение мест из брошенных броней без состояния гонки",
+          "Отзывы могут оставлять только покупатели"
+        ],
+        "decisions": [
+          "select_for_update внутри транзакции для блокировки строк с остатками",
+          "Транзакционный возврат остатков и использований купонов при отмене или истечении",
+          "Права доступа на уровне объектов вместо разрозненных проверок во view",
+          "Демо-оплата подписана и одноразова, чётко отделена от реального провайдера"
+        ],
+        "note": "Процесс оплаты — подписанная демонстрационная реализация для тестирования API; он не подключён к реальному платёжному провайдеру. Docker Compose предназначен для локальной разработки."
+      }
+    }
+  },
+  {
+    "slug": "jokar-dental",
+    "kind": "client",
+    "status": "in_progress",
+    "featured": true,
+    "technology_tags": [
+      "Next.js",
+      "Django",
+      "DRF",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "Playwright"
+    ],
+    "github_url": "https://github.com/sinajokarr/dental-",
+    "live_url": "",
+    "translations": {
+      "en": {
+        "title": "Jokar Dental",
+        "category": "Premium Website Design & Development",
+        "headline": "A Multilingual Patient Experience for a Dental Clinic.",
+        "summary": "A four-language website for a dental clinic in Antalya and Istanbul, with treatment pages, a premium interface and a consultation-request flow backed by Django and PostgreSQL.",
+        "problem": "International patients compare clinics online in their own language. The clinic needed a site that explains treatments clearly, feels premium and turns interest into consultation requests.",
+        "scope": "Design and development of the public website in Persian, English, German and Turkish, dedicated treatment pages, and a backend for consultation requests with staff roles.",
+        "architecture": "Next.js App Router frontend (TypeScript, Tailwind CSS) → Django REST Framework backend → PostgreSQL. Consultation requests are stored first and staff are notified, with retries for failed notifications.",
+        "features": [
+          "Four languages with locale routing and Persian RTL",
+          "Dedicated treatment pages with interactive explorers",
+          "Consultation-request form stored in PostgreSQL",
+          "Staff roles in Django Admin with two-factor sign-in outside development",
+          "Sign-in lockout after repeated failures",
+          "Build fails if a translation key is missing in any language",
+          "Playwright end-to-end tests including RTL and reduced-motion checks"
+        ],
+        "challenges": [
+          "Keeping medical facts identical across four languages",
+          "Rich motion without hurting page speed",
+          "Designing RTL intentionally rather than mirroring"
+        ],
+        "decisions": [
+          "A test that checks the same facts appear in every language",
+          "Static fallbacks for every animation under reduced motion",
+          "Logical CSS properties only, guarded by a test"
+        ],
+        "note": "This project is in progress and not yet publicly launched."
+      },
+      "tr": {
+        "title": "Jokar Dental",
+        "category": "Premium Web Tasarımı ve Geliştirme",
+        "headline": "Bir Diş Kliniği İçin Çok Dilli Hasta Deneyimi.",
+        "summary": "Antalya ve İstanbul'daki bir diş kliniği için tedavi sayfaları, premium arayüz ve Django ile PostgreSQL destekli konsültasyon talep akışına sahip dört dilli web sitesi.",
+        "problem": "Uluslararası hastalar klinikleri kendi dillerinde karşılaştırır. Kliniğin tedavileri net anlatan, premium hissettiren ve ilgiyi konsültasyon talebine dönüştüren bir siteye ihtiyacı vardı.",
+        "scope": "Farsça, İngilizce, Almanca ve Türkçe kamuya açık web sitesinin tasarımı ve geliştirilmesi, tedaviye özel sayfalar ve personel rolleriyle konsültasyon talepleri için bir backend.",
+        "architecture": "Next.js App Router arayüzü (TypeScript, Tailwind CSS) → Django REST Framework backend → PostgreSQL. Konsültasyon talepleri önce kaydedilir, ardından personel bilgilendirilir; başarısız bildirimler yeniden denenir.",
+        "features": [
+          "Dil yönlendirmesi ve Farsça RTL ile dört dil",
+          "Etkileşimli keşif bölümlü tedavi sayfaları",
+          "PostgreSQL'e kaydedilen konsültasyon talep formu",
+          "Geliştirme dışında iki adımlı girişli Django Admin personel rolleri",
+          "Tekrarlanan hatalı girişlerde kilitleme",
+          "Herhangi bir dilde çeviri anahtarı eksikse derleme başarısız olur",
+          "RTL ve azaltılmış hareket kontrollerini içeren Playwright uçtan uca testleri"
+        ],
+        "challenges": [
+          "Tıbbi bilgileri dört dilde birebir aynı tutmak",
+          "Sayfa hızına zarar vermeden zengin animasyon",
+          "RTL'yi aynalamak yerine bilinçli tasarlamak"
+        ],
+        "decisions": [
+          "Aynı bilgilerin her dilde yer aldığını kontrol eden bir test",
+          "Azaltılmış harekette her animasyon için statik karşılık",
+          "Bir testle korunan, yalnızca mantıksal CSS özellikleri"
+        ],
+        "note": "Bu proje devam etmektedir ve henüz yayına alınmamıştır."
+      },
+      "fa": {
+        "title": "Jokar Dental",
+        "category": "طراحی و توسعه وب‌سایت ممتاز",
+        "headline": "تجربه‌ای چندزبانه برای بیماران یک کلینیک دندان‌پزشکی.",
+        "summary": "وب‌سایتی چهارزبانه برای یک کلینیک دندان‌پزشکی در آنتالیا و استانبول، با صفحه‌های اختصاصی درمان، رابط کاربری ممتاز و فرایند ثبت درخواست مشاوره با جنگو و PostgreSQL.",
+        "problem": "بیماران بین‌المللی کلینیک‌ها را به زبان خودشان مقایسه می‌کنند. کلینیک به سایتی نیاز داشت که درمان‌ها را روشن توضیح دهد، حس حرفه‌ای منتقل کند و علاقه را به درخواست مشاوره تبدیل کند.",
+        "scope": "طراحی و توسعه وب‌سایت عمومی به فارسی، انگلیسی، آلمانی و ترکی، صفحه‌های اختصاصی درمان و بک‌اند ثبت درخواست مشاوره با نقش‌های کارکنان.",
+        "architecture": "فرانت‌اند Next.js App Router (TypeScript و Tailwind CSS) ← بک‌اند Django REST Framework ← PostgreSQL. درخواست‌های مشاوره ابتدا ذخیره می‌شوند و سپس به کارکنان اطلاع داده می‌شود؛ اعلان‌های ناموفق دوباره ارسال می‌شوند.",
+        "features": [
+          "چهار زبان با مسیرهای زبان‌دار و فارسی راست‌به‌چپ",
+          "صفحه‌های اختصاصی درمان با بخش‌های تعاملی",
+          "فرم درخواست مشاوره ذخیره‌شده در PostgreSQL",
+          "نقش‌های کارکنان در پنل جنگو با ورود دومرحله‌ای خارج از محیط توسعه",
+          "قفل ورود پس از تلاش‌های ناموفق مکرر",
+          "اگر کلید ترجمه‌ای در یکی از زبان‌ها نباشد، build شکست می‌خورد",
+          "تست‌های end-to-end با Playwright شامل بررسی راست‌به‌چپ و کاهش حرکت"
+        ],
+        "challenges": [
+          "یکسان نگه‌داشتن اطلاعات پزشکی در چهار زبان",
+          "انیمیشن غنی بدون کاهش سرعت صفحه",
+          "طراحی آگاهانه راست‌به‌چپ به‌جای قرینه‌سازی ساده"
+        ],
+        "decisions": [
+          "تستی که وجود اطلاعات یکسان در همه زبان‌ها را بررسی می‌کند",
+          "نسخه ثابت برای هر انیمیشن در حالت کاهش حرکت",
+          "استفاده فقط از ویژگی‌های منطقی CSS، با تست محافظ"
+        ],
+        "note": "این پروژه در حال توسعه است و هنوز به‌صورت عمومی منتشر نشده است."
+      },
+      "ru": {
+        "title": "Jokar Dental",
+        "category": "Премиальный дизайн и разработка сайта",
+        "headline": "Многоязычный опыт для пациентов стоматологической клиники.",
+        "summary": "Сайт на четырёх языках для стоматологической клиники в Анталье и Стамбуле: страницы лечения, премиальный интерфейс и запись на консультацию на базе Django и PostgreSQL.",
+        "problem": "Иностранные пациенты сравнивают клиники на своём языке. Клинике нужен был сайт, который понятно объясняет лечение, выглядит премиально и превращает интерес в заявки на консультацию.",
+        "scope": "Дизайн и разработка публичного сайта на персидском, английском, немецком и турецком языках, отдельные страницы лечения и бэкенд для заявок на консультацию с ролями сотрудников.",
+        "architecture": "Фронтенд Next.js App Router (TypeScript, Tailwind CSS) → бэкенд Django REST Framework → PostgreSQL. Заявки сначала сохраняются, затем сотрудники получают уведомление; неудачные уведомления отправляются повторно.",
+        "features": [
+          "Четыре языка с языковой маршрутизацией и персидским RTL",
+          "Страницы лечения с интерактивными разделами",
+          "Форма записи на консультацию с сохранением в PostgreSQL",
+          "Роли сотрудников в Django Admin с двухфакторным входом вне разработки",
+          "Блокировка входа после повторных неудачных попыток",
+          "Сборка падает, если в каком-либо языке не хватает ключа перевода",
+          "Сквозные тесты Playwright, включая RTL и режим уменьшенного движения"
+        ],
+        "challenges": [
+          "Одинаковая медицинская информация на четырёх языках",
+          "Насыщенная анимация без потери скорости страниц",
+          "Осознанный дизайн RTL вместо простого зеркалирования"
+        ],
+        "decisions": [
+          "Тест, проверяющий, что одни и те же факты есть во всех языках",
+          "Статичная версия каждой анимации в режиме уменьшенного движения",
+          "Только логические свойства CSS, защищённые тестом"
+        ],
+        "note": "Проект находится в разработке и ещё не запущен публично."
+      }
+    }
+  },
+  {
+    "slug": "jokarco",
+    "kind": "client",
+    "status": "live",
+    "featured": true,
+    "technology_tags": [
+      "Real Estate",
+      "Property Search",
+      "Lead Generation",
+      "Multilingual"
+    ],
+    "github_url": "",
+    "live_url": "https://jokarco.com",
+    "translations": {
+      "en": {
+        "title": "JokarCo",
+        "category": "Real Estate Website Development",
+        "headline": "Digital Presentation for Luxury Residences.",
+        "summary": "A live real estate website for Jokar Company, built around property discovery and a clear enquiry path for buyers and renters.",
+        "problem": "Property buyers want to filter quickly, see the right homes and reach an advisor without friction — often from abroad and in different languages.",
+        "scope": "Public website with property search, featured listings, property-type browsing and a qualified enquiry form.",
+        "architecture": "A web front end serving property search and listing pages, with an enquiry form that captures contact details, budget and purpose for the sales team.",
+        "features": [
+          "Search by buy or rent and by property type",
+          "Featured property listings",
+          "Browsing by villa, penthouse, apartment and more",
+          "Enquiry form with international dialling codes",
+          "Budget and purchase-purpose qualification fields",
+          "Multilingual content structure"
+        ],
+        "challenges": [
+          "Qualifying enquiries without making the form feel long",
+          "Presenting high-value properties with a premium feel"
+        ],
+        "decisions": [
+          "Budget and purpose as optional choices instead of free text",
+          "Search placed at the top of the homepage as the main entry point"
+        ],
+        "note": ""
+      },
+      "tr": {
+        "title": "JokarCo",
+        "category": "Gayrimenkul Web Sitesi Geliştirme",
+        "headline": "Lüks Konutlar İçin Dijital Sunum.",
+        "summary": "Jokar Company için mülk keşfi ve alıcılar ile kiracılar için net bir talep yolu etrafında kurgulanmış, yayında olan bir gayrimenkul web sitesi.",
+        "problem": "Mülk alıcıları hızlı filtrelemek, doğru evleri görmek ve bir danışmana zahmetsizce ulaşmak ister; çoğu zaman yurt dışından ve farklı dillerde.",
+        "scope": "Mülk arama, öne çıkan ilanlar, mülk tipine göre gezinme ve nitelikli talep formu içeren kamuya açık web sitesi.",
+        "architecture": "Mülk arama ve ilan sayfalarını sunan bir web arayüzü ile satış ekibi için iletişim bilgilerini, bütçeyi ve amacı toplayan bir talep formu.",
+        "features": [
+          "Satılık/kiralık ve mülk tipine göre arama",
+          "Öne çıkan mülk ilanları",
+          "Villa, penthouse, daire ve diğer tiplere göre gezinme",
+          "Uluslararası telefon kodlu talep formu",
+          "Bütçe ve satın alma amacı alanları",
+          "Çok dilli içerik yapısı"
+        ],
+        "challenges": [
+          "Formu uzatmadan talepleri nitelendirmek",
+          "Yüksek değerli mülkleri premium bir hisle sunmak"
+        ],
+        "decisions": [
+          "Bütçe ve amaç için serbest metin yerine isteğe bağlı seçenekler",
+          "Ana giriş noktası olarak sayfanın en üstünde arama"
+        ],
+        "note": ""
+      },
+      "fa": {
+        "title": "JokarCo",
+        "category": "توسعه وب‌سایت املاک",
+        "headline": "معرفی دیجیتال اقامتگاه‌های لوکس.",
+        "summary": "وب‌سایت فعال املاک برای Jokar Company که بر پایه جست‌وجوی ملک و مسیر روشن ثبت درخواست برای خریداران و مستأجران ساخته شده است.",
+        "problem": "خریداران ملک می‌خواهند سریع فیلتر کنند، ملک مناسب را ببینند و بدون دردسر با مشاور در تماس باشند؛ اغلب از خارج کشور و به زبان‌های مختلف.",
+        "scope": "وب‌سایت عمومی با جست‌وجوی ملک، آگهی‌های ویژه، مرور بر اساس نوع ملک و فرم ثبت درخواست هدفمند.",
+        "architecture": "رابط وب برای جست‌وجو و نمایش آگهی‌ها، همراه با فرم درخواستی که اطلاعات تماس، بودجه و هدف خرید را برای تیم فروش ثبت می‌کند.",
+        "features": [
+          "جست‌وجو بر اساس خرید یا اجاره و نوع ملک",
+          "آگهی‌های ویژه",
+          "مرور ویلا، پنت‌هاوس، آپارتمان و انواع دیگر",
+          "فرم درخواست با کد تلفن بین‌المللی",
+          "فیلدهای بودجه و هدف خرید",
+          "ساختار محتوای چندزبانه"
+        ],
+        "challenges": [
+          "سنجش کیفیت درخواست‌ها بدون طولانی کردن فرم",
+          "معرفی املاک گران‌قیمت با حسی ممتاز"
+        ],
+        "decisions": [
+          "بودجه و هدف به‌صورت گزینه اختیاری به‌جای متن آزاد",
+          "جست‌وجو در بالای صفحه اصلی به‌عنوان نقطه ورود اصلی"
+        ],
+        "note": ""
+      },
+      "ru": {
+        "title": "JokarCo",
+        "category": "Разработка сайта недвижимости",
+        "headline": "Цифровая презентация элитной недвижимости.",
+        "summary": "Работающий сайт недвижимости для Jokar Company, построенный вокруг поиска объектов и понятного пути для заявок покупателей и арендаторов.",
+        "problem": "Покупатели недвижимости хотят быстро фильтровать объекты, видеть подходящие варианты и без труда связаться с консультантом — часто из-за рубежа и на разных языках.",
+        "scope": "Публичный сайт с поиском объектов, избранными предложениями, просмотром по типам недвижимости и формой квалифицированной заявки.",
+        "architecture": "Веб-интерфейс со страницами поиска и объявлений и формой заявки, которая собирает контакты, бюджет и цель покупки для отдела продаж.",
+        "features": [
+          "Поиск по покупке или аренде и по типу недвижимости",
+          "Избранные объекты",
+          "Просмотр вилл, пентхаусов, апартаментов и других типов",
+          "Форма заявки с международными телефонными кодами",
+          "Поля бюджета и цели покупки",
+          "Многоязычная структура контента"
+        ],
+        "challenges": [
+          "Квалифицировать заявки, не делая форму длинной",
+          "Представить дорогую недвижимость с премиальным ощущением"
+        ],
+        "decisions": [
+          "Бюджет и цель — необязательные варианты выбора вместо свободного текста",
+          "Поиск в верхней части главной страницы как основная точка входа"
+        ],
+        "note": ""
+      }
+    }
+  },
+  {
+    "slug": "django-realestate-platform",
+    "kind": "engineering",
+    "status": "concept",
+    "featured": false,
+    "technology_tags": [
+      "Django",
+      "Custom User Model",
+      "Authentication"
+    ],
+    "github_url": "https://github.com/sinajokarr/django-realestate-platform",
+    "live_url": "",
+    "translations": {
+      "en": {
+        "title": "Django Real Estate Platform",
+        "category": "Real Estate Web Application",
+        "headline": "A Data Model for Agents, Listings and Secure Accounts.",
+        "summary": "A planned Django real estate platform with a custom user model, agent profiles and secure authentication.",
+        "problem": "Real estate platforms need clear roles — visitors, agents and administrators — and listing data that stays consistent as it grows.",
+        "scope": "Planned scope: custom user model, agent profiles, property listings and authentication.",
+        "architecture": "Planned as a Django application with a custom user model at its core, so roles and agent profiles can be modelled from the start.",
+        "features": [
+          "Custom user model (planned)",
+          "Agent profiles (planned)",
+          "Secure authentication (planned)"
+        ],
+        "challenges": [],
+        "decisions": [
+          "Starting with a custom user model — changing it later in Django is costly"
+        ],
+        "note": "The public repository currently contains the project description and licence only; the source code has not been published yet."
+      },
+      "tr": {
+        "title": "Django Gayrimenkul Platformu",
+        "category": "Gayrimenkul Web Uygulaması",
+        "headline": "Danışmanlar, İlanlar ve Güvenli Hesaplar İçin Veri Modeli.",
+        "summary": "Özel kullanıcı modeli, danışman profilleri ve güvenli kimlik doğrulama içeren, planlama aşamasındaki bir Django gayrimenkul platformu.",
+        "problem": "Gayrimenkul platformları ziyaretçi, danışman ve yönetici gibi net rollere ve büyüdükçe tutarlı kalan ilan verilerine ihtiyaç duyar.",
+        "scope": "Planlanan kapsam: özel kullanıcı modeli, danışman profilleri, mülk ilanları ve kimlik doğrulama.",
+        "architecture": "Roller ve danışman profilleri baştan modellenebilsin diye merkezinde özel kullanıcı modeli olan bir Django uygulaması olarak planlandı.",
+        "features": [
+          "Özel kullanıcı modeli (planlandı)",
+          "Danışman profilleri (planlandı)",
+          "Güvenli kimlik doğrulama (planlandı)"
+        ],
+        "challenges": [],
+        "decisions": [
+          "Özel kullanıcı modeliyle başlamak — Django'da bunu sonradan değiştirmek maliyetlidir"
+        ],
+        "note": "Açık depo şu anda yalnızca proje açıklamasını ve lisansı içeriyor; kaynak kod henüz yayınlanmadı."
+      },
+      "fa": {
+        "title": "پلتفرم املاک با جنگو",
+        "category": "اپلیکیشن تحت وب املاک",
+        "headline": "مدل داده برای مشاوران، آگهی‌ها و حساب‌های امن.",
+        "summary": "پلتفرم املاک برنامه‌ریزی‌شده با جنگو، شامل مدل کاربر سفارشی، پروفایل مشاوران و احراز هویت امن.",
+        "problem": "پلتفرم‌های املاک به نقش‌های روشن (بازدیدکننده، مشاور، مدیر) و داده‌های آگهی که با رشد سیستم منسجم بمانند نیاز دارند.",
+        "scope": "دامنه برنامه‌ریزی‌شده: مدل کاربر سفارشی، پروفایل مشاوران، آگهی‌های ملک و احراز هویت.",
+        "architecture": "به‌صورت یک اپلیکیشن جنگو با مدل کاربر سفارشی در مرکز آن برنامه‌ریزی شده تا نقش‌ها و پروفایل مشاوران از ابتدا مدل شوند.",
+        "features": [
+          "مدل کاربر سفارشی (برنامه‌ریزی‌شده)",
+          "پروفایل مشاوران (برنامه‌ریزی‌شده)",
+          "احراز هویت امن (برنامه‌ریزی‌شده)"
+        ],
+        "challenges": [],
+        "decisions": [
+          "شروع با مدل کاربر سفارشی؛ تغییر آن در جنگو در مراحل بعد پرهزینه است"
+        ],
+        "note": "مخزن عمومی در حال حاضر فقط شامل توضیح پروژه و مجوز است و کد منبع هنوز منتشر نشده است."
+      },
+      "ru": {
+        "title": "Платформа недвижимости на Django",
+        "category": "Веб-приложение для недвижимости",
+        "headline": "Модель данных для агентов, объявлений и защищённых аккаунтов.",
+        "summary": "Запланированная платформа недвижимости на Django с собственной моделью пользователя, профилями агентов и защищённой аутентификацией.",
+        "problem": "Платформам недвижимости нужны чёткие роли — посетители, агенты и администраторы — и данные объявлений, которые остаются согласованными по мере роста.",
+        "scope": "Запланированный объём: собственная модель пользователя, профили агентов, объявления о недвижимости и аутентификация.",
+        "architecture": "Запланировано как приложение Django с собственной моделью пользователя в основе, чтобы роли и профили агентов были заложены с самого начала.",
+        "features": [
+          "Собственная модель пользователя (запланировано)",
+          "Профили агентов (запланировано)",
+          "Защищённая аутентификация (запланировано)"
+        ],
+        "challenges": [],
+        "decisions": [
+          "Начать с собственной модели пользователя — менять её в Django позже дорого"
+        ],
+        "note": "Публичный репозиторий пока содержит только описание проекта и лицензию; исходный код ещё не опубликован."
+      }
+    }
+  }
+]
