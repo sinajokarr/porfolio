@@ -3,8 +3,9 @@ import { useTranslations } from "next-intl";
 import { LinkedinIcon, WhatsappIcon } from "@/components/ui/icons";
 import { Link } from "@/i18n/navigation";
 import { CONTACT } from "@/lib/site";
+import BuildGrowMotif from "./BuildGrowMotif";
 
-/** Closing scene from the reference (eclipse over dunes): one sentence, one button, four ways to reach me. */
+/** Closing scene from the reference (eclipse over dunes, with the code-to-growth motif inside the eclipse): one sentence, one button, four ways to reach me. */
 export default function ContactCta() {
   const t = useTranslations("contact");
   const pills = [
@@ -16,7 +17,9 @@ export default function ContactCta() {
   return (
     <section id="contact" className="relative isolate overflow-hidden bg-ink pb-28 pt-32 md:pb-44 md:pt-48" aria-labelledby="contact-title">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute end-[6%] top-[4%] size-[30rem] max-w-[80vw] rounded-full shadow-[inset_-10px_6px_30px_-8px_rgb(255_255_255/0.55),0_0_120px_-20px_rgb(201_200_255/0.35)] rtl:shadow-[inset_10px_6px_30px_-8px_rgb(255_255_255/0.55),0_0_120px_-20px_rgb(201_200_255/0.35)]" data-parallax="10" />
+        <div className="absolute end-[6%] top-[4%] size-[30rem] max-w-[80vw] rounded-full shadow-[inset_-10px_6px_30px_-8px_rgb(255_255_255/0.55),0_0_120px_-20px_rgb(201_200_255/0.35)] rtl:shadow-[inset_10px_6px_30px_-8px_rgb(255_255_255/0.55),0_0_120px_-20px_rgb(201_200_255/0.35)]" data-parallax="10">
+          <BuildGrowMotif className="absolute inset-[14%] hidden xl:block" />
+        </div>
         <svg className="absolute inset-x-0 bottom-0 h-[55%] w-full" viewBox="0 0 1440 500" preserveAspectRatio="none">
           <defs>
             <linearGradient id="dune1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#2a2c36" /><stop offset="1" stopColor="#08090c" /></linearGradient>

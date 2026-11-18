@@ -1,0 +1,10 @@
+:HL["/_next/static/chunks/0lkt1cv0vyblw.css","style"]
+:HL["/_next/static/media/07935285219a259d-s.p.1qq4vpdcun5oj.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/3146272aa7a4924e-s.p.21se6xk6bxqs6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/605ce01b664af129-s.p.0wgildi0cnwt9.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/77814b00d5ca94a4-s.p.21jp631_3pja2.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+4:[["children",{"s":"__PAGE__","h":160}]]
+3:[["children",{"s":{"n":"slug","t":"d","k":"django-realestate-platform","s":[]},"h":96,"c":"$Q4"}]]
+2:[["children",{"s":"projects","h":64,"c":"$Q3"}]]
+1:[["children",{"s":{"n":"locale","t":"d","k":"en","s":[]},"h":48,"c":"$Q2"}]]
+0:{"b":"DtpvVuLuQRmVVo_DwCLAO","t":{"t":{"s":"","h":80,"c":"$Q1"}}}

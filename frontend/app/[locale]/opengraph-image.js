@@ -5,6 +5,11 @@ import { ImageResponse } from "next/og";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export const alt = "Sina Jokar — Full-Stack Developer × Performance Marketing";
+export const dynamic = "force-static";
+
+export function generateStaticParams() {
+  return [{ locale: "en" }, { locale: "tr" }, { locale: "fa" }, { locale: "ru" }];
+}
 
 // Latin-only text keeps the card font-free; the page title carries the localized copy.
 // The portrait is the same graded cut-out as the hero (PNG copy, since next/og cannot decode WebP).

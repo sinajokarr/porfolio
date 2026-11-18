@@ -1,8 +1,8 @@
 """Cinematic hero grade for the portrait. Lighting and colour only — facial features are never altered.
 
 Usage: python grade.py <photo> <mask.png> <output.webp> [--og <og-portrait.png>]
-Steps: edge decontamination (removes light-wall fringe) → monochrome studio tone → soft key light on the face
-       → cool silver toning → lavender rim light from the sculpture side → fade into darkness at the bottom.
+Steps: edge decontamination (removes light-wall fringe) → low-key studio tone (colour kept) → soft key light on the face
+       → gentle desaturation, cool shadows → lavender rim light from the sculpture side → fade into darkness at the bottom.
 Requires: pillow, numpy
 """
 
@@ -36,8 +36,9 @@ def main(photo, mask_path, out, og=None):
     alpha = np.asarray(Image.fromarray((alpha * 255).astype(np.uint8)).filter(ImageFilter.MinFilter(5)), dtype=np.float32) / 255
     alpha = blur(alpha, 1.0)
 
-    # 2. Monochrome with a red-weighted mix (smoother skin, classic portrait film response).
+    # 2. Luminance with a red-weighted mix (smoother skin); the tone steps below work on it, colour follows.
     lum = rgb[..., 0] * 0.40 + rgb[..., 1] * 0.46 + rgb[..., 2] * 0.14
+    lum0 = lum
 
     # 3. Studio tone: deeper blacks, gentle S-curve, soft key light centred on the face.
     yy, xx = np.mgrid[0:h, 0:w].astype(np.float32)
@@ -54,8 +55,13 @@ def main(photo, mask_path, out, og=None):
     # 4. Clarity: mild unsharp mask on luminance only.
     lum = np.clip(lum + (lum - blur(lum, 2.2)) * 0.55, 0, 1)
 
-    # 5. Cool silver toning (shadows lean blue, highlights stay neutral).
-    toned = np.stack([lum * 0.965, lum * 0.985, np.minimum(1, lum * 1.02 + 0.018 * (1 - lum))], -1)
+    # 5. Colour: carry the graded luminance back onto the original colours, ease saturation a little,
+    #    and let the shadows lean cool so the skin stays natural against the dark, lavender scene.
+    ratio = np.clip(lum / np.maximum(lum0, 1e-3), 0, 3)[..., None]
+    col = np.clip(rgb * ratio, 0, 1)
+    col = lum[..., None] + (col - lum[..., None]) * 0.86
+    shade = ((1 - lum) ** 2)[..., None]
+    toned = np.clip(col + shade * np.array([-0.012, -0.004, 0.022]), 0, 1)
 
     # 6. Lavender rim light on silhouette edges that face the light.
     soft = blur(alpha, 3)

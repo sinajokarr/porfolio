@@ -2,6 +2,8 @@ import projects from "../../content/projects.json";
 import services from "../../content/services.json";
 import { SITE_URL } from "@/lib/site";
 
+export const dynamic = "force-static";
+
 const LOCALES = ["en", "tr", "fa", "ru"];
 
 export default function sitemap() {

@@ -1,8 +1,8 @@
 {
   "meta": {
     "siteName": "Sina Jokar",
-    "title": "Sina Jokar — Full-Stack Geliştirici ve Performans Pazarlaması",
-    "description": "Antalya'da bağımsız full-stack geliştirici. İşletmeler için web tasarım, web sitesi geliştirme, Python/Django özel yazılım ve Google Ads performans pazarlaması.",
+    "title": "Sina Jokar — Antalya'da Full-Stack Geliştirici ve Performans Pazarlaması",
+    "description": "Antalya'da bağımsız full-stack geliştirici. İşletmeler için profesyonel web siteleri, Python ve Django ile özel yazılım, Google Ads ve dönüşüm takibi.",
     "servicesTitle": "Hizmetler — Web Tasarım, Özel Yazılım ve Google Ads",
     "servicesDescription": "Web tasarımı ve web sitesi geliştirme, Python/Django ve React ile full-stack geliştirme, güvenilir dönüşüm takibiyle Google Ads performans pazarlaması.",
     "projectsTitle": "Projeler — Müşteri Web Siteleri ve Yazılım Vaka Çalışmaları",
@@ -34,17 +34,17 @@
     "line2Pre": "İşletmelerin ",
     "line2Accent": "Büyümesine",
     "line2Post": " Katkı Sağlıyorum.",
-    "copy": "Profesyonel web siteleri tasarlıyor, özel web uygulamaları geliştiriyor ve işletmelerin dijital pazarlamalarını düşünülmüş stratejiler ve güvenilir teknolojiyle geliştirmelerine yardımcı oluyorum.",
-    "primary": "Hizmetlerimi İnceleyin",
+    "copy": "Profesyonel web siteleri ve özel web uygulamaları geliştiriyorum. Yazılım ve performans pazarlamasını bir araya getirerek işletmelerin dijital varlıklarını güçlendirmelerine ve müşteri kazanım süreçlerini iyileştirmelerine yardımcı oluyorum.",
+    "primary": "Hizmetlerimi İncele",
     "secondary": "Projenizi Konuşalım",
     "languages": "English, Türkçe, فارسی ve Русский ile çalışıyorum",
     "location": "Antalya, Türkiye",
     "scroll": "Keşfetmek için kaydırın",
-    "portrait": "Sina Jokar, full-stack geliştirici, etrafında dönen iki cam halka ile"
+    "portrait": "Sina Jokar, full-stack geliştirici, krom bir heykelin önünde"
   },
   "services": {
     "heading": "Neler Sunuyorum.",
-    "intro": "Profesyonel bir web sitesi oluşturmaktan özel yazılım geliştirmeye ve dijital reklamların ölçümlenmesini iyileştirmeye kadar, hedeflerinize uygun dijital çözümler sunuyorum.",
+    "intro": "Birbirini tamamlayan üç hizmet: işletmenizi doğru yansıtan bir web sitesi, çalışma biçiminize göre geliştirilen yazılım ve sonuçlarını ölçebileceğiniz reklamlar. Biriyle başlayabilir, işletmeniz büyüdükçe diğerlerini ekleyebilirsiniz.",
     "explore": "Hizmet ayrıntılarını gör",
     "included": "Neler dahil",
     "benefits": "İşletmeniz için anlamı",
@@ -61,7 +61,7 @@
     "prev": "Önceki projeler",
     "next": "Sonraki projeler",
     "view": "Projeyi incele",
-    "all": "Tüm projeler"
+    "all": "Projelerimi Gör"
   },
   "status": {
     "live": "Yayında",
@@ -73,7 +73,7 @@
   "engineering": {
     "insideTitle": "Kodun İçinden.",
     "insideText": "Yazılım geliştirme projelerimin mimarisini, kaynak kodunu ve teknik kararlarını keşfedin.",
-    "explore": "GitHub'ı Keşfet"
+    "explore": "GitHub Projelerimi İncele"
   },
   "project": {
     "back": "Tüm projeler",
@@ -96,7 +96,7 @@
     "pageIntro": "Her proje gerçek durumuyla etiketlenmiştir. Vaka çalışmaları planlananı değil, uygulananı anlatır.",
     "next": "Sonraki proje",
     "cta": "Benzer bir şey mi planlıyorsunuz?",
-    "ctaButton": "Projenizi konuşalım",
+    "ctaButton": "Projenizi Konuşalım",
     "deepDive": "Teknik ayrıntılar",
     "deepDiveHint": "Mimari, kritik akış ve mühendislik kararları"
   },
@@ -123,7 +123,7 @@
   },
   "process": {
     "eyebrow": "Çalışma Şeklim",
-    "heading": "İlk görüşmeden sonuçlara kadar net bir süreç.",
+    "heading": "İlk görüşmeden yayına ve sonrasına kadar net bir süreç.",
     "steps": [
       {
         "title": "Anlamak",
@@ -145,11 +145,11 @@
   },
   "about": {
     "eyebrow": "Hakkımda",
-    "heading": "Teknoloji, Yaratıcılık ve İşletmelerin Büyümesi.",
-    "p1": "Ben Sina Jokar. Antalya'da yaşayan bir yazılım geliştiriciyim.",
-    "p2": "Yazılım mühendisliği, web sitesi geliştirme ve dijital pazarlamanın kesişiminde çalışıyorum. Teknik açıdan güvenilir, görsel olarak özenli ve işletmelerin gerçek ihtiyaçlarına uygun dijital ürünler geliştirmeye odaklanıyorum.",
-    "p3": "Sistemlerin nasıl çalıştığını anlamaktan, teknik zorlukları çözmekten ve insanların ve işletmelerin anlamlı hedeflerine ulaşmasına yardımcı olan dijital deneyimler oluşturmaktan keyif alıyorum.",
-    "p4": "Özel backend sistemlerinden modern kurumsal web sitelerine ve dönüşüm odaklı dijital deneyimlere kadar, her projede teknik yaklaşımı iş hedefleriyle birleştirmeyi amaçlıyorum.",
+    "heading": "Kodun Ötesini Düşünen Bir Geliştirici.",
+    "p1": "Ben Sina Jokar, Antalya'da yaşayan bir yazılım geliştiriciyim.",
+    "p2": "Çalışmalarım yazılım mühendisliği, web sitesi geliştirme ve performans pazarlamasını bir araya getiriyor. Bir işletmenin nasıl işlediğini anlamaktan, pratik dijital çözümler bulmaktan ve gerçek ihtiyaçlara karşılık veren teknolojiler geliştirmekten keyif alıyorum.",
+    "p3": "İster özel bir uygulama geliştiriyor, ister profesyonel bir web sitesi hazırlıyor, ister pazarlama ölçümlemesi kuruyor olayım; her projeye işlevsellik, anlaşılırlık ve uzun vadeli sürdürülebilirlik odağıyla yaklaşıyorum.",
+    "p4": "İşletmeler için bu, hedefleri anlayan ve gereken çözümü bizzat geliştiren tek bir muhatap demek. Teknik ekipler için ise test edilmiş, belgelenmiş ve kolayca devredilebilen kod hedefliyorum.",
     "more": "Daha Fazlası",
     "linkedin": "LinkedIn'de Bağlantı Kurun",
     "facts": {
@@ -168,12 +168,12 @@
       "Kapsam ve ilerleme konusunda dürüst iletişim"
     ],
     "portraitAlt": "Sina Jokar portresi",
-    "lead": "Yazılım mühendisliği, web sitesi geliştirme ve dijital pazarlamanın kesişiminde çalışıyorum."
+    "lead": "Çalışmalarım yazılım mühendisliği, web sitesi geliştirme ve performans pazarlamasını bir araya getiriyor."
   },
   "stack": {
     "eyebrow": "Yetkinlikler",
     "heading": "Yetkinlikler ve Teknolojiler.",
-    "intro": "Kullanım şekline göre gruplandı. Temelim Python ve Django; diğerleri geliştirdiğim ürünleri ve kampanyaları destekler.",
+    "intro": "Çalışmalarımda kullandığım araçlar, kullanım alanına göre gruplandı. En derin uzmanlığım Python ve Django; diğerleri geliştirdiğim ürünleri ve kampanyaları destekliyor.",
     "backend": "Backend",
     "frontend": "Frontend",
     "engineering": "Mühendislik",
@@ -181,7 +181,7 @@
   },
   "contact": {
     "heading": "Aklınızda Bir Proje mi Var?",
-    "desc1": "İhtiyacınızı anlatın: bir web sitesi, özel yazılım ya da daha iyi pazarlama ölçümü. Mesajınızı bizzat okuyup net bir sonraki adımla dönüş yapacağım.",
+    "desc1": "Yeni bir web sitesi, özel yazılım veya dijital pazarlama konusunda desteğe ihtiyacınız varsa hedeflerinizi dinlemekten memnuniyet duyarım. Projenizi paylaşın, size nasıl yardımcı olabileceğimi birlikte değerlendirelim.",
     "cta": "Projenizi Konuşalım",
     "methods": "Doğrudan iletişim",
     "whatsapp": "WhatsApp",
@@ -190,7 +190,7 @@
     "linkedin": "LinkedIn",
     "location": "Antalya, Türkiye",
     "pageHeading": "Projenizi konuşalım.",
-    "pageIntro": "İhtiyacınızı kısaca anlatın. Mesajınızı bizzat okuyup sorularımla ya da net bir sonraki adımla dönüş yapacağım.",
+    "pageIntro": "Projenizi kısaca anlatın. Her mesajı bizzat okuyor, sorularımla ya da net bir sonraki adımla dönüş yapıyorum.",
     "headingAccent": "Değerli Bir Şey İnşa Edelim."
   },
   "form": {

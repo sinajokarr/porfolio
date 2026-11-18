@@ -1,14 +1,14 @@
 {
   "meta": {
     "siteName": "Sina Jokar",
-    "title": "Sina Jokar — Full-Stack Developer & Performance Marketing",
-    "description": "Independent full-stack developer in Antalya, Türkiye. Websites, custom Python/Django software and Google Ads performance marketing for businesses.",
+    "title": "Sina Jokar — Full-Stack Developer & Performance Marketing in Antalya",
+    "description": "Independent full-stack developer in Antalya, Türkiye. Professional websites, custom Python & Django software, Google Ads and conversion tracking for businesses.",
     "servicesTitle": "Services — Website Development, Custom Software & Google Ads",
     "servicesDescription": "Website design and development, full-stack Python/Django and React development, and Google Ads performance marketing with reliable conversion tracking.",
     "projectsTitle": "Projects — Client Websites & Engineering Case Studies",
     "projectsDescription": "Client websites and software engineering projects by Sina Jokar, with architecture notes and links to the source code on GitHub.",
-    "aboutTitle": "About Sina Jokar — Developer & Digital Growth Specialist",
-    "aboutDescription": "Sina Jokar is a developer based in Antalya, Türkiye, working at the intersection of software engineering, website development and digital marketing.",
+    "aboutTitle": "About Sina Jokar — Full-Stack Developer & Performance Marketer",
+    "aboutDescription": "Sina Jokar is a developer in Antalya, Türkiye, combining software engineering, website development and performance marketing for businesses.",
     "contactTitle": "Contact — Let's Discuss Your Project",
     "contactDescription": "Request a website, custom software or Google Ads consultation. Contact Sina Jokar by WhatsApp, phone, email or the project inquiry form.",
     "privacyTitle": "Privacy Policy",
@@ -20,7 +20,7 @@
     "projects": "Projects",
     "about": "About",
     "contact": "Contact",
-    "letsTalk": "Discuss Your Project",
+    "letsTalk": "Let's Discuss Your Project",
     "menu": "Open menu",
     "close": "Close menu",
     "language": "Language",
@@ -34,17 +34,17 @@
     "line2Pre": "I Help Businesses ",
     "line2Accent": "Grow.",
     "line2Post": "",
-    "copy": "I design professional websites, build custom web applications, and help businesses improve their digital marketing through thoughtful strategies and reliable technology.",
+    "copy": "I design professional websites, develop custom web applications, and connect technology with performance marketing to help businesses build a stronger digital presence and improve how they attract customers.",
     "primary": "Explore My Services",
-    "secondary": "Discuss Your Project",
+    "secondary": "Let's Discuss Your Project",
     "languages": "Working in English, Türkçe, فارسی & Русский",
     "location": "Based in Antalya, Türkiye",
     "scroll": "Scroll to explore",
-    "portrait": "Sina Jokar, full-stack developer, surrounded by two orbiting glass rings"
+    "portrait": "Sina Jokar, full-stack developer, in front of a chrome sculpture"
   },
   "services": {
     "heading": "What I Offer.",
-    "intro": "From creating your first professional website to developing custom software and improving digital advertising measurement, I provide connected digital services designed around your goals.",
+    "intro": "Three connected services: a website that presents your business well, software built around how you work, and advertising you can measure. Start with one, or combine them as your business grows.",
     "explore": "View service details",
     "included": "What's included",
     "benefits": "What it means for your business",
@@ -61,7 +61,7 @@
     "prev": "Previous projects",
     "next": "Next projects",
     "view": "View project",
-    "all": "All projects"
+    "all": "View My Projects"
   },
   "status": {
     "live": "Live",
@@ -73,7 +73,7 @@
   "engineering": {
     "insideTitle": "Inside the Code.",
     "insideText": "Explore the architecture, source code and technical decisions behind my software development projects.",
-    "explore": "Explore GitHub"
+    "explore": "Explore My GitHub"
   },
   "project": {
     "back": "All projects",
@@ -96,7 +96,7 @@
     "pageIntro": "Each project is labelled with its real status. Case studies describe what is implemented — not what is planned.",
     "next": "Next project",
     "cta": "Planning something similar?",
-    "ctaButton": "Discuss your project",
+    "ctaButton": "Let's Discuss Your Project",
     "deepDive": "Under the hood",
     "deepDiveHint": "Architecture, critical flow and engineering decisions"
   },
@@ -123,7 +123,7 @@
   },
   "process": {
     "eyebrow": "How I Work",
-    "heading": "A clear process from first conversation to results.",
+    "heading": "A clear process, from first conversation to launch and beyond.",
     "steps": [
       {
         "title": "Understand",
@@ -145,11 +145,11 @@
   },
   "about": {
     "eyebrow": "About Me",
-    "heading": "Technology, Creativity & Business Growth.",
+    "heading": "A Developer Who Thinks Beyond the Code.",
     "p1": "I'm Sina Jokar, a developer based in Antalya, Türkiye.",
-    "p2": "I work at the intersection of software engineering, website development and digital marketing. My focus is on creating digital products that are technically reliable, visually refined and aligned with practical business needs.",
-    "p3": "I enjoy understanding how systems work, solving technical challenges and building digital experiences that help people and businesses accomplish meaningful goals.",
-    "p4": "Whether a project involves a custom backend, a modern business website or a conversion-focused digital experience, I aim to bring technical thinking and business awareness into the same process.",
+    "p2": "My work combines software engineering, website development and performance marketing. I enjoy understanding how a business operates, finding practical digital solutions and building technology that supports real needs.",
+    "p3": "Whether I'm developing a custom application, creating a professional website or setting up marketing measurement, I approach each project with attention to functionality, clarity and long-term maintainability.",
+    "p4": "For businesses, that means one person who understands the goals and builds what is needed. For technical teams, it means I aim for code that is tested, documented and easy to hand over.",
     "more": "More About Me",
     "linkedin": "Connect on LinkedIn",
     "facts": {
@@ -168,12 +168,12 @@
       "Honest communication about scope and progress"
     ],
     "portraitAlt": "Portrait of Sina Jokar",
-    "lead": "I work at the intersection of software engineering, website development and digital marketing."
+    "lead": "My work combines software engineering, website development and performance marketing."
   },
   "stack": {
     "eyebrow": "Capabilities",
     "heading": "Capabilities & Technologies.",
-    "intro": "Grouped by how I use them. Python and Django are my core; the rest supports the products and campaigns I build.",
+    "intro": "The tools behind my work, grouped by how I use them. Python and Django are where I work most deeply; the rest supports the products and campaigns I build.",
     "backend": "Backend",
     "frontend": "Frontend",
     "engineering": "Engineering",
@@ -181,8 +181,8 @@
   },
   "contact": {
     "heading": "Have a Project in Mind?",
-    "desc1": "Tell me what you need — a website, custom software or better marketing measurement. I'll read it personally and reply with a clear next step.",
-    "cta": "Discuss Your Project",
+    "desc1": "Whether you're planning a new website, building custom software or looking to improve your digital marketing, I'd be glad to learn about your goals. Tell me what you're working on, and let's explore how I can help.",
+    "cta": "Let's Discuss Your Project",
     "methods": "Direct contact",
     "whatsapp": "WhatsApp",
     "email": "Email",
@@ -190,7 +190,7 @@
     "linkedin": "LinkedIn",
     "location": "Antalya, Türkiye",
     "pageHeading": "Let's discuss your project.",
-    "pageIntro": "Send a short description of what you need. I'll read it personally and reply with questions or a clear next step.",
+    "pageIntro": "Share a short description of your project. I read every message personally and reply with questions or a clear next step.",
     "headingAccent": "Let's Build Something Valuable."
   },
   "form": {

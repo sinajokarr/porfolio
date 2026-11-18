@@ -1,0 +1,723 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<url>
+<loc>http://localhost:3000/en</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru" />
+<changefreq>monthly</changefreq>
+<priority>1</priority>
+</url>
+<url>
+<loc>http://localhost:3000/tr</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru" />
+<changefreq>monthly</changefreq>
+<priority>1</priority>
+</url>
+<url>
+<loc>http://localhost:3000/fa</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru" />
+<changefreq>monthly</changefreq>
+<priority>1</priority>
+</url>
+<url>
+<loc>http://localhost:3000/ru</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru" />
+<changefreq>monthly</changefreq>
+<priority>1</priority>
+</url>
+<url>
+<loc>http://localhost:3000/en/services</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/tr/services</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/fa/services</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/ru/services</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/en/projects</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/projects" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/projects" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/projects" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/projects" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/tr/projects</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/projects" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/projects" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/projects" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/projects" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/fa/projects</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/projects" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/projects" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/projects" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/projects" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/ru/projects</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/projects" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/projects" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/projects" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/projects" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/en/about</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/about" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/about" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/about" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/about" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/tr/about</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/about" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/about" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/about" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/about" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/fa/about</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/about" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/about" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/about" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/about" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/ru/about</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/about" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/about" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/about" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/about" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/en/contact</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/contact" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/contact" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/contact" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/contact" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/tr/contact</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/contact" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/contact" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/contact" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/contact" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/fa/contact</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/contact" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/contact" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/contact" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/contact" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/ru/contact</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/contact" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/contact" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/contact" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/contact" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/en/privacy</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/privacy" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/privacy" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/privacy" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/privacy" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/tr/privacy</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/privacy" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/privacy" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/privacy" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/privacy" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/fa/privacy</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/privacy" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/privacy" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/privacy" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/privacy" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/ru/privacy</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/privacy" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/privacy" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/privacy" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/privacy" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/en/services/website-development</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/website-development" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/website-development" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/website-development" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/website-development" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/tr/services/website-development</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/website-development" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/website-development" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/website-development" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/website-development" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/fa/services/website-development</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/website-development" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/website-development" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/website-development" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/website-development" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/ru/services/website-development</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/website-development" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/website-development" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/website-development" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/website-development" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/en/services/full-stack-development</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/full-stack-development" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/full-stack-development" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/full-stack-development" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/full-stack-development" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/tr/services/full-stack-development</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/full-stack-development" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/full-stack-development" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/full-stack-development" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/full-stack-development" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/fa/services/full-stack-development</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/full-stack-development" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/full-stack-development" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/full-stack-development" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/full-stack-development" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/ru/services/full-stack-development</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/full-stack-development" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/full-stack-development" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/full-stack-development" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/full-stack-development" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/en/services/performance-marketing</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/performance-marketing" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/performance-marketing" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/performance-marketing" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/performance-marketing" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/tr/services/performance-marketing</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/performance-marketing" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/performance-marketing" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/performance-marketing" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/performance-marketing" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/fa/services/performance-marketing</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/performance-marketing" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/performance-marketing" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/performance-marketing" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/performance-marketing" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/ru/services/performance-marketing</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/performance-marketing" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/performance-marketing" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/performance-marketing" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/performance-marketing" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/en/services/landing-pages</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/landing-pages" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/landing-pages" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/landing-pages" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/landing-pages" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/tr/services/landing-pages</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/landing-pages" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/landing-pages" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/landing-pages" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/landing-pages" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/fa/services/landing-pages</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/landing-pages" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/landing-pages" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/landing-pages" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/landing-pages" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/ru/services/landing-pages</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/landing-pages" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/landing-pages" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/landing-pages" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/landing-pages" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/en/services/conversion-tracking</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/conversion-tracking" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/conversion-tracking" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/conversion-tracking" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/conversion-tracking" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/tr/services/conversion-tracking</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/conversion-tracking" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/conversion-tracking" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/conversion-tracking" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/conversion-tracking" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/fa/services/conversion-tracking</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/conversion-tracking" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/conversion-tracking" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/conversion-tracking" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/conversion-tracking" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/ru/services/conversion-tracking</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/conversion-tracking" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/conversion-tracking" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/conversion-tracking" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/conversion-tracking" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/en/services/analytics-gtm</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/analytics-gtm" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/analytics-gtm" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/analytics-gtm" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/analytics-gtm" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/tr/services/analytics-gtm</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/analytics-gtm" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/analytics-gtm" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/analytics-gtm" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/analytics-gtm" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/fa/services/analytics-gtm</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/analytics-gtm" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/analytics-gtm" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/analytics-gtm" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/analytics-gtm" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/ru/services/analytics-gtm</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/analytics-gtm" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/analytics-gtm" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/analytics-gtm" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/analytics-gtm" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/en/services/technical-seo-performance</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/technical-seo-performance" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/technical-seo-performance" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/technical-seo-performance" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/technical-seo-performance" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/tr/services/technical-seo-performance</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/technical-seo-performance" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/technical-seo-performance" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/technical-seo-performance" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/technical-seo-performance" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/fa/services/technical-seo-performance</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/technical-seo-performance" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/technical-seo-performance" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/technical-seo-performance" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/technical-seo-performance" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/ru/services/technical-seo-performance</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/technical-seo-performance" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/technical-seo-performance" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/technical-seo-performance" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/technical-seo-performance" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/en/services/ecommerce-development</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/ecommerce-development" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/ecommerce-development" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/ecommerce-development" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/ecommerce-development" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/tr/services/ecommerce-development</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/ecommerce-development" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/ecommerce-development" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/ecommerce-development" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/ecommerce-development" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/fa/services/ecommerce-development</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/ecommerce-development" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/ecommerce-development" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/ecommerce-development" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/ecommerce-development" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/ru/services/ecommerce-development</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/ecommerce-development" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/ecommerce-development" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/ecommerce-development" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/ecommerce-development" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/en/services/api-integrations</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/api-integrations" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/api-integrations" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/api-integrations" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/api-integrations" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/tr/services/api-integrations</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/api-integrations" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/api-integrations" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/api-integrations" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/api-integrations" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/fa/services/api-integrations</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/api-integrations" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/api-integrations" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/api-integrations" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/api-integrations" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/ru/services/api-integrations</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/services/api-integrations" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/services/api-integrations" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/services/api-integrations" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/services/api-integrations" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/en/projects/sinshop</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/projects/sinshop" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/projects/sinshop" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/projects/sinshop" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/projects/sinshop" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/tr/projects/sinshop</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/projects/sinshop" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/projects/sinshop" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/projects/sinshop" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/projects/sinshop" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/fa/projects/sinshop</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/projects/sinshop" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/projects/sinshop" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/projects/sinshop" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/projects/sinshop" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/ru/projects/sinshop</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/projects/sinshop" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/projects/sinshop" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/projects/sinshop" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/projects/sinshop" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/en/projects/nexusticket</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/projects/nexusticket" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/projects/nexusticket" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/projects/nexusticket" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/projects/nexusticket" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/tr/projects/nexusticket</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/projects/nexusticket" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/projects/nexusticket" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/projects/nexusticket" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/projects/nexusticket" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/fa/projects/nexusticket</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/projects/nexusticket" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/projects/nexusticket" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/projects/nexusticket" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/projects/nexusticket" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/ru/projects/nexusticket</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/projects/nexusticket" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/projects/nexusticket" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/projects/nexusticket" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/projects/nexusticket" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/en/projects/jokar-dental</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/projects/jokar-dental" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/projects/jokar-dental" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/projects/jokar-dental" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/projects/jokar-dental" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/tr/projects/jokar-dental</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/projects/jokar-dental" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/projects/jokar-dental" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/projects/jokar-dental" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/projects/jokar-dental" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/fa/projects/jokar-dental</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/projects/jokar-dental" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/projects/jokar-dental" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/projects/jokar-dental" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/projects/jokar-dental" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/ru/projects/jokar-dental</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/projects/jokar-dental" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/projects/jokar-dental" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/projects/jokar-dental" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/projects/jokar-dental" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/en/projects/jokarco</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/projects/jokarco" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/projects/jokarco" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/projects/jokarco" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/projects/jokarco" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/tr/projects/jokarco</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/projects/jokarco" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/projects/jokarco" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/projects/jokarco" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/projects/jokarco" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/fa/projects/jokarco</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/projects/jokarco" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/projects/jokarco" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/projects/jokarco" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/projects/jokarco" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/ru/projects/jokarco</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/projects/jokarco" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/projects/jokarco" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/projects/jokarco" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/projects/jokarco" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/en/projects/django-realestate-platform</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/projects/django-realestate-platform" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/projects/django-realestate-platform" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/projects/django-realestate-platform" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/projects/django-realestate-platform" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/tr/projects/django-realestate-platform</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/projects/django-realestate-platform" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/projects/django-realestate-platform" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/projects/django-realestate-platform" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/projects/django-realestate-platform" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/fa/projects/django-realestate-platform</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/projects/django-realestate-platform" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/projects/django-realestate-platform" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/projects/django-realestate-platform" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/projects/django-realestate-platform" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>http://localhost:3000/ru/projects/django-realestate-platform</loc>
+<xhtml:link rel="alternate" hreflang="en" href="http://localhost:3000/en/projects/django-realestate-platform" />
+<xhtml:link rel="alternate" hreflang="tr" href="http://localhost:3000/tr/projects/django-realestate-platform" />
+<xhtml:link rel="alternate" hreflang="fa" href="http://localhost:3000/fa/projects/django-realestate-platform" />
+<xhtml:link rel="alternate" hreflang="ru" href="http://localhost:3000/ru/projects/django-realestate-platform" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+</urlset>

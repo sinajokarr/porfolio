@@ -3,6 +3,7 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin("./i18n/request.js");
 const API = process.env.API_INTERNAL_URL || "http://127.0.0.1:8000";
+const STATIC_EXPORT = process.env.SITES_STATIC_EXPORT === "1";
 
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
@@ -13,7 +14,7 @@ const securityHeaders = [
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "standalone",
+  output: STATIC_EXPORT ? "export" : "standalone",
   poweredByHeader: false,
   // content/*.json lives at the repo root and is shared with the Django seed command.
   outputFileTracingRoot: path.join(import.meta.dirname, ".."),
@@ -23,7 +24,7 @@ const nextConfig = {
   },
   async rewrites() {
     // Same-origin proxy: the browser never talks to Django directly, so no CORS/CSRF surface.
-    return [{ source: "/backend/:path*", destination: `${API}/api/v1/:path*/` }];
+    return STATIC_EXPORT ? [] : [{ source: "/backend/:path*", destination: `${API}/api/v1/:path*/` }];
   },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
