@@ -28,7 +28,7 @@ function Logo({ icon, size = 22 }) {
 export function TechOrbit({ label }) {
   return (
     <figure data-reveal="scale">
-      <div className="orbit relative mx-auto aspect-square w-full max-w-[23rem]" aria-hidden="true">
+      <div className="orbit relative mx-auto aspect-square w-full max-w-[23rem]" dir="ltr" aria-hidden="true">
         <div className="absolute inset-[8%] rounded-full border border-white/10" />
         <div className="absolute inset-[8%] rotate-[-18deg] scale-y-[0.42] rounded-full border border-accent/40 shadow-[0_0_30px_rgb(170_169_245/0.25)]" />
         <div className="absolute inset-[30%] rounded-full bg-[radial-gradient(closest-side,rgb(170_169_245/0.25),transparent)]" />

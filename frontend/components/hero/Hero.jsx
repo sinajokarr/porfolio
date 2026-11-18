@@ -77,7 +77,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <a href="#services" className="absolute bottom-8 start-[24%] hidden flex-col items-center gap-3 text-[0.65rem] uppercase tracking-[0.22em] text-white/50 transition-colors hover:text-white lg:flex" data-hero="fade">
+        <a href="#services" className="absolute bottom-8 start-[24%] hidden flex-col items-center gap-3 text-[0.65rem] uppercase tracking-[0.22em] text-white/50 transition-colors hover:text-white lg:flex [@media(max-height:850px)]:!hidden" data-hero="fade">
           <span className="scroll-cue grid h-9 w-6 place-items-start justify-center rounded-full border border-white/30 pt-2">
             <span className="h-2 w-0.5 rounded-full bg-white/70" />
           </span>
