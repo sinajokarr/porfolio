@@ -20,6 +20,7 @@ Browser ─► Next.js (SSG pages, /en /tr /fa)
 ```
 
 * The homepage follows the visitor journey: Hero → Services → Selected Work → Capabilities & Technologies → Process → About → Contact (with the inquiry form). The Google Ads simulator (Growth Lab) lives on `/services/performance-marketing`.
+* Day/night: the header switch toggles light mode (`html.light`, stored in localStorage, restored before paint). Colour tokens flip in `app/globals.css`; add `theme-dark` to anything that must stay dark.
 * Pages are statically generated and revalidate content from the API every 5 minutes. If the API is unreachable, they render from `content/*.json`.
 * Django Admin is the CMS: services, projects (status, featured, GitHub/live links, thumbnails, translations) and inquiries.
 

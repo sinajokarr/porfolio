@@ -61,3 +61,13 @@ Replaced: the `</>` → growth-line motif (BuildGrowMotif).
 * All four languages updated, key sets identical, nothing overflows at 390 / 768 / 1280 / 1536 px.
 * Build, unit, backend and e2e tests pass; no console errors.
 * Screenshots reviewed for every language; animation frames reviewed.
+
+## 8. Revisions after review (Nov 2026)
+
+* **Copy, v4 (current):** the owner chose a *personal, direct introduction* in a *plain, warm written register*
+  (not slang, not corporate). Hero: "I'm Sina Jokar. / I build websites, software and Google Ads campaigns."
+  Every block says concretely what the client gets; no slogans. Earlier drafts (v1–v3) were rejected as too generic or too casual.
+* **Day/night:** light mode added. Colour tokens are re-pointed under `html.light`; `.bg-ice` keeps white as white and
+  `.theme-dark` (plus dark panels on light bands) pins the night palette. Toggle = on/off switch in the header
+  (`ThemeSwitch.jsx`, sun/moon knob, circular reveal from the knob). A pendant-lamp version was tried and replaced at the owner's request.
+* **Hero sculpture** has a day-studio lighting mode (`uLight` in `sculpture.js`) and a matching still (`hero-sculpture-light.webp`).
