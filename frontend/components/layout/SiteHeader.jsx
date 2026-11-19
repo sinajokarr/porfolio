@@ -7,6 +7,7 @@ import { GithubIcon, LinkedinIcon, Monogram } from "@/components/ui/icons";
 import { Link, usePathname } from "@/i18n/navigation";
 import { CONTACT } from "@/lib/site";
 import LanguageSwitcher from "./LanguageSwitcher";
+import ThemeSwitch from "./ThemeSwitch";
 
 const LINKS = [
   { href: "/", key: "home" },
@@ -75,6 +76,7 @@ export default function SiteHeader() {
           </nav>
 
           <div className="flex items-center gap-1 md:gap-2">
+            <ThemeSwitch />
             <a href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" data-track="linkedin_profile_click" className="hidden size-10 place-items-center rounded-full text-white/70 transition-colors hover:bg-white/5 hover:text-white md:grid">
               <LinkedinIcon className="size-4" />
             </a>

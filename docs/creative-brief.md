@@ -13,7 +13,7 @@ Self-brief written before the work, so the result can be checked against it.
 Sina is unusual because **one person covers the whole path**: the website, the software behind it, and the ads + tracking that bring people to it. Most businesses hire three people for that, and things get lost between them.
 
 Brand line (kept, it is good): **From code to conversion.**
-Hero turns it into a sentence a client feels: **"From the first line of code to your next customer."**
+Hero says it the way a person would: **"I build your website. Then I bring the right people."** (v3: spoken register; Persian colloquial with polite "شما")
 
 ## 3. Voice
 
@@ -27,7 +27,7 @@ Hero turns it into a sentence a client feels: **"From the first line of code to 
 
 | Block | Job | Direction |
 | --- | --- | --- |
-| Hero headline | Who + why care, in 5 s | "From the first line of code / to your next customer." |
+| Hero headline | Who + why care, in 5 s | "I build your website. / Then I bring the right people." |
 | Hero copy | The unusual combination | Developer who also runs the ads and tracking; one person, no hand-offs |
 | Services heading/intro | Why three services, together | "Three things, one person." / nothing gets lost between them |
 | Service cards | Client problem → what I do | Human taglines: trust in 5 seconds · fits how you work · spend you can account for |

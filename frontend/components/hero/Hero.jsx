@@ -33,7 +33,7 @@ export default function Hero() {
             <span aria-hidden="true" className="text-white/40">×</span>
             <span>{t("eyebrowB")}</span>
           </p>
-          <h1 id="hero-title" className="display mt-5 text-[clamp(2.2rem,8.8vw,3.4rem)] text-white lg:mt-7 lg:text-[clamp(2.4rem,3.9vw,3.9rem)]">
+          <h1 id="hero-title" className="display mt-5 text-balance text-[clamp(2.2rem,8.8vw,3.4rem)] text-white lg:mt-7 lg:text-[clamp(2.4rem,3.9vw,3.9rem)]">
             <span className="block overflow-hidden pb-[0.06em]">
               <span className="block" data-hero="line">{t("line1")}</span>
             </span>

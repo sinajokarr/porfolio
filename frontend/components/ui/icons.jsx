@@ -22,7 +22,7 @@ export const LinkedinIcon = (p) => (
 /** The SJ monogram — a chrome "S" drawn as two offset arcs, echoing the reference logo. */
 export function Monogram({ className = "size-7" }) {
   return (
-    <svg viewBox="0 0 32 32" className={className} aria-hidden="true">
+    <svg viewBox="0 0 32 32" className={`monogram ${className}`} aria-hidden="true">
       <defs>
         <linearGradient id="mono-chrome" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#ffffff" />

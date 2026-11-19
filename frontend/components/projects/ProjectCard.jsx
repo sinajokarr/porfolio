@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Globe } from "lucide-react";
 import { GithubIcon } from "@/components/ui/icons";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
@@ -18,8 +18,10 @@ export function StatusBadge({ status, className = "" }) {
 /** Reference-style project card: full-bleed visual, title block at the bottom, rotating arrow. */
 export default function ProjectCard({ project, className = "" }) {
   const t = useTranslations("work");
+  const tp = useTranslations("project");
+  const host = project.live_url ? new URL(project.live_url).hostname.replace(/^www\./, "") : "";
   return (
-    <article className={`group relative isolate flex aspect-[4/4.9] flex-col justify-end overflow-hidden rounded-[var(--radius-card)] border border-white/10 bg-ink-800 ${className}`}>
+    <article className={`theme-dark group relative isolate flex aspect-[4/4.9] flex-col justify-end overflow-hidden rounded-[var(--radius-card)] border border-white/10 bg-ink-800 ${className}`}>
       <div className="absolute inset-0 -z-10 transition-transform duration-[1400ms] ease-[var(--ease-out-expo)] group-hover:scale-[1.06]">
         <ProjectVisual slug={project.slug} thumbnail={project.thumbnail} />
       </div>
@@ -45,6 +47,14 @@ export default function ProjectCard({ project, className = "" }) {
           </Link>
         </h3>
         <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-white/60">{project.summary}</p>
+        {project.live_url && (
+          <a href={project.live_url} target="_blank" rel="noopener noreferrer" aria-label={`${project.title} — ${tp("live")}`} data-track="project_live_click" dir="ltr"
+            className="relative z-10 mt-3 inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-md transition-colors duration-300 hover:bg-white hover:text-ink">
+            <Globe className="size-3.5" aria-hidden="true" />
+            {host}
+            <ArrowUpRight className="size-3.5" aria-hidden="true" />
+          </a>
+        )}
         <ul className="mt-4 flex flex-wrap gap-2" aria-label="Technologies">
           {project.technology_tags.slice(0, 3).map((tag) => <li key={tag} className="chip">{tag}</li>)}
         </ul>

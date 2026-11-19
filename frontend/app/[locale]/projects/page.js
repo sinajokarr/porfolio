@@ -45,7 +45,7 @@ export default async function ProjectsPage({ params }) {
 
         {/* Inside the Code — one quiet strip, not a section. */}
         <a href={CONTACT.github} target="_blank" rel="noopener noreferrer" data-track="github_project_click" data-reveal
-          className="group mt-6 flex flex-wrap items-center gap-6 rounded-[var(--radius-card)] border border-white/10 bg-[linear-gradient(135deg,#14161d,#0a0b0f)] p-8 transition-colors hover:border-white/25 md:p-10">
+          className="theme-dark group mt-6 flex flex-wrap items-center gap-6 rounded-[var(--radius-card)] border border-white/10 bg-[linear-gradient(135deg,#14161d,#0a0b0f)] p-8 transition-colors hover:border-white/25 md:p-10">
           <GithubIcon className="size-9" />
           <span className="min-w-0 flex-1">
             <span className="display block text-[clamp(1.5rem,2.4vw,2rem)]">{te("insideTitle")}</span>

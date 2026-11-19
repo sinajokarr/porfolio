@@ -1,8 +1,8 @@
 {
   "meta": {
     "siteName": "Sina Jokar",
-    "title": "Sina Jokar — Antalya'da Full-Stack Geliştirici ve Performans Pazarlaması",
-    "description": "Antalya'da bağımsız full-stack geliştirici. İşletmeler için profesyonel web siteleri, Python ve Django ile özel yazılım, Google Ads ve dönüşüm takibi.",
+    "title": "Sina Jokar — Antalya'da Full-Stack Geliştirici ve Google Ads Uzmanı",
+    "description": "Ben Sina Jokar, Antalya'da full-stack geliştiriciyim. İşletmeler için web siteleri ve özel yazılımlar geliştiriyor, Google Ads kampanyaları yönetiyorum.",
     "servicesTitle": "Hizmetler — Web Tasarım, Özel Yazılım ve Google Ads",
     "servicesDescription": "Web tasarımı ve web sitesi geliştirme, Python/Django ve React ile full-stack geliştirme, güvenilir dönüşüm takibiyle Google Ads performans pazarlaması.",
     "projectsTitle": "Projeler — Müşteri Web Siteleri ve Yazılım Vaka Çalışmaları",
@@ -20,32 +20,34 @@
     "projects": "Projeler",
     "about": "Hakkımda",
     "contact": "İletişim",
-    "letsTalk": "Projenizi Konuşalım",
+    "letsTalk": "İletişim",
     "menu": "Menüyü aç",
     "close": "Menüyü kapat",
     "language": "Dil",
     "skip": "İçeriğe geç",
-    "primary": "Ana gezinme"
+    "primary": "Ana gezinme",
+    "themeToLight": "Açık temaya geç",
+    "themeToDark": "Koyu temaya geç"
   },
   "hero": {
     "eyebrowA": "Full-Stack Geliştirici",
     "eyebrowB": "Performans Pazarlaması",
-    "line1": "Dijital Ürünler Geliştiriyorum.",
-    "line2Pre": "İşletmelerin ",
-    "line2Accent": "Büyümesine",
-    "line2Post": " Katkı Sağlıyorum.",
-    "copy": "Profesyonel web siteleri ve özel web uygulamaları geliştiriyorum. Yazılım ve performans pazarlamasını bir araya getirerek işletmelerin dijital varlıklarını güçlendirmelerine ve müşteri kazanım süreçlerini iyileştirmelerine yardımcı oluyorum.",
-    "primary": "Hizmetlerimi İncele",
-    "secondary": "Projenizi Konuşalım",
+    "line1": "Ben Sina Jokar.",
+    "line2Pre": "Web siteleri, yazılımlar ve ",
+    "line2Accent": "Google Ads kampanyaları",
+    "line2Post": " hazırlıyorum.",
+    "copy": "Antalya'da yaşayan bir full-stack geliştiriciyim. İşletmelerle Türkçe, İngilizce, Farsça ve Rusça çalışıyorum; sitenin ilk tasarımından ziyaretçi getiren kampanyaya kadar.",
+    "primary": "Hizmetlerim",
+    "secondary": "İletişime Geçin",
     "languages": "English, Türkçe, فارسی ve Русский ile çalışıyorum",
     "location": "Antalya, Türkiye",
     "scroll": "Keşfetmek için kaydırın",
     "portrait": "Sina Jokar, full-stack geliştirici, krom bir heykelin önünde"
   },
   "services": {
-    "heading": "Neler Sunuyorum.",
-    "intro": "Birbirini tamamlayan üç hizmet: işletmenizi doğru yansıtan bir web sitesi, çalışma biçiminize göre geliştirilen yazılım ve sonuçlarını ölçebileceğiniz reklamlar. Biriyle başlayabilir, işletmeniz büyüdükçe diğerlerini ekleyebilirsiniz.",
-    "explore": "Hizmet ayrıntılarını gör",
+    "heading": "Neler yapıyorum?",
+    "intro": "Çoğu zaman birlikte ihtiyaç duyulan üç hizmet. Birini ya da üçünü birden isteyebilirsiniz; her durumda doğrudan benimle çalışırsınız.",
+    "explore": "Hizmet detayları",
     "included": "Neler dahil",
     "benefits": "İşletmeniz için anlamı",
     "specializedEyebrow": "Uzmanlık Hizmetleri",
@@ -56,12 +58,12 @@
     "core": "Temel hizmetler"
   },
   "work": {
-    "heading1": "Seçili Çalışmalar.",
-    "heading2": "Gerçek Projeler, Gerçek Kod.",
+    "heading1": "Seçili işler.",
+    "heading2": "Yayındaki siteler ve açık kaynak projeler.",
     "prev": "Önceki projeler",
     "next": "Sonraki projeler",
     "view": "Projeyi incele",
-    "all": "Projelerimi Gör"
+    "all": "Tüm projeler"
   },
   "status": {
     "live": "Yayında",
@@ -73,7 +75,7 @@
   "engineering": {
     "insideTitle": "Kodun İçinden.",
     "insideText": "Yazılım geliştirme projelerimin mimarisini, kaynak kodunu ve teknik kararlarını keşfedin.",
-    "explore": "GitHub Projelerimi İncele"
+    "explore": "GitHub profilim"
   },
   "project": {
     "back": "Tüm projeler",
@@ -95,8 +97,8 @@
     "pageHeading": "Projeler, dürüstçe anlatıldı.",
     "pageIntro": "Her proje gerçek durumuyla etiketlenmiştir. Vaka çalışmaları planlananı değil, uygulananı anlatır.",
     "next": "Sonraki proje",
-    "cta": "Benzer bir şey mi planlıyorsunuz?",
-    "ctaButton": "Projenizi Konuşalım",
+    "cta": "Benzer bir proje mi planlıyorsunuz?",
+    "ctaButton": "İletişime Geçin",
     "deepDive": "Teknik ayrıntılar",
     "deepDiveHint": "Mimari, kritik akış ve mühendislik kararları"
   },
@@ -123,34 +125,34 @@
   },
   "process": {
     "eyebrow": "Çalışma Şeklim",
-    "heading": "İlk görüşmeden yayına ve sonrasına kadar net bir süreç.",
+    "heading": "Birlikte nasıl çalışıyoruz?",
     "steps": [
       {
-        "title": "Anlamak",
-        "text": "Herhangi bir tasarım veya geliştirmeden önce ihtiyaçlarınızı, zorluklarınızı ve hedeflerinizi öğreniyorum."
+        "title": "Görüşme",
+        "text": "İşinizi, hedeflerinizi ve ihtiyacınızı konuşuyoruz. Genellikle kısa bir görüşme ya da birkaç mesaj yeterli oluyor."
       },
       {
-        "title": "Planlamak",
-        "text": "Web sitesi, yazılım veya pazarlama yaklaşımını net bir kapsam ve zaman planıyla belirliyoruz."
+        "title": "Teklif",
+        "text": "Kapsam, takvim ve fiyatı içeren yazılı bir teklif gönderiyorum; iş başlamadan her şey netleşiyor."
       },
       {
-        "title": "Geliştirmek",
-        "text": "Çözümü inceleyebileceğiniz görünür adımlarla uyguluyor, test ediyor ve iyileştiriyorum."
+        "title": "Geliştirme",
+        "text": "İşi aşama aşama ilerletiyor ve düzenli olarak paylaşıyorum; yol boyunca geri bildirim verebiliyorsunuz."
       },
       {
-        "title": "İyileştirmek",
-        "text": "Yayından sonra performansı değerlendiriyor ve sonraki iyileştirmeleri belirliyorum."
+        "title": "Yayın ve destek",
+        "text": "Yayından sonra düzeltmeler, güncellemeler ve gerçek verilere dayalı iyileştirmeler için ulaşılabilir oluyorum."
       }
     ]
   },
   "about": {
     "eyebrow": "Hakkımda",
-    "heading": "Kodun Ötesini Düşünen Bir Geliştirici.",
-    "p1": "Ben Sina Jokar, Antalya'da yaşayan bir yazılım geliştiriciyim.",
-    "p2": "Çalışmalarım yazılım mühendisliği, web sitesi geliştirme ve performans pazarlamasını bir araya getiriyor. Bir işletmenin nasıl işlediğini anlamaktan, pratik dijital çözümler bulmaktan ve gerçek ihtiyaçlara karşılık veren teknolojiler geliştirmekten keyif alıyorum.",
-    "p3": "İster özel bir uygulama geliştiriyor, ister profesyonel bir web sitesi hazırlıyor, ister pazarlama ölçümlemesi kuruyor olayım; her projeye işlevsellik, anlaşılırlık ve uzun vadeli sürdürülebilirlik odağıyla yaklaşıyorum.",
-    "p4": "İşletmeler için bu, hedefleri anlayan ve gereken çözümü bizzat geliştiren tek bir muhatap demek. Teknik ekipler için ise test edilmiş, belgelenmiş ve kolayca devredilebilen kod hedefliyorum.",
-    "more": "Daha Fazlası",
+    "heading": "Merhaba, ben Sina.",
+    "p1": "Antalya'da yaşayan bir full-stack geliştiriciyim.",
+    "p2": "Backend sistemlerini Python ve Django ile yazıyor, arayüzleri React ve Next.js ile geliştiriyorum. Bunun yanında Google Ads kampanyalarını ve arkalarındaki takip altyapısını kurup yönetiyorum.",
+    "p3": "Bu sayede siteleri ilk günden pazarlamayı düşünerek yapıyor, kampanyaları da sitenin nasıl çalıştığını bilerek yönetiyorum.",
+    "p4": "Müşterilerimle Türkçe, İngilizce, Farsça ve Rusça çalışıyor, iletişimi sade tutuyorum: net planlar, düzenli bilgilendirme, gereksiz jargon yok.",
+    "more": "Hakkımda daha fazlası",
     "linkedin": "LinkedIn'de Bağlantı Kurun",
     "facts": {
       "services": "Temel hizmet",
@@ -168,30 +170,30 @@
       "Kapsam ve ilerleme konusunda dürüst iletişim"
     ],
     "portraitAlt": "Sina Jokar portresi",
-    "lead": "Çalışmalarım yazılım mühendisliği, web sitesi geliştirme ve performans pazarlamasını bir araya getiriyor."
+    "lead": "Web siteleri ve yazılımlar geliştiriyor, insanları onlara getiren Google Ads kampanyalarını yönetiyorum."
   },
   "stack": {
     "eyebrow": "Yetkinlikler",
-    "heading": "Yetkinlikler ve Teknolojiler.",
-    "intro": "Çalışmalarımda kullandığım araçlar, kullanım alanına göre gruplandı. En derin uzmanlığım Python ve Django; diğerleri geliştirdiğim ürünleri ve kampanyaları destekliyor.",
+    "heading": "Araçlar ve teknolojiler.",
+    "intro": "Her gün kullandığım araçlar. Ana uzmanlık alanım Python ve Django.",
     "backend": "Backend",
     "frontend": "Frontend",
     "engineering": "Mühendislik",
     "marketing": "Pazarlama"
   },
   "contact": {
-    "heading": "Aklınızda Bir Proje mi Var?",
-    "desc1": "Yeni bir web sitesi, özel yazılım veya dijital pazarlama konusunda desteğe ihtiyacınız varsa hedeflerinizi dinlemekten memnuniyet duyarım. Projenizi paylaşın, size nasıl yardımcı olabileceğimi birlikte değerlendirelim.",
-    "cta": "Projenizi Konuşalım",
+    "heading": "Bir projeniz mi var?",
+    "desc1": "İşiniz ve ihtiyacınız hakkında birkaç satır yazın. Her mesajı kendim okuyor ve kişisel olarak yanıtlıyorum. Bana WhatsApp'tan ya da telefonla da ulaşabilirsiniz.",
+    "cta": "İletişime Geçin",
     "methods": "Doğrudan iletişim",
     "whatsapp": "WhatsApp",
     "email": "E-posta",
     "phone": "Telefon",
     "linkedin": "LinkedIn",
     "location": "Antalya, Türkiye",
-    "pageHeading": "Projenizi konuşalım.",
-    "pageIntro": "Projenizi kısaca anlatın. Her mesajı bizzat okuyor, sorularımla ya da net bir sonraki adımla dönüş yapıyorum.",
-    "headingAccent": "Değerli Bir Şey İnşa Edelim."
+    "pageHeading": "Benimle iletişime geçin.",
+    "pageIntro": "Aşağıdaki formu ya da iletişim seçeneklerinden birini kullanın. Her mesajı kendim okuyor ve kişisel olarak yanıtlıyorum.",
+    "headingAccent": "Benimle iletişime geçin."
   },
   "form": {
     "title": "Proje talebi",

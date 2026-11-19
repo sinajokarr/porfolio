@@ -6,12 +6,12 @@
     "translations": {
       "en": {
         "title": "Website Design & Development",
-        "tagline": "Your Business Deserves More Than Just a Website.",
-        "summary": "Modern, responsive websites that present your services clearly, reflect your brand and make it easy for visitors to get in touch.",
+        "tagline": "Company websites, online stores and landing pages.",
+        "summary": "I design and build the whole site: fast, mobile-friendly, multilingual if you need it, with contact forms and WhatsApp buttons that actually reach you.",
         "description": [
-          "Your website is often the first impression customers have of your business.",
-          "I create modern, responsive websites that communicate your services clearly, reflect your brand professionally, and make it easier for visitors to contact you, request information, or explore your products.",
-          "From company websites and online stores to multilingual platforms and landing pages, each solution is developed around your business needs."
+          "Your website is usually the first thing a new customer sees. It should explain clearly what you do and make it easy to get in touch.",
+          "I handle the whole process: structure and copy, design, development, hosting setup and basic SEO. Sites are fast on mobile and easy for you to update.",
+          "Typical projects: company websites, online stores, multilingual sites for international customers, and landing pages for ad campaigns."
         ],
         "features": [
           "Corporate website development",
@@ -31,16 +31,16 @@
           "Search-friendly technical foundations",
           "Flexibility to grow with your business"
         ],
-        "cta": "Let's Build Your Website"
+        "cta": "Discuss Your Website"
       },
       "tr": {
         "title": "Web Tasarımı ve Geliştirme",
-        "tagline": "İşletmeniz Sıradan Bir Web Sitesinden Fazlasını Hak Ediyor.",
-        "summary": "Hizmetlerinizi net anlatan, markanızı profesyonelce yansıtan ve ziyaretçilerin size kolayca ulaşmasını sağlayan modern, mobil uyumlu web siteleri.",
+        "tagline": "Kurumsal site, online mağaza ve açılış sayfası.",
+        "summary": "Sitenin tamamını tasarlayıp geliştiriyorum: hızlı, mobil uyumlu, gerekirse çok dilli; formlar ve WhatsApp butonu mesajları gerçekten size ulaştırıyor.",
         "description": [
-          "Web siteniz çoğu zaman müşterilerin işletmeniz hakkındaki ilk izlenimidir.",
-          "Hizmetlerinizi açıkça anlatan, markanızı profesyonelce yansıtan ve ziyaretçilerin sizinle iletişime geçmesini, bilgi istemesini ya da ürünlerinizi incelemesini kolaylaştıran modern ve mobil uyumlu web siteleri geliştiriyorum.",
-          "Kurumsal sitelerden online mağazalara, çok dilli platformlardan açılış sayfalarına kadar her çözümü işletmenizin ihtiyaçlarına göre tasarlıyorum."
+          "Web siteniz genellikle yeni bir müşterinin sizinle ilgili gördüğü ilk şeydir. Ne yaptığınızı net anlatmalı ve size ulaşmayı kolaylaştırmalı.",
+          "Sürecin tamamı bende: yapı ve metinler, tasarım, geliştirme, hosting kurulumu ve temel SEO. Siteler mobilde hızlı açılır ve sizin için güncellemesi kolaydır.",
+          "Örnek projeler: kurumsal siteler, online mağazalar, yabancı müşteriler için çok dilli siteler ve reklam kampanyaları için açılış sayfaları."
         ],
         "features": [
           "Kurumsal web sitesi geliştirme",
@@ -60,16 +60,16 @@
           "Arama motoru dostu teknik altyapı",
           "İşletmenizle birlikte büyüyebilen esneklik"
         ],
-        "cta": "Web Sitenizi Birlikte Kuralım"
+        "cta": "Sitenizi Konuşalım"
       },
       "fa": {
         "title": "طراحی و توسعه وب‌سایت",
-        "tagline": "کسب‌وکار شما شایسته چیزی فراتر از یک وب‌سایت معمولی است.",
-        "summary": "وب‌سایت‌های مدرن و واکنش‌گرا که خدماتتان را شفاف معرفی می‌کنند، برندتان را حرفه‌ای نشان می‌دهند و تماس با شما را برای بازدیدکننده آسان می‌کنند.",
+        "tagline": "سایت شرکتی، فروشگاه اینترنتی و لندینگ پیج.",
+        "summary": "کل سایت را طراحی و پیاده‌سازی می‌کنم: سریع، مناسب موبایل، چندزبانه اگر لازم باشد، با فرم تماس و دکمه‌ی واتساپی که پیام‌ها واقعاً به دستتان برسد.",
         "description": [
-          "وب‌سایت شما اغلب اولین تصویری است که مشتری از کسب‌وکارتان می‌بیند.",
-          "وب‌سایت‌های مدرن و واکنش‌گرایی طراحی و توسعه می‌دهم که خدمات شما را روشن معرفی می‌کنند، برندتان را حرفه‌ای نشان می‌دهند و تماس، درخواست اطلاعات یا مشاهده محصولات را برای بازدیدکننده ساده‌تر می‌کنند.",
-          "از وب‌سایت شرکتی و فروشگاه اینترنتی تا پلتفرم چندزبانه و لندینگ پیج، هر راهکار بر اساس نیازهای کسب‌وکار شما ساخته می‌شود."
+          "وب‌سایت معمولاً اولین چیزی است که مشتری جدید از شما می‌بیند. باید روشن بگوید چه کاری انجام می‌دهید و تماس با شما را ساده کند.",
+          "کل مسیر با من است: ساختار و متن، طراحی، برنامه‌نویسی، راه‌اندازی هاست و سئوی پایه. سایت روی موبایل سریع است و به‌روزرسانی‌اش برای خودتان آسان.",
+          "نمونه‌ی پروژه‌ها: سایت شرکتی، فروشگاه اینترنتی، سایت چندزبانه برای مشتری‌های خارجی و لندینگ پیج برای کمپین‌های تبلیغاتی."
         ],
         "features": [
           "طراحی وب‌سایت شرکتی",
@@ -89,16 +89,16 @@
           "زیرساخت فنی سازگار با موتورهای جست‌وجو",
           "انعطاف برای رشد همراه با کسب‌وکار"
         ],
-        "cta": "وب‌سایتتان را با هم بسازیم"
+        "cta": "درباره سایتتان صحبت کنیم"
       },
       "ru": {
         "title": "Дизайн и разработка сайтов",
-        "tagline": "Вашему бизнесу нужен не просто сайт.",
-        "summary": "Современные адаптивные сайты, которые понятно рассказывают о ваших услугах, профессионально представляют бренд и помогают посетителям легко связаться с вами.",
+        "tagline": "Сайты компаний, интернет-магазины и лендинги.",
+        "summary": "Делаю сайт целиком: быстрый, удобный на телефоне, при необходимости многоязычный, с формами и кнопкой WhatsApp, сообщения из которых действительно до вас доходят.",
         "description": [
-          "Сайт часто становится первым впечатлением клиента о вашей компании.",
-          "Я создаю современные адаптивные сайты, которые понятно рассказывают о ваших услугах, профессионально представляют бренд и помогают посетителям связаться с вами, запросить информацию или ознакомиться с продуктами.",
-          "Корпоративный сайт, интернет-магазин, многоязычная платформа или лендинг — каждое решение я разрабатываю с учётом задач вашего бизнеса."
+          "Сайт — обычно первое, что видит новый клиент. Он должен ясно объяснять, чем вы занимаетесь, и позволять легко с вами связаться.",
+          "Весь процесс на мне: структура и тексты, дизайн, разработка, настройка хостинга и базовое SEO. Сайты быстро работают на телефоне, и вам легко их обновлять.",
+          "Типичные проекты: сайты компаний, интернет-магазины, многоязычные сайты для иностранных клиентов и лендинги для рекламных кампаний."
         ],
         "features": [
           "Корпоративные сайты",
@@ -118,7 +118,7 @@
           "Техническая основа, удобная для поисковых систем",
           "Гибкость для роста вашего бизнеса"
         ],
-        "cta": "Создадим ваш сайт"
+        "cta": "Обсудить сайт"
       }
     }
   },
@@ -129,12 +129,12 @@
     "translations": {
       "en": {
         "title": "Full-Stack Development",
-        "tagline": "Software Built Around the Way Your Business Works.",
-        "summary": "Web applications, backend systems and API integrations that help you manage data, simplify workflows and connect the services you use.",
+        "tagline": "Custom software and admin panels.",
+        "summary": "Order and booking systems, admin dashboards, customer portals and integrations between the tools you already use — built with Python, Django and React.",
         "description": [
-          "When ready-made tools cannot meet your business needs, custom software can provide a more flexible solution.",
-          "I build web applications, backend systems, and API integrations that help businesses manage data, improve workflows, and connect digital services.",
-          "My approach combines structured backend engineering with modern, practical frontend experiences."
+          "When ready-made tools no longer fit how your business works, a custom application can take hours of manual work off your week.",
+          "I build the backend, the database and the interface: admin panels, order and booking systems, customer portals, and APIs that connect your website, CRM, payment provider or accounting tool.",
+          "Technically: Python, Django and Django REST Framework, PostgreSQL, React and Next.js, with automated tests for the critical parts and documentation any developer can pick up."
         ],
         "features": [
           "Custom web applications",
@@ -153,16 +153,16 @@
           "Reliable connections between the services you use",
           "Maintainable foundations for future development"
         ],
-        "cta": "Discuss a Custom Solution"
+        "cta": "Discuss Your Software"
       },
       "tr": {
         "title": "Full-Stack Yazılım Geliştirme",
-        "tagline": "İşletmenizin Çalışma Biçimine Göre Geliştirilen Yazılım.",
-        "summary": "Verilerinizi yönetmenize, iş akışlarınızı sadeleştirmenize ve kullandığınız servisleri birbirine bağlamanıza yardımcı olan web uygulamaları, backend sistemleri ve API entegrasyonları.",
+        "tagline": "Özel yazılım ve yönetim panelleri.",
+        "summary": "Sipariş ve rezervasyon sistemleri, yönetim panelleri, müşteri portalları ve kullandığınız araçlar arasında entegrasyonlar; Python, Django ve React ile.",
         "description": [
-          "Hazır araçlar ihtiyaçlarınızı karşılamadığında, özel yazılım çok daha esnek bir çözüm sunabilir.",
-          "Verilerinizi yönetmenize, iş akışlarınızı iyileştirmenize ve dijital servislerinizi birbirine bağlamanıza yardımcı olan web uygulamaları, backend sistemleri ve API entegrasyonları geliştiriyorum.",
-          "Yaklaşımım, düzenli ve sağlam bir backend mühendisliğini modern ve kullanışlı arayüzlerle bir araya getiriyor."
+          "Hazır araçlar işinizin işleyişine artık uymadığında, özel bir uygulama her hafta saatlerce elle yapılan işi azaltabilir.",
+          "Backend'i, veritabanını ve arayüzü geliştiriyorum: yönetim panelleri, sipariş ve rezervasyon sistemleri, müşteri portalları ve sitenizi, CRM'inizi, ödeme altyapınızı ya da muhasebe programınızı birbirine bağlayan API'ler.",
+          "Teknik olarak: Python, Django ve Django REST Framework, PostgreSQL, React ve Next.js; kritik kısımlar için otomatik testler ve her yazılımcının devam edebileceği dokümantasyon."
         ],
         "features": [
           "Özel web uygulamaları",
@@ -181,16 +181,16 @@
           "Kullandığınız servisler arasında güvenilir bağlantılar",
           "Gelecekteki geliştirmeler için sürdürülebilir altyapı"
         ],
-        "cta": "Size Özel Çözümü Konuşalım"
+        "cta": "Yazılımınızı Konuşalım"
       },
       "fa": {
         "title": "برنامه‌نویسی فول‌استک",
-        "tagline": "نرم‌افزاری که بر اساس روش کار کسب‌وکار شما ساخته می‌شود.",
-        "summary": "اپلیکیشن‌های تحت وب، سیستم‌های بک‌اند و یکپارچه‌سازی API که به مدیریت داده‌ها، ساده‌تر شدن فرایندها و اتصال سرویس‌هایتان کمک می‌کنند.",
+        "tagline": "نرم‌افزار اختصاصی و پنل مدیریت.",
+        "summary": "سیستم سفارش و رزرو، پنل مدیریت، پرتال مشتری و اتصال ابزارهایی که الان استفاده می‌کنید؛ با پایتون، جنگو و React.",
         "description": [
-          "وقتی ابزارهای آماده جوابگوی نیازهای کسب‌وکارتان نیستند، نرم‌افزار اختصاصی می‌تواند راهکار انعطاف‌پذیرتری باشد.",
-          "اپلیکیشن‌های تحت وب، سیستم‌های بک‌اند و یکپارچه‌سازی‌های API می‌سازم که به مدیریت داده‌ها، بهبود فرایندهای کاری و اتصال سرویس‌های دیجیتال شما کمک می‌کنند.",
-          "رویکرد من ترکیبی از مهندسی بک‌اند ساختارمند و رابط‌های کاربری مدرن و کاربردی است."
+          "وقتی ابزارهای آماده دیگر با روش کار شما جور نیستند، یک نرم‌افزار اختصاصی می‌تواند هر هفته ساعت‌ها کار دستی را کم کند.",
+          "بک‌اند، دیتابیس و رابط کاربری را می‌سازم: پنل مدیریت، سیستم سفارش و رزرو، پرتال مشتری و APIهایی که سایت، CRM، درگاه پرداخت یا نرم‌افزار حسابداری‌تان را به هم وصل می‌کنند.",
+          "از نظر فنی: پایتون، جنگو و Django REST Framework، دیتابیس PostgreSQL، React و Next.js؛ با تست خودکار برای بخش‌های حساس و مستنداتی که هر برنامه‌نویسی بتواند ادامه‌ی کار را بگیرد."
         ],
         "features": [
           "اپلیکیشن‌های تحت وب اختصاصی",
@@ -209,16 +209,16 @@
           "اتصال قابل‌اعتماد سرویس‌هایی که استفاده می‌کنید",
           "زیرساخت قابل‌نگهداری برای توسعه‌های بعدی"
         ],
-        "cta": "درباره راهکار اختصاصی صحبت کنیم"
+        "cta": "درباره نرم‌افزارتان صحبت کنیم"
       },
       "ru": {
         "title": "Full-stack разработка",
-        "tagline": "Программное обеспечение под процессы вашего бизнеса.",
-        "summary": "Веб-приложения, серверные системы и API-интеграции, которые помогают управлять данными, упрощать рабочие процессы и связывать ваши сервисы.",
+        "tagline": "Индивидуальное ПО и админ-панели.",
+        "summary": "Системы заказов и бронирования, админ-панели, личные кабинеты клиентов и интеграции между сервисами, которыми вы уже пользуетесь, — на Python, Django и React.",
         "description": [
-          "Когда готовые инструменты не справляются с задачами бизнеса, индивидуальное ПО даёт больше гибкости.",
-          "Я разрабатываю веб-приложения, серверные системы и API-интеграции, которые помогают управлять данными, улучшать рабочие процессы и связывать цифровые сервисы между собой.",
-          "Мой подход сочетает продуманную серверную архитектуру с современными и удобными интерфейсами."
+          "Когда готовые сервисы перестают подходить под ваши процессы, собственное приложение может каждую неделю экономить часы ручной работы.",
+          "Я делаю бэкенд, базу данных и интерфейс: админ-панели, системы заказов и бронирования, личные кабинеты и API, связывающие ваш сайт, CRM, платёжную систему или бухгалтерию.",
+          "Технически: Python, Django и Django REST Framework, PostgreSQL, React и Next.js, автотесты для критичных частей и документация, с которой продолжить работу сможет любой разработчик."
         ],
         "features": [
           "Индивидуальные веб-приложения",
@@ -237,7 +237,7 @@
           "Надёжная связь между сервисами, которыми вы пользуетесь",
           "Поддерживаемая основа для дальнейшего развития"
         ],
-        "cta": "Обсудим индивидуальное решение"
+        "cta": "Обсудить проект"
       }
     }
   },
@@ -248,12 +248,12 @@
     "translations": {
       "en": {
         "title": "Performance Marketing",
-        "tagline": "Reach Relevant Customers. Understand What Works.",
-        "summary": "Google Ads, conversion tracking and analytics that connect your advertising with real actions — inquiries, calls and qualified leads.",
+        "tagline": "Google Ads with clear reporting.",
+        "summary": "I set up and manage search campaigns, track calls and form submissions properly, and show you every month what worked and what didn't.",
         "description": [
-          "Successful digital advertising requires a clear strategy, relevant traffic, and reliable performance measurement.",
-          "I work with Google Ads, conversion tracking, analytics, and landing page optimization to help businesses connect their advertising efforts with meaningful actions such as inquiries, calls, and qualified leads.",
-          "My focus is on creating a clearer connection between marketing activity and business objectives."
+          "Google Ads can bring customers who are already searching for what you offer — as long as the campaign is set up carefully and you can see the results.",
+          "I research keywords, write the ads, build or improve the landing page, and set up conversion tracking with GA4 and Google Tag Manager so calls, WhatsApp messages and forms are counted correctly.",
+          "Each month you get a short, clear report: what was spent, what it brought in and what I suggest changing. I don't promise rankings or guaranteed results."
         ],
         "features": [
           "Google Ads",
@@ -272,16 +272,16 @@
           "Clearer reporting on advertising performance",
           "A measurable foundation for ongoing optimisation"
         ],
-        "cta": "Let's Discuss Your Marketing Goals"
+        "cta": "Discuss Your Campaign"
       },
       "tr": {
         "title": "Performans Pazarlaması",
-        "tagline": "Doğru Müşterilere Ulaşın. Neyin İşe Yaradığını Görün.",
-        "summary": "Reklamlarınızı başvuru, telefon araması ve nitelikli potansiyel müşteri gibi gerçek eylemlerle ilişkilendiren Google Ads, dönüşüm takibi ve analitik.",
+        "tagline": "Net raporlu Google Ads.",
+        "summary": "Arama kampanyalarını kurup yönetiyor, aramaları ve formları doğru şekilde takip ediyor ve her ay neyin işe yarayıp neyin yaramadığını gösteriyorum.",
         "description": [
-          "Başarılı dijital reklamcılık; net bir strateji, doğru trafik ve güvenilir performans ölçümü gerektirir.",
-          "Google Ads, dönüşüm takibi, analitik ve açılış sayfası optimizasyonu ile reklam çalışmalarınızı başvuru, telefon araması ve nitelikli potansiyel müşteri gibi anlamlı eylemlerle ilişkilendirmenize yardımcı oluyorum.",
-          "Odak noktam, pazarlama faaliyetleriniz ile iş hedefleriniz arasında daha net bir bağ kurmak."
+          "Google Ads, tam şu anda sunduğunuz hizmeti arayan müşterileri getirebilir; yeter ki kampanya özenle kurulsun ve sonuçlar görülebilsin.",
+          "Anahtar kelimeleri araştırıyor, reklam metinlerini yazıyor, açılış sayfasını hazırlıyor ya da iyileştiriyor ve GA4 ile Google Tag Manager üzerinden dönüşüm takibini kuruyorum; böylece aramalar, WhatsApp mesajları ve formlar doğru sayılıyor.",
+          "Her ay kısa ve anlaşılır bir rapor alırsınız: ne harcandı, ne getirdi ve bir sonraki ay için önerim ne. Sıralama ya da garantili sonuç vaat etmem."
         ],
         "features": [
           "Google Ads",
@@ -300,16 +300,16 @@
           "Reklam performansı hakkında daha net raporlama",
           "Sürekli optimizasyon için ölçülebilir bir temel"
         ],
-        "cta": "Pazarlama Hedeflerinizi Konuşalım"
+        "cta": "Kampanyanızı Konuşalım"
       },
       "fa": {
         "title": "پرفورمنس مارکتینگ",
-        "tagline": "به مشتریان مرتبط برسید. بفهمید چه چیزی جواب می‌دهد.",
-        "summary": "گوگل ادز، ردیابی تبدیل و تحلیل داده تا تبلیغاتتان به اقدام‌های واقعی مثل درخواست، تماس و سرنخ‌های باکیفیت متصل شود.",
+        "tagline": "گوگل ادز با گزارش شفاف.",
+        "summary": "کمپین جست‌وجو را راه‌اندازی و مدیریت می‌کنم، تماس‌ها و فرم‌ها را دقیق ردیابی می‌کنم و هر ماه نشان می‌دهم چه چیزی جواب داده و چه چیزی نه.",
         "description": [
-          "تبلیغات دیجیتال موفق به استراتژی روشن، ترافیک مرتبط و اندازه‌گیری دقیق عملکرد نیاز دارد.",
-          "با گوگل ادز، ردیابی تبدیل، ابزارهای تحلیلی و بهینه‌سازی لندینگ پیج کار می‌کنم تا تلاش‌های تبلیغاتی شما به اقدام‌های ارزشمندی مثل درخواست مشاوره، تماس تلفنی و سرنخ‌های باکیفیت متصل شود.",
-          "تمرکز من ایجاد ارتباطی روشن‌تر میان فعالیت‌های بازاریابی و اهداف کسب‌وکار شماست."
+          "گوگل ادز می‌تواند مشتری‌هایی را بیاورد که همین حالا دنبال خدمات شما می‌گردند؛ به شرط اینکه کمپین با دقت تنظیم شود و نتیجه‌اش قابل دیدن باشد.",
+          "کلمات کلیدی را بررسی می‌کنم، متن تبلیغ را می‌نویسم، لندینگ پیج را می‌سازم یا بهتر می‌کنم و با GA4 و گوگل تگ منیجر ردیابی تبدیل را راه می‌اندازم تا تماس‌ها، پیام‌های واتساپ و فرم‌ها درست شمرده شوند.",
+          "هر ماه یک گزارش کوتاه و روشن می‌گیرید: چقدر هزینه شده، چه نتیجه‌ای داشته و پیشنهادم برای ماه بعد چیست. رتبه یا نتیجه‌ی تضمینی وعده نمی‌دهم."
         ],
         "features": [
           "گوگل ادز",
@@ -328,16 +328,16 @@
           "گزارش شفاف‌تر از عملکرد تبلیغات",
           "پایه‌ای قابل‌اندازه‌گیری برای بهینه‌سازی مداوم"
         ],
-        "cta": "درباره اهداف بازاریابی‌تان صحبت کنیم"
+        "cta": "درباره کمپینتان صحبت کنیم"
       },
       "ru": {
         "title": "Performance-маркетинг",
-        "tagline": "Привлекайте нужных клиентов. Понимайте, что работает.",
-        "summary": "Google Ads, отслеживание конверсий и аналитика, которые связывают рекламу с реальными действиями — заявками, звонками и качественными лидами.",
+        "tagline": "Google Ads с понятной отчётностью.",
+        "summary": "Настраиваю и веду поисковые кампании, правильно отслеживаю звонки и заявки и каждый месяц показываю, что сработало, а что нет.",
         "description": [
-          "Успешная цифровая реклама требует чёткой стратегии, релевантного трафика и надёжного измерения результатов.",
-          "Я работаю с Google Ads, отслеживанием конверсий, аналитикой и оптимизацией посадочных страниц, чтобы связать ваши рекламные усилия с важными действиями: заявками, звонками и качественными лидами.",
-          "Моя задача — сделать связь между маркетингом и целями бизнеса более прозрачной."
+          "Google Ads может приводить клиентов, которые уже ищут то, что вы предлагаете, — если кампания настроена аккуратно, а результаты видны.",
+          "Я подбираю ключевые слова, пишу объявления, делаю или улучшаю посадочную страницу и настраиваю отслеживание конверсий в GA4 и Google Tag Manager, чтобы звонки, сообщения в WhatsApp и заявки считались правильно.",
+          "Каждый месяц вы получаете короткий понятный отчёт: сколько потрачено, что это принесло и что я предлагаю изменить. Я не обещаю позиций или гарантированных результатов."
         ],
         "features": [
           "Google Ads",
@@ -356,7 +356,7 @@
           "Понятная отчётность по эффективности рекламы",
           "Измеримая основа для дальнейшей оптимизации"
         ],
-        "cta": "Обсудим ваши маркетинговые цели"
+        "cta": "Обсудить рекламу"
       }
     }
   },

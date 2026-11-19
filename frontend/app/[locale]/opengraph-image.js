@@ -24,8 +24,8 @@ export default async function OpengraphImage() {
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 0 0 72px", width: 720 }}>
           <div style={{ fontSize: 20, letterSpacing: 5, color: "#a7aab5" }}>FULL-STACK DEVELOPER × PERFORMANCE MARKETING</div>
           <div style={{ fontSize: 64, fontWeight: 600, marginTop: 26, lineHeight: 1.06, display: "flex", flexDirection: "column" }}>
-            <span>I Build Digital Products.</span>
-            <span style={{ display: "flex" }}>I Help Businesses&nbsp;<span style={{ color: "#aaa9f5" }}>Grow.</span></span>
+            <span>I&apos;m Sina Jokar.</span>
+            <span style={{ display: "flex" }}>Websites, software &amp;&nbsp;<span style={{ color: "#aaa9f5" }}>Google Ads.</span></span>
           </div>
           <div style={{ marginTop: 44, fontSize: 24, letterSpacing: 4, fontWeight: 600 }}>SINA JOKAR</div>
           <div style={{ marginTop: 6, fontSize: 18, color: "#a7aab5" }}>Antalya, Türkiye</div>

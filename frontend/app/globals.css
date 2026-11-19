@@ -28,6 +28,81 @@
   --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
 }
 
+/* ---------- Light mode ("lamp on") ----------
+   Dark surfaces flip by re-pointing the colour tokens at the root; utilities like text-white / bg-ink follow.
+   .bg-ice keeps white as white (cards and badges on the light bands), .theme-dark pins a block to the night palette
+   (project artwork cards, architecture diagrams). */
+:root {
+  --surface-hi: #16181f;
+  --surface-lo: #0d0f14;
+  --shadow-deep: rgb(0 0 0 / 0.8);
+}
+html.light {
+  color-scheme: light;
+  --color-ink: #e8eaf0;
+  --color-ink-900: #eef0f4;
+  --color-ink-800: #ffffff;
+  --color-ink-700: #f3f4f8;
+  --color-ink-600: #dde0e8;
+  --color-ice: #f9f9fb;
+  --color-white: #12141b;
+  --color-text: #12141b;
+  --color-mist: #5b5f6c;
+  --color-line: rgb(18 20 27 / 0.1);
+  --color-accent: #7c79f0;
+  --color-accent-strong: #5b5fe6;
+  --color-accent-soft: #9e9cf5;
+  --surface-hi: #ffffff;
+  --surface-lo: #f6f7fa;
+  --shadow-deep: rgb(40 44 70 / 0.16);
+}
+html.light .bg-ice {
+  --color-white: #ffffff;
+}
+/* Dark panels sitting on the light bands (Growth Lab dashboard, benefit boxes) stay dark in both themes. */
+html.light .theme-dark,
+html.light .bg-ice .card-dark,
+html.light .bg-ice [class*="bg-ink"] {
+  color-scheme: dark;
+  --color-ink: #08090c;
+  --color-ink-900: #0b0d12;
+  --color-ink-800: #12141a;
+  --color-ink-700: #1a1d25;
+  --color-ink-600: #252833;
+  --color-white: #ffffff;
+  --color-text: #f7f8fa;
+  --color-mist: #a7aab5;
+  --color-line: rgb(255 255 255 / 0.1);
+  --color-accent: #aaa9f5;
+  --color-accent-strong: #818cf8;
+  --color-accent-soft: #c9c8ff;
+  --surface-hi: #16181f;
+  --surface-lo: #0d0f14;
+  --shadow-deep: rgb(0 0 0 / 0.8);
+}
+html.light .text-chrome:not(.theme-dark *) {
+  background-image: linear-gradient(180deg, #2b2d39 0%, #4a4d5c 50%, #7d8093 100%);
+}
+html.light .text-accent-gradient:not(.theme-dark *) {
+  background-image: linear-gradient(100deg, #7d7af2 0%, #5b5fe6 55%, #4a4fd6 100%);
+}
+html.light .monogram:not(.theme-dark *) {
+  filter: invert(0.88);
+}
+/* The night dunes become pale morning dunes. */
+html.light .dunes {
+  filter: invert(1) hue-rotate(180deg) brightness(1.04);
+}
+/* Theme switch: the new theme spreads as a circle of light from the lamp (clip-path animated in ThemeLamp). */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-new(root) {
+  z-index: 2;
+}
+
 @layer base {
   html {
     background: var(--color-ink);
@@ -106,11 +181,11 @@
     border-radius: var(--radius-card);
     background:
       radial-gradient(120% 80% at 0% 0%, rgb(255 255 255 / 0.06), transparent 55%),
-      linear-gradient(180deg, #16181f 0%, #0d0f14 100%);
+      linear-gradient(180deg, var(--surface-hi) 0%, var(--surface-lo) 100%);
     border: 1px solid var(--color-line);
     box-shadow:
       inset 0 1px 0 rgb(255 255 255 / 0.06),
-      0 30px 80px -40px rgb(0 0 0 / 0.8);
+      0 30px 80px -40px var(--shadow-deep);
   }
   .card-light {
     position: relative;
@@ -155,21 +230,21 @@
     will-change: transform;
   }
   .btn-light {
-    background: #fff;
-    color: var(--color-text-dark);
+    background: var(--color-white);
+    color: var(--color-ink);
     box-shadow: 0 10px 30px -12px rgb(170 169 245 / 0.45);
   }
   .btn-light:hover {
     box-shadow: 0 16px 40px -12px rgb(170 169 245 / 0.7);
   }
   .btn-ghost {
-    border: 1px solid rgb(255 255 255 / 0.22);
+    border: 1px solid color-mix(in oklab, var(--color-white) 22%, transparent);
     color: var(--color-text);
-    background: rgb(255 255 255 / 0.02);
+    background: color-mix(in oklab, var(--color-white) 2%, transparent);
   }
   .btn-ghost:hover {
-    border-color: rgb(255 255 255 / 0.45);
-    background: rgb(255 255 255 / 0.06);
+    border-color: color-mix(in oklab, var(--color-white) 45%, transparent);
+    background: color-mix(in oklab, var(--color-white) 6%, transparent);
   }
   .btn-dark {
     background: var(--color-text-dark);
@@ -194,11 +269,11 @@
     display: inline-flex;
     align-items: center;
     border-radius: 999px;
-    border: 1px solid rgb(255 255 255 / 0.16);
+    border: 1px solid color-mix(in oklab, var(--color-white) 16%, transparent);
     padding: 0.3rem 0.75rem;
     font-size: 0.74rem;
-    color: rgb(255 255 255 / 0.82);
-    background: rgb(255 255 255 / 0.03);
+    color: color-mix(in oklab, var(--color-white) 82%, transparent);
+    background: color-mix(in oklab, var(--color-white) 3%, transparent);
     white-space: nowrap;
   }
   .chip-dark {
@@ -209,8 +284,8 @@
   .field {
     width: 100%;
     border-radius: 1rem;
-    border: 1px solid rgb(255 255 255 / 0.12);
-    background: rgb(255 255 255 / 0.03);
+    border: 1px solid color-mix(in oklab, var(--color-white) 12%, transparent);
+    background: color-mix(in oklab, var(--color-white) 3%, transparent);
     padding: 0.85rem 1rem;
     color: var(--color-text);
     font-size: 0.95rem;
@@ -220,7 +295,7 @@
     color: rgb(167 170 181 / 0.7);
   }
   .field:hover {
-    border-color: rgb(255 255 255 / 0.22);
+    border-color: color-mix(in oklab, var(--color-white) 22%, transparent);
   }
   .field:focus {
     outline: none;
@@ -250,11 +325,11 @@
     width: 100%;
     height: 2px;
     border-radius: 2px;
-    background: linear-gradient(to right, var(--fill-color, var(--color-accent)) var(--fill, 50%), var(--track, rgb(255 255 255 / 0.15)) var(--fill, 50%));
+    background: linear-gradient(to right, var(--fill-color, var(--color-accent)) var(--fill, 50%), var(--track, color-mix(in oklab, var(--color-white) 15%, transparent)) var(--fill, 50%));
     cursor: pointer;
   }
   [dir="rtl"] .range {
-    background: linear-gradient(to left, var(--fill-color, var(--color-accent)) var(--fill, 50%), var(--track, rgb(255 255 255 / 0.15)) var(--fill, 50%));
+    background: linear-gradient(to left, var(--fill-color, var(--color-accent)) var(--fill, 50%), var(--track, color-mix(in oklab, var(--color-white) 15%, transparent)) var(--fill, 50%));
   }
   .range::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -283,7 +358,7 @@
   /* Thin divider that fades at both ends. */
   .hairline {
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.16), transparent);
+    background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--color-white) 16%, transparent), transparent);
   }
   .no-scrollbar {
     scrollbar-width: none;
@@ -417,6 +492,13 @@ html.motion [data-hero] {
 }
 .hero-sculpture.is-live canvas {
   opacity: 1;
+}
+.still-day,
+html.light .still-night {
+  display: none;
+}
+html.light .still-day {
+  display: block;
 }
 .hero-sculpture.is-live .hero-sculpture-still {
   visibility: hidden;

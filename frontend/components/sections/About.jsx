@@ -38,8 +38,8 @@ export default function AboutProfile({ full = false }) {
           </div>
           <div className="relative min-h-[30rem] overflow-hidden">
             <Image src="/sina-jokar.webp" alt={t("portraitAlt")} fill unoptimized className="object-cover object-[50%_20%]" />
-            <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(90deg,#12141a_0%,transparent_35%),linear-gradient(0deg,#0d0f14_0%,transparent_35%)] rtl:bg-[linear-gradient(270deg,#12141a_0%,transparent_35%),linear-gradient(0deg,#0d0f14_0%,transparent_35%)] max-lg:bg-[linear-gradient(0deg,#0d0f14_0%,transparent_45%)]" />
-            <dl className="absolute bottom-6 end-6 hidden w-56 divide-y divide-white/10 rounded-3xl border border-white/10 bg-black/45 px-6 backdrop-blur-xl sm:block">
+            <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(90deg,var(--color-ink-800)_0%,transparent_35%),linear-gradient(0deg,var(--surface-lo)_0%,transparent_35%)] rtl:bg-[linear-gradient(270deg,var(--color-ink-800)_0%,transparent_35%),linear-gradient(0deg,var(--surface-lo)_0%,transparent_35%)] max-lg:bg-[linear-gradient(0deg,var(--surface-lo)_0%,transparent_45%)]" />
+            <dl className="theme-dark absolute bottom-6 end-6 hidden w-56 divide-y divide-white/10 rounded-3xl border border-white/10 bg-black/45 px-6 backdrop-blur-xl sm:block">
               {facts.map((f) => (
                 <div key={f.label} className="py-5">
                   <dd className="whitespace-nowrap text-[1.3rem] font-medium tracking-tight text-white" dir="ltr">{f.value}</dd>

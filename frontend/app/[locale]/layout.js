@@ -41,7 +41,8 @@ export async function generateMetadata({ params }) {
 export const viewport = { themeColor: "#08090c", colorScheme: "dark" };
 
 // Runs before paint: hide reveal targets only when motion is allowed.
-const motionScript = `if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('motion')`;
+// Also restores the visitor's day/night choice (the header lamp) before paint, so there is no flash.
+const motionScript = `var d=document.documentElement;if(!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('motion');try{if(localStorage.getItem('theme')==='light')d.classList.add('light')}catch(e){}`;
 
 export default async function LocaleLayout({ children, params }) {
   const { locale } = await params;

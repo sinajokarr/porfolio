@@ -7,10 +7,10 @@ test("root redirects to a locale", async ({ page }) => {
 });
 
 for (const [locale, dir, heading] of [
-  ["en", "ltr", "I Build Digital Products."],
-  ["tr", "ltr", "Dijital Ürünler Geliştiriyorum."],
-  ["fa", "rtl", "محصولات دیجیتال می‌سازم."],
-  ["ru", "ltr", "Создаю цифровые продукты."],
+  ["en", "ltr", "I'm Sina Jokar."],
+  ["tr", "ltr", "Ben Sina Jokar."],
+  ["fa", "rtl", "من سینا جوکار هستم."],
+  ["ru", "ltr", "Я Сина Джокар."],
 ]) {
   test(`${locale}: lang/dir and hero`, async ({ page }) => {
     await page.goto(`/${locale}`);
@@ -86,7 +86,7 @@ test("homepage follows the visitor journey", async ({ page }) => {
   await page.goto("/en");
   const ids = await page.locator("main section[id]").evaluateAll((els) => els.map((e) => e.id));
   expect(ids).toEqual(["services", "work", "stack", "process", "about", "contact"]);
-  await page.getByRole("link", { name: "Explore My Services" }).click();
+  await page.getByRole("link", { name: "My Services" }).click();
   await expect(page).toHaveURL(/#services$/);
 });
 
@@ -94,4 +94,14 @@ test("growth lab lives on the performance marketing page", async ({ page }) => {
   await page.goto("/en/services/performance-marketing");
   await expect(page.locator("#growth-lab")).toBeVisible();
   await expect(page.getByText("Illustrative estimates")).toBeVisible();
+});
+
+test("the day/night switch changes the theme and remembers it", async ({ page }) => {
+  await page.goto("/en");
+  await page.getByRole("switch", { name: /light mode/ }).click();
+  await expect(page.locator("html")).toHaveClass(/\blight\b/);
+  await page.reload();
+  await expect(page.locator("html")).toHaveClass(/\blight\b/);
+  await page.getByRole("switch", { name: /dark mode/ }).click();
+  await expect(page.locator("html")).not.toHaveClass(/\blight\b/);
 });

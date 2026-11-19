@@ -3,7 +3,7 @@ import { ArrowDown, ArrowRight } from "lucide-react";
 /** Layered system diagram + critical transaction flow, rendered as accessible HTML (not an image). */
 export function ArchitectureDiagram({ diagram }) {
   return (
-    <div dir="ltr" className="card-dark overflow-hidden p-6 md:p-8">
+    <div dir="ltr" className="theme-dark card-dark overflow-hidden p-6 md:p-8">
       <ol className="flex flex-col items-stretch gap-3 lg:flex-row lg:items-center">
         {diagram.layers.map((node, i) => (
           <li key={node.title} className="flex flex-col items-center gap-3 lg:flex-1 lg:flex-row">
@@ -40,7 +40,7 @@ export function ArchitectureDiagram({ diagram }) {
 
 export function FlowDiagram({ diagram }) {
   return (
-    <ol dir="ltr" className="card-dark relative space-y-1 p-6 md:p-8">
+    <ol dir="ltr" className="theme-dark card-dark relative space-y-1 p-6 md:p-8">
       {diagram.flow.map((step, i) => (
         <li key={step} className="relative flex items-start gap-4 ps-1">
           <span className="flex flex-col items-center self-stretch">

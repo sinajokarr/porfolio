@@ -67,7 +67,9 @@ export default function HeroVisual({ alt }) {
 
       <div ref={sculpture} className="hero-layer hero-sculpture absolute inset-0" style={layer(-9)} aria-hidden="true">
         {/* eslint-disable-next-line @next/next/no-img-element -- pre-rendered transparent still of the shader */}
-        <img src="/hero-sculpture.webp" alt="" width="1400" height="1400" decoding="async" className="hero-sculpture-still size-full select-none object-contain" />
+        <img src="/hero-sculpture.webp" alt="" width="1400" height="1400" decoding="async" className="hero-sculpture-still still-night size-full select-none object-contain" />
+        {/* eslint-disable-next-line @next/next/no-img-element -- same still, day-studio lighting for light mode */}
+        <img src="/hero-sculpture-light.webp" alt="" width="1400" height="1400" decoding="async" loading="lazy" className="hero-sculpture-still still-day absolute inset-0 size-full select-none object-contain" />
         <canvas ref={canvas} className="absolute inset-0 size-full" />
       </div>
 

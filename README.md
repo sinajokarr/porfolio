@@ -4,7 +4,7 @@ Multilingual (EN / TR / FA-RTL / RU) portfolio and inquiry platform.
 
 | Part | Stack |
 | --- | --- |
-| `frontend/` | Next.js 16 (App Router, JavaScript), Tailwind CSS 4, next-intl, GSAP + ScrollTrigger, React Hook Form + Zod. Hero = 2.5D layered portrait (CSS/SVG, no WebGL) |
+| `frontend/` | Next.js 16 (App Router, JavaScript), Tailwind CSS 4, next-intl, GSAP + ScrollTrigger, React Hook Form + Zod. Hero = graded portrait over a chrome sculpture (one WebGL shader on desktop, pre-rendered still elsewhere) |
 | `backend/` | Python 3.13, Django 6.1, Django REST Framework, PostgreSQL, drf-spectacular, WhiteNoise, Gunicorn |
 | `content/` | `services.json`, `projects.json` — seed data for Django **and** the frontend's offline fallback |
 
@@ -98,7 +98,7 @@ npm run lint
 **Backups**: `docker compose exec db pg_dump -U sinajokar sinajokar > backup.sql` on a schedule, plus the `media` volume.
 **Data retention**: `python manage.py purge_inquiries --days 730` from cron (matches the privacy policy).
 **Email**: with Yahoo, create an app password. Delivery is attempted once per inquiry with a 10 s timeout; failures are visible in Admin (`email_status`).
-**Analytics**: set `NEXT_PUBLIC_GTM_ID` to enable GTM. It loads only after the visitor accepts the consent banner. Events: `contact_form_submit`, `contact_whatsapp_click`, `contact_email_click`, `contact_phone_click`, `service_inquiry_click`, `project_view`, `github_project_click`, `linkedin_profile_click`. No form contents are sent.
+**Analytics**: set `NEXT_PUBLIC_GTM_ID` to enable GTM. It loads only after the visitor accepts the consent banner. Events: `contact_form_submit`, `contact_whatsapp_click`, `contact_email_click`, `contact_phone_click`, `service_inquiry_click`, `project_view`, `project_live_click`, `github_project_click`, `linkedin_profile_click`. No form contents are sent.
 
 ## Content authenticity notes
 
