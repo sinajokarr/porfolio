@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { asset } from "@/lib/site";
 
 /**
  * Hero portrait, art-directed: a chrome ribbon sculpture behind Sina's graded photo, a soft shadow that
@@ -67,17 +68,17 @@ export default function HeroVisual({ alt }) {
 
       <div ref={sculpture} className="hero-layer hero-sculpture absolute inset-0" style={layer(-9)} aria-hidden="true">
         {/* eslint-disable-next-line @next/next/no-img-element -- pre-rendered transparent still of the shader */}
-        <img src="/hero-sculpture.webp" alt="" width="1400" height="1400" decoding="async" className="hero-sculpture-still still-night size-full select-none object-contain" />
+        <img src={asset("/hero-sculpture.webp")} alt="" width="1400" height="1400" decoding="async" className="hero-sculpture-still still-night size-full select-none object-contain" />
         {/* eslint-disable-next-line @next/next/no-img-element -- same still, day-studio lighting for light mode */}
-        <img src="/hero-sculpture-light.webp" alt="" width="1400" height="1400" decoding="async" loading="lazy" className="hero-sculpture-still still-day absolute inset-0 size-full select-none object-contain" />
+        <img src={asset("/hero-sculpture-light.webp")} alt="" width="1400" height="1400" decoding="async" loading="lazy" className="hero-sculpture-still still-day absolute inset-0 size-full select-none object-contain" />
         <canvas ref={canvas} className="absolute inset-0 size-full" />
       </div>
 
       {/* Stage = the photo's box: bottom-centred, 80% of the visual's height. */}
       <div className="hero-layer hero-portrait absolute bottom-0 left-1/2 h-[80%] -translate-x-1/2" style={{ ...layer(5), aspectRatio: `${W} / ${H}` }}>
         {/* eslint-disable-next-line @next/next/no-img-element -- pre-graded cut-out; next/image would re-encode the alpha */}
-        <img src="/hero-portrait.webp" alt={alt} width={W} height={H} fetchPriority="high" className="hero-photo size-full select-none object-contain" />
-        <div className="hero-sheen absolute inset-0" aria-hidden="true" />
+        <img src={asset("/hero-portrait.webp")} alt={alt} width={W} height={H} fetchPriority="high" className="hero-photo size-full select-none object-contain" />
+        <div className="hero-sheen absolute inset-0" style={{ maskImage: `url(${asset("/hero-portrait.webp")})`, WebkitMaskImage: `url(${asset("/hero-portrait.webp")})` }} aria-hidden="true" />
       </div>
     </div>
   );

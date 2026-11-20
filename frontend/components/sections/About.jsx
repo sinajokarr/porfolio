@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { LinkedinIcon } from "@/components/ui/icons";
 import { Link } from "@/i18n/navigation";
-import { CONTACT } from "@/lib/site";
+import { asset, CONTACT } from "@/lib/site";
 
 /** About me with Sina's portrait (monochrome grade of the supplied photo). `full` adds the long story (About page). */
 export default function AboutProfile({ full = false }) {
@@ -37,7 +37,7 @@ export default function AboutProfile({ full = false }) {
             </div>
           </div>
           <div className="relative min-h-[30rem] overflow-hidden">
-            <Image src="/sina-jokar.webp" alt={t("portraitAlt")} fill unoptimized className="object-cover object-[50%_20%]" />
+            <Image src={asset("/sina-jokar.webp")} alt={t("portraitAlt")} fill unoptimized className="object-cover object-[50%_20%]" />
             <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(90deg,var(--color-ink-800)_0%,transparent_35%),linear-gradient(0deg,var(--surface-lo)_0%,transparent_35%)] rtl:bg-[linear-gradient(270deg,var(--color-ink-800)_0%,transparent_35%),linear-gradient(0deg,var(--surface-lo)_0%,transparent_35%)] max-lg:bg-[linear-gradient(0deg,var(--surface-lo)_0%,transparent_45%)]" />
             <dl className="theme-dark absolute bottom-6 end-6 hidden w-56 divide-y divide-white/10 rounded-3xl border border-white/10 bg-black/45 px-6 backdrop-blur-xl sm:block">
               {facts.map((f) => (

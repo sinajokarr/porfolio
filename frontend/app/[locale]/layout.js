@@ -7,7 +7,7 @@ import Analytics from "@/components/layout/Analytics";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
 import { dirOf, routing } from "@/i18n/routing";
-import { alternates, CONTACT, SITE_URL } from "@/lib/site";
+import { alternates, CONTACT, SITE_URL, asset } from "@/lib/site";
 import "../globals.css";
 
 const geist = Geist({ subsets: ["latin", "latin-ext", "cyrillic"], variable: "--font-geist", display: "swap" });
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }) {
       url: `${SITE_URL}/${locale}`,
     },
     twitter: { card: "summary_large_image", title: t("title"), description: t("description") },
-    icons: { icon: "/icon.svg" },
+    icons: { icon: asset("/icon.svg") },
   };
 }
 

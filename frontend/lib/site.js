@@ -1,3 +1,7 @@
+// Set only for sub-path hosting (GitHub Pages: /porfolio). Prefix raw public-file URLs with asset().
+export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+export const asset = (path) => `${BASE_PATH}${path}`;
+
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000").replace(/\/$/, "");
 
 export const CONTACT = {
