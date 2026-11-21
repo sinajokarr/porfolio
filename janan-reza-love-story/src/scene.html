@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<title>Janan & Reza — Our Love Story</title>
+<style>
+@font-face{font-family:Vaz;src:url(fonts/vazirmatn-arabic-900-normal.woff2);font-weight:900}
+@font-face{font-family:Vaz;src:url(fonts/vazirmatn-arabic-700-normal.woff2);font-weight:700}
+@font-face{font-family:Fred;src:url(fonts/fredoka-latin-700-normal.woff2);font-weight:700}
+@font-face{font-family:Fred;src:url(fonts/fredoka-latin-600-normal.woff2);font-weight:600}
+@font-face{font-family:Script;src:url(fonts/dancing-script-latin-700-normal.woff2);font-weight:700}
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#000}
+#stage{position:relative;width:1920px;height:1080px;overflow:hidden;background:#000}
+.scene{position:absolute;inset:0;display:none}
+.scene>svg{position:absolute;inset:0}
+.cap{position:absolute;left:50%;bottom:56px;transform-origin:50% 100%;display:none;flex-direction:column;align-items:center;white-space:nowrap;
+  background:#fffaf5;border:6px solid #3a2340;border-radius:46px;padding:12px 58px 14px;box-shadow:0 10px 0 #ff8fab}
+.cap .fa{font-family:Vaz;font-weight:900;font-size:60px;color:#3a2340;direction:rtl;line-height:1.3}
+.cap .en{font-family:Script;font-weight:700;font-size:44px;color:#e0456a;margin-top:-6px}
+#chap{position:absolute;left:44px;top:36px;background:rgba(255,250,245,.93);border-radius:30px;padding:8px 28px 10px;box-shadow:0 6px 0 rgba(58,35,64,.5);opacity:0;text-align:left}
+#chap .n{font-family:Fred;font-weight:700;font-size:22px;letter-spacing:3px;color:#ff5d73}
+#chap .e{font-family:Script;font-weight:700;font-size:40px;color:#3a2340;line-height:1}
+#chap .f{font-family:Vaz;font-weight:700;font-size:26px;color:#3a2340;direction:rtl}
+#title,#end{position:absolute;left:0;right:0;text-align:center}
+#title{top:150px}#end{top:110px}
+.big{font-family:Vaz;font-weight:900;font-size:136px;color:#fff;-webkit-text-stroke:18px #3a2340;paint-order:stroke fill;direction:rtl;line-height:1.25}
+.scr{font-family:Script;font-weight:700;font-size:96px;color:#ffe08a;-webkit-text-stroke:10px #3a2340;paint-order:stroke fill;line-height:1.1}
+.pill{display:inline-block;margin-top:18px;background:#fffaf5;border-radius:40px;padding:8px 34px;font-family:Fred;font-weight:700;font-size:32px;color:#3a2340;box-shadow:0 6px 0 #ff8fab}
+.pill .p{font-family:Vaz}
+#title>div,#end>div{opacity:0;transform-origin:50% 50%}
+#flash{position:absolute;inset:0;background:#fff;opacity:0}
+#vign{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,rgba(0,0,0,0) 62%,rgba(40,10,40,.30) 100%)}
+</style></head>
+<body><div id="stage">
+<svg width="0" height="0" style="position:absolute"><defs>
+ <path id="heart" d="M0,0.9 C-0.6,0.45 -1,0.1 -1,-0.3 C-1,-0.75 -0.55,-1 -0.25,-0.85 C-0.1,-0.78 0,-0.65 0,-0.6 C0,-0.65 0.1,-0.78 0.25,-0.85 C0.55,-1 1,-0.75 1,-0.3 C1,0.1 0.6,0.45 0,0.9Z"/>
+ <path id="star" d="M0,-1 Q0.12,-0.12 1,0 Q0.12,0.12 0,1 Q-0.12,0.12 -1,0 Q-0.12,-0.12 0,-1Z"/>
+ <g id="cloud"><circle cx="0" cy="0" r="60" fill="#fff"/><circle cx="60" cy="-28" r="72" fill="#fff"/><circle cx="125" cy="0" r="58" fill="#fff"/><circle cx="62" cy="18" r="60" fill="#fff"/></g>
+ <radialGradient id="sunGlow"><stop offset="0" stop-color="#fff3c8" stop-opacity=".95"/><stop offset="1" stop-color="#ffb199" stop-opacity="0"/></radialGradient>
+ <radialGradient id="ringGlow"><stop offset="0" stop-color="#fffbe0" stop-opacity="1"/><stop offset="1" stop-color="#fff2a8" stop-opacity="0"/></radialGradient>
+</defs></svg>
+<div id="scenes"></div>
+<div id="vign"></div>
+<div id="chap"><div class="n">CHAPTER 1</div><div class="e">We met</div><div class="f">آشنایی</div></div>
+<div id="title"><div class="big">قصه‌ی جانان و رضا</div><div class="scr">Our Love Story</div><div><div class="pill">Istanbul · Paris · Istanbul</div></div></div>
+<div id="caps"></div>
+<div id="end"><div class="big">جانان و رضا… و لونا</div><div class="scr">Janan &amp; Reza &amp; Luna</div><div><div class="pill"><span class="p">سه‌تایی، در سبافلت استانبول</span> · happily ever after</div></div></div>
+<div id="flash"></div>
+</div>
+<script>
+const W=1920,H=1080,TR=.6;
+const $=id=>document.getElementById(id);
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const lerp=(a,b,t)=>a+(b-a)*t;
+const prog=(t,a,b)=>clamp((t-a)/(b-a));
+const easeOut=x=>1-Math.pow(1-x,3);
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const backOut=x=>{const c1=1.9,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const elastic=x=>x<=0?0:x>=1?1:Math.pow(2,-10*x)*Math.sin((x*10-.75)*(2*Math.PI)/3)+1;
+const pulse=(t,c,w)=>Math.exp(-((t-c)**2)/w);
+let seed=21;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+const add=(p,html)=>{p.insertAdjacentHTML('beforeend',html);return p.lastElementChild};
+const q=(g,c)=>g.querySelector('.'+c);
+const tr=(x,y,s=1,r=0)=>`translate(${x},${y}) rotate(${r}) scale(${s})`;
+const vis=(e,v)=>e.setAttribute('display',v?'inline':'none');
+const blinkAt=(t,list)=>{let b=1;list.forEach(x=>{const d=Math.abs(t-x);if(d<.09)b=d/.09});return b};
+const blinkLoop=(t,ph=0)=>{const p=((t+ph)%3.3);return p<.18?Math.abs(p-.09)/.09:1};
+const OUT='#3a2340';
+
+/* ================= PERSON ================= */
+const CFG={
+ reza:{skin:'#efc19c',hair:'#3a2618',top:'#4a7fc1',pants:'#2e3350',shoe:'#5a3a2a',style:'reza'},
+ janan:{skin:'#f6cfb0',hair:'#16131d',top:'#ff6f8e',pants:'#f6cfb0',shoe:'#c23d5c',style:'janan'}};
+function Person(parent,who,opt={}){
+  const c=Object.assign({},CFG[who],opt);const R=c.style==='reza';
+  const dress=!R;const suit=!!c.suit,bride=!!c.bride;
+  const top=suit?'#2f3350':bride?'#fffaf5':c.top;
+  const g=add(parent,`<g>
+  <ellipse class="sh" cx="0" cy="4" rx="58" ry="10" fill="#000" opacity=".15"/>
+  <g class="up">
+   ${bride?`<path d="M-34,-300 Q-120,-200 -110,-40 Q0,-20 110,-40 Q120,-200 34,-300Z" fill="#fff" opacity=".65" stroke="#e8dcd4" stroke-width="3"/>`:''}
+   ${!R?`<path d="M-74,-240 Q-82,-322 0,-320 Q82,-322 74,-240 L84,-118 Q64,-100 44,-118 L32,-168 H-32 L-44,-118 Q-64,-100 -84,-118Z" fill="${c.hair}" stroke="${OUT}" stroke-width="5" stroke-linejoin="round"/>`:''}
+  </g>
+  <g class="legs"><path class="lL" fill="none" stroke-linecap="round" stroke-linejoin="round"/><ellipse class="fL" rx="17" ry="9"/><path class="lR" fill="none" stroke-linecap="round" stroke-linejoin="round"/><ellipse class="fR" rx="17" ry="9"/></g>
+  <g class="up2">
+   <path class="aL" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle class="hL" r="11"/>
+   ${dress?`<path d="M-34,-152 Q-42,-110 -40,-92 L-66,-36 Q0,-20 66,-36 L40,-92 Q42,-110 34,-152 Q0,-162 -34,-152Z" fill="${top}" stroke="${OUT}" stroke-width="5" stroke-linejoin="round"/>
+     <path d="M-40,-96 Q0,-86 40,-96" stroke="${bride?'#f2d7e0':'#fff'}" stroke-width="7" fill="none" opacity=".8"/>`
+    :`<path d="M-38,-152 Q-46,-104 -42,-64 H42 Q46,-104 38,-152 Q0,-162 -38,-152Z" fill="${top}" stroke="${OUT}" stroke-width="5" stroke-linejoin="round"/>
+     ${suit?`<path d="M-16,-156 L0,-118 L16,-156Z" fill="#fff" stroke="${OUT}" stroke-width="3"/><path d="M-14,-150 L0,-142 L14,-150 L14,-134 L0,-142 L-14,-134Z" fill="#c2304f" stroke="${OUT}" stroke-width="3"/><circle cx="0" cy="-104" r="4" fill="${OUT}"/><circle cx="0" cy="-84" r="4" fill="${OUT}"/>`
+      :`<path d="M-14,-156 L0,-140 L14,-156" stroke="${OUT}" stroke-width="4" fill="#fff"/><path d="M0,-140 V-66" stroke="${OUT}" stroke-width="3" opacity=".4"/>`}`}
+   <g class="scarf" display="none"><path d="M-36,-160 Q0,-140 36,-160 L38,-146 Q0,-124 -38,-146Z" fill="#e0344f" stroke="${OUT}" stroke-width="4"/><path d="M16,-146 L22,-100 L36,-104 L28,-150Z" fill="#e0344f" stroke="${OUT}" stroke-width="4"/></g>
+   <g class="head">
+    <circle cx="-62" cy="-222" r="12" fill="${c.skin}" stroke="${OUT}" stroke-width="4"/><circle cx="62" cy="-222" r="12" fill="${c.skin}" stroke="${OUT}" stroke-width="4"/>
+    <ellipse cx="0" cy="-226" rx="64" ry="62" fill="${c.skin}" stroke="${OUT}" stroke-width="5"/>
+    ${R?`<path d="M-62,-234 Q-66,-170 0,-158 Q66,-170 62,-234 Q58,-206 38,-198 Q0,-186 -38,-198 Q-58,-206 -62,-234Z" fill="${c.hair}" stroke="${OUT}" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M-24,-200 Q0,-214 24,-200 Q0,-194 -24,-200Z" fill="${c.hair}" stroke="${OUT}" stroke-width="3"/>`:''}
+    <ellipse class="bl1" cx="-40" cy="-204" rx="13" ry="8" fill="#ff7f9a"/><ellipse class="bl2" cx="40" cy="-204" rx="13" ry="8" fill="#ff7f9a"/>
+    <g class="eyes"></g>
+    <path class="mo" stroke="${OUT}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    ${R?`<path d="M-66,-236 Q-70,-300 0,-302 Q70,-300 66,-236 Q60,-266 32,-276 Q0,-262 -32,-276 Q-60,-266 -66,-236Z" fill="${c.hair}" stroke="${OUT}" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M-30,-286 Q-10,-296 6,-282 M14,-290 Q34,-292 44,-276" stroke="#5a3e2a" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <circle cx="4" cy="-322" r="26" fill="${c.hair}" stroke="${OUT}" stroke-width="5"/><path d="M-8,-330 Q6,-338 16,-326" stroke="#5a3e2a" stroke-width="4" fill="none"/>
+      <rect x="-14" y="-302" width="36" height="10" rx="5" fill="#c9a04a" stroke="${OUT}" stroke-width="3"/>
+      <path d="M-64,-236 Q-70,-212 -62,-196 M64,-236 Q70,-212 62,-196" stroke="${c.hair}" stroke-width="8" fill="none" stroke-linecap="round"/>`
+     :`<path d="M-70,-234 Q-72,-304 0,-306 Q72,-302 70,-232 Q58,-284 12,-272 Q-22,-262 -42,-278 Q-62,-266 -70,-234Z" fill="${c.hair}" stroke="${OUT}" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M-68,-236 Q-78,-176 -62,-138 L-50,-146 Q-60,-196 -56,-238Z M68,-236 Q78,-176 62,-138 L50,-146 Q60,-196 56,-238Z" fill="${c.hair}" stroke="${OUT}" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M-20,-292 Q10,-300 40,-286" stroke="#3c3550" stroke-width="5" fill="none" stroke-linecap="round"/>
+      ${bride?`<g>${[-50,-28,-4,20,44].map((x,i)=>`<circle cx="${x}" cy="${-296-Math.cos(x/40)*10}" r="11" fill="${i%2?'#ffc2d1':'#fff'}" stroke="${OUT}" stroke-width="3"/>`).join('')}</g>`
+       :`<g transform="translate(48,-282)"><circle r="12" fill="#ffd27a" stroke="${OUT}" stroke-width="3"/>${[0,72,144,216,288].map(a=>`<ellipse cx="0" cy="-12" rx="7" ry="10" fill="#ff8fab" stroke="${OUT}" stroke-width="2.5" transform="rotate(${a})"/>`).join('')}<circle r="6" fill="#ffd27a"/></g>`}`}
+   </g>
+   <g class="pR"></g>
+   <path class="aR" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle class="hR" r="11"/>
+   <g class="pH"></g>
+  </g></g>`);
+  const P={};['sh','up','up2','legs','lL','lR','fL','fR','aL','aR','hL','hR','head','eyes','mo','bl1','bl2','pR','pH','scarf'].forEach(k=>P[k]=q(g,k));
+  const sleeve=top, legCol=R?c.pants:c.skin;
+  [P.lL,P.lR].forEach(l=>{l.setAttribute('stroke',legCol);l.setAttribute('stroke-width',R?24:17)});
+  [P.fL,P.fR].forEach(f=>{f.setAttribute('fill',suit?'#1c1c28':c.shoe);f.setAttribute('stroke',OUT);f.setAttribute('stroke-width',4)});
+  [P.aL,P.aR].forEach(a=>{a.setAttribute('stroke',sleeve);a.setAttribute('stroke-width',22)});
+  [P.hL,P.hR].forEach(h=>{h.setAttribute('fill',c.skin);h.setAttribute('stroke',OUT);h.setAttribute('stroke-width',4)});
+  // outline for legs & arms (drawn as a thicker dark stroke behind)
+  const outl=[];[[P.lL,R?32:25],[P.lR,R?32:25],[P.aL,30],[P.aR,30]].forEach(([el,w])=>{const o=el.cloneNode();o.setAttribute('stroke',OUT);o.setAttribute('stroke-width',w);el.parentNode.insertBefore(o,el);outl.push([o,el])});
+  const D2R=Math.PI/180;
+  const limb=(x,y,a1,l1,a2,l2)=>{const kx=x+Math.sin(a1*D2R)*l1,ky=y+Math.cos(a1*D2R)*l1,ex=kx+Math.sin(a2*D2R)*l2,ey=ky+Math.cos(a2*D2R)*l2;return {d:`M${x},${y} L${kx},${ky} L${ex},${ey}`,ex,ey}};
+  return {g,P,set(o){
+    const d=Object.assign({x:0,y:0,s:1,flip:1,rot:0,drop:0,tL:0,sL:0,tR:0,sR:0,uL:8,fL:8,uR:-8,fR:-8,eyes:'open',mouth:'smile',blush:.4,tilt:0,look:0,blink:1,shadow:1,scarf:0,bob:0,t:0},o);
+    g.setAttribute('transform',`translate(${d.x},${d.y}) rotate(${d.rot}) scale(${d.s*d.flip},${d.s})`);
+    P.sh.setAttribute('opacity',.15*d.shadow);
+    const up=`translate(0,${d.drop+d.bob})`;P.up.setAttribute('transform',up);P.up2.setAttribute('transform',up);
+    const hipY=-66+d.drop;
+    const LL=limb(-14,hipY,d.tL,36,d.sL,34),LR=limb(14,hipY,d.tR,36,d.sR,34);
+    P.lL.setAttribute('d',LL.d);P.lR.setAttribute('d',LR.d);
+    P.fL.setAttribute('cx',LL.ex+5);P.fL.setAttribute('cy',LL.ey-2);P.fR.setAttribute('cx',LR.ex+5);P.fR.setAttribute('cy',LR.ey-2);
+    const AL=limb(-38,-142,d.uL,38,d.fL,36),AR=limb(38,-142,d.uR,38,d.fR,36);
+    P.aL.setAttribute('d',AL.d);P.aR.setAttribute('d',AR.d);
+    P.hL.setAttribute('cx',AL.ex);P.hL.setAttribute('cy',AL.ey);P.hR.setAttribute('cx',AR.ex);P.hR.setAttribute('cy',AR.ey);
+    P.pR.setAttribute('transform',`translate(${AR.ex},${AR.ey})`);P.pH.setAttribute('transform',`translate(${AR.ex},${AR.ey})`);
+    outl.forEach(([o,el])=>o.setAttribute('d',el.getAttribute('d')));
+    P.head.setAttribute('transform',`rotate(${d.tilt},0,-170)`);
+    P.bl1.setAttribute('opacity',d.blush);P.bl2.setAttribute('opacity',d.blush);
+    P.scarf.setAttribute('display',d.scarf?'inline':'none');
+    const lx=d.look*7,ey=-228;let e='';
+    if(d.eyes==='heart'){const s=15+2*Math.sin(d.t*14);e=`<use href="#heart" transform="translate(${-24+lx},${ey}) scale(${s})" fill="#ff3d6a" stroke="${OUT}" stroke-width=".12"/><use href="#heart" transform="translate(${24+lx},${ey}) scale(${s})" fill="#ff3d6a" stroke="${OUT}" stroke-width=".12"/>`}
+    else if(d.eyes==='happy')e=`<path d="M${-34+lx},${ey+4} Q${-24+lx},${ey-10} ${-14+lx},${ey+4} M${14+lx},${ey+4} Q${24+lx},${ey-10} ${34+lx},${ey+4}" stroke="${OUT}" stroke-width="6" fill="none" stroke-linecap="round"/>`;
+    else if(d.eyes==='closed')e=`<path d="M${-34+lx},${ey} Q${-24+lx},${ey+9} ${-14+lx},${ey} M${14+lx},${ey} Q${24+lx},${ey+9} ${34+lx},${ey}" stroke="${OUT}" stroke-width="6" fill="none" stroke-linecap="round"/>`;
+    else{const big=d.eyes==='wide'?1.25:1;const ry=11*big*Math.max(.1,d.blink);e=`<ellipse cx="${-24+lx}" cy="${ey}" rx="${8.5*big}" ry="${ry}" fill="${OUT}"/><ellipse cx="${24+lx}" cy="${ey}" rx="${8.5*big}" ry="${ry}" fill="${OUT}"/>`+(d.blink>.5?`<circle cx="${-21+lx}" cy="${ey-4}" r="3.2" fill="#fff"/><circle cx="${27+lx}" cy="${ey-4}" r="3.2" fill="#fff"/>`:'')}
+    if(!R&&d.eyes!=='heart')e+=`<path d="M${-36+lx},${ey-8} L${-40+lx},${ey-13} M${36+lx},${ey-8} L${40+lx},${ey-13}" stroke="${OUT}" stroke-width="3.5" stroke-linecap="round"/>`;
+    P.eyes.innerHTML=e;
+    const my=R?-190:-196,mx=d.look*5;let m;
+    if(d.mouth==='grin'){m=`M${mx-17},${my-2} Q${mx},${my+22} ${mx+17},${my-2}Z`;P.mo.setAttribute('fill','#c2304f')}
+    else if(d.mouth==='o'){m=`M${mx},${my-8} a8,10 0 1,0 0.1,0Z`;P.mo.setAttribute('fill','#c2304f')}
+    else if(d.mouth==='flat'){m=`M${mx-10},${my} H${mx+10}`;P.mo.setAttribute('fill','none')}
+    else{m=`M${mx-13},${my-2} Q${mx},${my+10} ${mx+13},${my-2}`;P.mo.setAttribute('fill','none')}
+    P.mo.setAttribute('d',m);
+  }};
+}
+// pose helpers
+const walk=(t,rate=2.2,amp=26)=>{const a=Math.sin(t*Math.PI*rate)*amp;return {tL:a,sL:a-Math.max(0,-a)*.9-6,tR:-a,sR:-a-Math.max(0,a)*.9-6,uL:-a*.8,fL:-a*.6+6,uR:a*.8,fR:a*.6-6,bob:-Math.abs(Math.cos(t*Math.PI*rate))*6}};
+const SIT={drop:34,tL:90,sL:2,tR:90,sR:-2};
+const KNEEL={drop:34,tL:0,sL:-90,tR:90,sR:0};
+
+/* ================= LUNA ================= */
+function Luna(parent){
+  const g=add(parent,`<g><ellipse class="sh" cx="0" cy="4" rx="56" ry="9" fill="#000" opacity=".15"/>
+   <g class="bd">
+    <g class="tail"><circle cx="-62" cy="-66" r="20" fill="#f7e6c8" stroke="${OUT}" stroke-width="4"/><circle cx="-74" cy="-82" r="15" fill="#f7e6c8" stroke="${OUT}" stroke-width="4"/></g>
+    <g class="lg"></g>
+    <ellipse cx="-4" cy="-46" rx="54" ry="34" fill="#f7e6c8" stroke="${OUT}" stroke-width="5"/>
+    ${[-40,-18,4,26].map(x=>`<circle cx="${x}" cy="-74" r="13" fill="#f7e6c8"/>`).join('')}
+    <g class="hd">
+     <ellipse cx="44" cy="-92" rx="42" ry="38" fill="#f7e6c8" stroke="${OUT}" stroke-width="5"/>
+     <path class="eL" d="M8,-112 Q-10,-80 4,-56 Q22,-60 22,-96Z" fill="#e8c38f" stroke="${OUT}" stroke-width="4"/>
+     <path class="eR" d="M70,-118 Q96,-96 88,-66 Q72,-66 64,-100Z" fill="#e8c38f" stroke="${OUT}" stroke-width="4"/>
+     <ellipse cx="62" cy="-80" rx="20" ry="15" fill="#fff6e8"/>
+     <ellipse cx="66" cy="-88" rx="8" ry="6" fill="${OUT}"/>
+     <path class="tg" d="M60,-72 Q66,-52 74,-72Z" fill="#ff7f9a" stroke="${OUT}" stroke-width="3"/>
+     <g class="ey"></g>
+     <ellipse cx="28" cy="-84" rx="8" ry="5" fill="#ffb3c4"/>
+    </g>
+    <path d="M14,-74 Q40,-52 68,-62" stroke="#ff5d8f" stroke-width="9" fill="none" stroke-linecap="round"/>
+    <use href="#heart" transform="translate(44,-56) scale(9)" fill="#ffd27a" stroke="${OUT}" stroke-width=".25"/>
+    <g class="bow" display="none"><path d="M30,-66 L14,-78 L14,-54Z M30,-66 L46,-78 L46,-54Z" fill="#ff5d8f" stroke="${OUT}" stroke-width="3"/><circle cx="30" cy="-66" r="6" fill="#ff5d8f" stroke="${OUT}" stroke-width="3"/></g>
+   </g></g>`);
+  const lg=q(g,'lg');const L=[-34,-14,18,36].map(x=>add(lg,`<rect x="${x-8}" y="-30" width="16" height="32" rx="8" fill="#f7e6c8" stroke="${OUT}" stroke-width="4"/>`));
+  return {g,set(o){const d=Object.assign({x:0,y:0,s:1,flip:1,run:0,wag:1,eyes:'open',tongue:1,jump:0,bow:0,t:0,rot:0},o);
+    g.setAttribute('transform',`translate(${d.x},${d.y}) rotate(${d.rot}) scale(${d.s*d.flip},${d.s})`);
+    q(g,'bd').setAttribute('transform',`translate(0,${-d.jump+(d.run?-Math.abs(Math.sin(d.t*14))*10:Math.sin(d.t*3)*2)})`);
+    L.forEach((l,i)=>l.setAttribute('transform',`rotate(${d.run?Math.sin(d.t*14+(i%2)*3)*30:0},${[-34,-14,18,36][i]},-30)`));
+    q(g,'tail').setAttribute('transform',`rotate(${Math.sin(d.t*(d.wag?22:4))*(d.wag?24:6)},-48,-56)`);
+    q(g,'eL').setAttribute('transform',`rotate(${Math.sin(d.t*9)*8},14,-100)`);q(g,'eR').setAttribute('transform',`rotate(${-Math.sin(d.t*9)*8},68,-104)`);
+    q(g,'tg').setAttribute('display',d.tongue?'inline':'none');q(g,'bow').setAttribute('display',d.bow?'inline':'none');
+    q(g,'hd').setAttribute('transform',`rotate(${Math.sin(d.t*2.5)*5},40,-70)`);
+    q(g,'ey').innerHTML=d.eyes==='happy'?`<path d="M26,-104 Q34,-114 42,-104 M54,-106 Q62,-116 70,-106" stroke="${OUT}" stroke-width="5" fill="none" stroke-linecap="round"/>`
+      :`<ellipse cx="34" cy="-104" rx="7" ry="9" fill="${OUT}"/><ellipse cx="62" cy="-106" rx="7" ry="9" fill="${OUT}"/><circle cx="36" cy="-108" r="2.5" fill="#fff"/><circle cx="64" cy="-110" r="2.5" fill="#fff"/>`;
+  }};
+}
+
+/* ================= SHARED ================= */
+function heartsFX(parent,n,{x0=960,y0=540,spread=900,col=['#ff5d73','#ff8fab','#ffd1dc']}={}){const G=add(parent,'<g></g>');const A=[];
+  for(let i=0;i<n;i++)A.push({e:add(G,`<use href="#heart" fill="${col[i%col.length]}" stroke="${OUT}" stroke-width=".1"/>`),x:x0+(rnd()-.5)*spread,y:y0+rnd()*200,s:10+rnd()*18,v:60+rnd()*90,ph:rnd()*6,d:rnd()*3});
+  return (t,on=1)=>A.forEach(a=>{const tt=t-a.d;const y=a.y-tt*a.v;const show=on&&tt>0;a.e.setAttribute('display',show?'inline':'none');if(!show)return;
+    a.e.setAttribute('transform',`translate(${a.x+Math.sin(tt*2+a.ph)*30},${y}) rotate(${Math.sin(tt*3+a.ph)*15}) scale(${a.s*Math.min(1,tt*3)})`);a.e.setAttribute('opacity',clamp(1-(a.y-y)/700))})}
+function burst(parent,n,cx,cy,{col=['#ff5d73','#ff8fab','#ffd27a','#fff'],dist=300,size=22,shape='heart'}={}){const G=add(parent,'<g></g>');const A=[];
+  for(let i=0;i<n;i++)A.push({e:add(G,`<use href="#${shape}" fill="${col[i%col.length]}" stroke="${OUT}" stroke-width=".08"/>`),a:i/n*6.28+rnd()*.3,d:dist*(.6+rnd()*.6),s:size*(.6+rnd()*.7)});
+  return (p,x=cx,y=cy)=>A.forEach(a=>{const sz=a.s*Math.sin(clamp(p)*Math.PI);a.e.setAttribute('display',p>0&&p<1?'inline':'none');
+    a.e.setAttribute('transform',`translate(${x+Math.cos(a.a)*a.d*easeOut(p)},${y+Math.sin(a.a)*a.d*easeOut(p)+p*p*80}) rotate(${p*120}) scale(${Math.max(.01,sz)})`)})}
+function bubble(parent,inner){const g=add(parent,`<g><path d="M-80,-60 Q-80,-110 -30,-110 H30 Q80,-110 80,-60 Q80,-10 30,-10 H6 L-14,22 L-12,-10 H-30 Q-80,-10 -80,-60Z" fill="#fff" stroke="${OUT}" stroke-width="6" stroke-linejoin="round"/>${inner}</g>`);
+  return (p,x,y,flip=1)=>{g.setAttribute('display',p>0?'inline':'none');g.setAttribute('transform',`translate(${x},${y}) scale(${flip*backOut(clamp(p))},${backOut(clamp(p))})`)}}
+function istanbulSkyline(c,col,y=760){return add(c,`<g fill="${col}">
+   <path d="M0,${y} V${y-60} H120 V${y-90} H200 V${y-50} H300 V${y}Z"/>
+   <g transform="translate(420,${y})"><rect x="-26" y="-250" width="52" height="250"/><path d="M-34,-250 H34 L0,-330Z"/><rect x="-32" y="-262" width="64" height="16"/></g>
+   <g transform="translate(860,${y})"><path d="M-170,0 V-90 Q-170,-150 -110,-150 Q-110,-230 0,-240 Q110,-230 110,-150 Q170,-150 170,-90 V0Z"/>
+    ${[-240,-200,200,240].map(x=>`<rect x="${x-9}" y="-330" width="18" height="330"/><path d="M${x-12},-330 L${x},-380 L${x+12},-330Z"/>`).join('')}<rect x="-4" y="-275" width="8" height="40"/></g>
+   <path d="M1120,${y} V${y-80} H1220 V${y-120} H1300 V${y-70} H1420 V${y-100} H1500 V${y}Z"/>
+   <g transform="translate(1660,${y})"><path d="M-110,0 V-70 Q-110,-120 -60,-120 Q-60,-180 0,-186 Q60,-180 60,-120 Q110,-120 110,-70 V0Z"/>${[-140,140].map(x=>`<rect x="${x-8}" y="-260" width="16" height="260"/><path d="M${x-10},-260 L${x},-300 L${x+10},-260Z"/>`).join('')}</g>
+   <path d="M1800,${y} V${y-60} H1920 V${y}Z"/></g>`)}
+
+/* ================= SCENE SYSTEM ================= */
+const scenes=[];
+function scene(start,end,trans,build){const div=add($('scenes'),`<div class="scene"><svg viewBox="0 0 1920 1080" width="1920" height="1080"><g class="cam"></g></svg></div>`);
+  scenes.push({start,end,trans,div,update:build(div.querySelector('.cam'))})}
+const camZoom=(c,s,cx=960,cy=540,dx=0,dy=0)=>c.setAttribute('transform',`translate(${dx},${dy}) translate(${cx},${cy}) scale(${s}) translate(${-cx},${-cy})`);
+
+// ---------- 1. INTRO: Istanbul dusk ----------
+scene(0,5,'none',c=>{
+  add(c,`<defs><linearGradient id="dusk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6b4fa8"/><stop offset=".5" stop-color="#ff8fab"/><stop offset="1" stop-color="#ffc9a3"/></linearGradient>
+   <linearGradient id="bos" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff9fb3"/><stop offset="1" stop-color="#6b4fa8"/></linearGradient></defs>
+   <rect width="1920" height="1080" fill="url(#dusk)"/><circle cx="1300" cy="690" r="320" fill="url(#sunGlow)"/><circle class="sun" cx="1300" cy="700" r="120" fill="#ffe08a"/>`);
+  const S=[];const st=add(c,'<g></g>');for(let i=0;i<40;i++)S.push({e:add(st,'<use href="#star" fill="#fff"/>'),x:rnd()*1920,y:rnd()*360,s:2+rnd()*4,p:rnd()*6});
+  add(c,`<path d="M1380,620 L1920,600 M1460,618 V540 M1840,603 V525" stroke="#8e6bbf" stroke-width="8" fill="none"/><path d="M1460,540 Q1650,640 1840,525" stroke="#8e6bbf" stroke-width="5" fill="none"/>`);
+  istanbulSkyline(c,'#4a3470',780);
+  add(c,`<rect y="780" width="1920" height="300" fill="url(#bos)"/>`);
+  const rf=add(c,'<g></g>');for(let i=0;i<8;i++)add(rf,`<rect x="${1300-(130-i*12)}" y="${800+i*30}" width="${2*(130-i*12)}" height="8" rx="4" fill="#ffe08a" opacity=".7"/>`);
+  const boat=add(c,`<g><path d="M-90,0 L90,0 L70,30 L-70,30Z" fill="#fff" stroke="${OUT}" stroke-width="5"/><rect x="-50" y="-30" width="90" height="30" fill="#fff" stroke="${OUT}" stroke-width="5"/><rect x="-10" y="-56" width="14" height="26" fill="#e0344f" stroke="${OUT}" stroke-width="4"/></g>`);
+  const hf=heartsFX(c,26,{x0:960,y0:1000,spread:1800});
+  return t=>{S.forEach(s=>s.e.setAttribute('transform',`translate(${s.x},${s.y}) scale(${s.s*(.6+.4*Math.sin(t*4+s.p))})`));
+    rf.setAttribute('transform',`translate(${Math.sin(t*2)*8},0)`);boat.setAttribute('transform',`translate(${300+t*60},${870+Math.sin(t*2)*4})`);hf(t);
+    camZoom(c,1.06-t*.012)}});
+
+// ---------- 2. CAFÉ AT VADISTANBUL (meet + ask) ----------
+scene(5,18,'heart',c=>{
+  add(c,`<defs><linearGradient id="mall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d7ecf7"/><stop offset="1" stop-color="#fff1e6"/></linearGradient></defs>
+  <rect width="1920" height="1080" fill="url(#mall)"/>
+  <path d="M0,0 H1920 V160 Q960,40 0,160Z" fill="#bfe3f5" stroke="${OUT}" stroke-width="6"/>
+  ${Array.from({length:13},(_,i)=>`<path d="M${i*160},0 V${160-Math.sin(i/12*Math.PI)*120+0}" stroke="#8fbfd8" stroke-width="5"/>`).join('')}
+  <rect y="330" width="1920" height="26" fill="#e9dccf" stroke="${OUT}" stroke-width="5"/><path d="M0,330 H1920" stroke="#8fbfd8" stroke-width="3"/>
+  ${Array.from({length:24},(_,i)=>`<rect x="${i*82}" y="290" width="6" height="40" fill="#8fbfd8"/>`).join('')}<rect y="284" width="1920" height="8" fill="#8fbfd8"/>
+  ${[[60,'#ffd27a','BOOKS'],[460,'#b8e0c8','FLOWERS'],[1420,'#ffc2d1','SWEETS']].map(([x,cl,n])=>`<g transform="translate(${x},170)"><rect width="340" height="120" fill="#fff" stroke="${OUT}" stroke-width="5"/><rect width="340" height="34" fill="${cl}" stroke="${OUT}" stroke-width="5"/><text x="170" y="26" text-anchor="middle" font-family="Fred" font-weight="700" font-size="24" fill="${OUT}">${n}</text><rect x="20" y="50" width="300" height="60" fill="#cfeaf7" stroke="${OUT}" stroke-width="4"/></g>`).join('')}
+  <g transform="translate(960,230)"><rect x="-210" y="-44" width="420" height="88" rx="44" fill="${OUT}"/><text x="0" y="16" text-anchor="middle" font-family="Fred" font-weight="700" font-size="44" fill="#fff" letter-spacing="6">VADISTANBUL</text></g>
+  <rect y="356" width="1920" height="724" fill="#fff4ea"/>
+  <g transform="translate(60,380)"><rect width="560" height="420" rx="16" fill="#8a5a3c" stroke="${OUT}" stroke-width="6"/>
+   <path d="M0,0 H560 L540,70 H20Z" fill="#ff8fab" stroke="${OUT}" stroke-width="5"/>${Array.from({length:7},(_,i)=>`<path d="M${20+i*80},70 Q${60+i*80},100 ${100+i*80},70" fill="#fff" stroke="${OUT}" stroke-width="4"/>`).join('')}
+   <text x="280" y="48" text-anchor="middle" font-family="Fred" font-weight="700" font-size="40" fill="#fff" letter-spacing="4">COFFEE ♥</text>
+   <rect x="30" y="130" width="500" height="150" rx="10" fill="#3d2a22" stroke="${OUT}" stroke-width="4"/>
+   ${Array.from({length:5},(_,i)=>`<g transform="translate(${80+i*100},230)"><path d="M-22,-40 H22 L18,0 H-18Z" fill="#fff" stroke="${OUT}" stroke-width="4"/></g>`).join('')}
+   <rect x="0" y="300" width="560" height="120" fill="#a8744f" stroke="${OUT}" stroke-width="6"/></g>
+  ${[[700,860],[1800,880]].map(([x,y])=>`<g transform="translate(${x},${y})"><path d="M-40,0 L-30,-80 H30 L40,0Z" fill="#ff9a6b" stroke="${OUT}" stroke-width="5"/><path d="M0,-80 C-80,-160 -70,-260 -20,-280 M0,-80 C30,-190 90,-230 70,-300 M0,-80 C-20,-180 30,-260 10,-330" stroke="#3fae6a" stroke-width="22" fill="none" stroke-linecap="round"/></g>`).join('')}
+  <rect y="900" width="1920" height="180" fill="#ead9c8"/>`);
+  const pinkBg=add(c,`<rect width="1920" height="1080" fill="#ff8fab" opacity="0"/>`);
+  const speed=add(c,'<g stroke="#fff" stroke-width="10" stroke-linecap="round" opacity="0"></g>');for(let i=0;i<20;i++){const a=i/20*6.28;add(speed,`<path d="M${880+Math.cos(a)*520},${560+Math.sin(a)*420} L${880+Math.cos(a)*900},${560+Math.sin(a)*700}"/>`)}
+  // chair + table
+  add(c,`<g transform="translate(1250,900)"><rect x="-50" y="-150" width="16" height="150" fill="#6b4a36"/><rect x="34" y="-90" width="12" height="90" fill="#6b4a36"/><rect x="-60" y="-104" width="120" height="18" rx="9" fill="#c98a5a" stroke="${OUT}" stroke-width="4"/><rect x="40" y="-230" width="18" height="140" rx="9" fill="#c98a5a" stroke="${OUT}" stroke-width="4"/></g>`);
+  const J=Person(c,'janan');
+  add(c,`<g transform="translate(1060,900)"><rect x="-10" y="-150" width="20" height="150" fill="#6b4a36"/><ellipse cx="0" cy="-4" rx="60" ry="12" fill="#6b4a36"/><ellipse cx="0" cy="-158" rx="130" ry="26" fill="#fff" stroke="${OUT}" stroke-width="6"/></g>`);
+  const cup=add(c,`<g transform="translate(1100,-0)"><path d="M-26,-52 H26 L20,0 H-20Z" fill="#fff" stroke="${OUT}" stroke-width="5"/><path d="M26,-40 Q46,-38 38,-16 Q32,-10 22,-14" fill="none" stroke="${OUT}" stroke-width="5"/><ellipse cx="0" cy="2" rx="38" ry="8" fill="#fff" stroke="${OUT}" stroke-width="4"/><rect x="-24" y="-48" width="48" height="10" fill="#8a5a3c"/></g>`);
+  cup.setAttribute('transform','translate(1105,742)');
+  const steam=add(c,'<g></g>');const ST=[0,1,2].map(i=>({e:add(steam,`<use href="#heart" fill="#fff" stroke="#e7cfc4" stroke-width=".12"/>`),ph:i/3}));
+  const Rz=Person(c,'reza');
+  const rose=`<g transform="rotate(-150)"><path d="M0,0 V-90" stroke="#3fae6a" stroke-width="6"/><path d="M0,-50 Q18,-62 22,-46 Q8,-40 0,-50Z" fill="#3fae6a"/><circle cx="0" cy="-100" r="20" fill="#e0344f" stroke="${OUT}" stroke-width="4"/><path d="M-10,-104 Q0,-116 10,-102 Q2,-94 -6,-98" stroke="#a51d38" stroke-width="3" fill="none"/></g>`;
+  const roseG=add(Rz.P.pR,rose);
+  const heartPop=add(c,`<use href="#heart" fill="#ff3d6a" stroke="${OUT}" stroke-width=".06"/>`);
+  const thump=add(c,`<use href="#heart" fill="#ff3d6a" stroke="${OUT}" stroke-width=".1"/>`);
+  const bubR=bubble(c,`<use href="#heart" transform="translate(-22,-60) scale(28)" fill="#ff5d73" stroke="${OUT}" stroke-width=".12"/><text x="34" y="-36" text-anchor="middle" font-family="Fred" font-weight="700" font-size="64" fill="${OUT}">?</text>`);
+  const bubJ=bubble(c,`<use href="#heart" transform="translate(-26,-60) scale(28)" fill="#ff5d73" stroke="${OUT}" stroke-width=".12"/><path d="M14,-60 L28,-44 L52,-76" stroke="#3fae6a" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`);
+  const bst=burst(c,28,1000,520,{dist:420,size:30});
+  return t=>{ // local t: 0..13 (5s → 18s)
+    // Janan sitting, sipping
+    const sip=Math.sin(clamp(prog(t,.6,2.2))*Math.PI);
+    const noticed=prog(t,7.5,8.0),yes=prog(t,8.9,9.3);
+    J.set({x:1220,y:900,s:1.5,flip:-1,...SIT,uR:lerp(-10,150,sip)+lerp(0,0,0),fR:lerp(-10,200,sip),uL:20,fL:60,
+      eyes:yes>0?'happy':(sip>.5?'closed':'open'),mouth:yes>0?'grin':'smile',blush:.35+.6*prog(t,7.6,8.6),tilt:yes>0?Math.sin((t-8.9)*10)*6*(1-prog(t,9.6,10)):(noticed>0?-6*noticed:Math.sin(t*1.5)*2),
+      look:t>3.0?1:0,blink:blinkLoop(t,1),t});
+    cup.setAttribute('transform',sip>.05?`translate(${1220-lerp(0,70,0)-(-1)*0},0)`:'translate(1105,742)');
+    if(sip>.05){const hx=J.P.hR;const m=hx.getCTM(),pt=hx.ownerSVGElement.createSVGPoint();pt.x=+hx.getAttribute('cx');pt.y=+hx.getAttribute('cy');const camM=c.getCTM().inverse();const p2=pt.matrixTransform(camM.multiply(m));cup.setAttribute('transform',`translate(${p2.x-4},${p2.y+28})`)}
+    ST.forEach(s=>{const p=((t*.6)+s.ph)%1;const cupT=cup.getAttribute('transform').match(/-?[\d.]+/g).map(Number);s.e.setAttribute('transform',`translate(${cupT[0]+Math.sin(p*6+s.ph*5)*10},${cupT[1]-60-p*110}) scale(${8+p*10})`);s.e.setAttribute('opacity',(1-p)*.9)});
+    // Reza walk in, notice, freeze, approach
+    const w1=prog(t,.4,2.6);let rx=lerp(-150,600,w1);let pose=w1>0&&w1<1?walk(t):{};
+    const see=prog(t,2.9,3.2);const nerv=prog(t,4.4,5.8);const app=prog(t,6.0,7.0);
+    if(app>0){rx=lerp(600,830,eio(app));if(app<1)pose=walk(t)}
+    const heartEyes=t>3.0&&t<4.6;
+    const rpose=Object.assign({uL:8,fL:8,uR:-8,fR:-8},pose);
+    if(nerv>0&&nerv<1){rpose.uL=-150;rpose.fL=-200+Math.sin(t*14)*12} // hand on hair
+    const offer=prog(t,7.0,7.4);if(t>=6.0){rpose.uR=lerp(-8,70,offer);rpose.fR=lerp(-8,100,offer)}
+    const joy=prog(t,9.6,10.0);if(joy>0){rpose.uL=lerp(rpose.uL,160,joy);rpose.fL=lerp(rpose.fL,175,joy)}
+    const jump=joy>0?Math.abs(Math.sin((t-9.6)*7))*40*(1-prog(t,11,11.6)):0;
+    Rz.set({x:rx,y:900-jump,s:1.5,...rpose,eyes:heartEyes?'heart':(joy>0?'happy':(see>0&&t<6?'wide':'open')),mouth:heartEyes?'o':(joy>0?'grin':(nerv>0&&t<6?'flat':'smile')),
+      blush:.3+.6*prog(t,3,3.4),look:1,blink:blinkLoop(t),bob:heartEyes?Math.sin(t*16)*3:(pose.bob||0),t});
+    roseG.setAttribute('display',t>5.8?'inline':'none');
+    // effects
+    const fr=clamp(prog(t,3.0,3.2)-prog(t,4.4,4.8));pinkBg.setAttribute('opacity',.35*fr);speed.setAttribute('opacity',.6*fr);
+    const hp=prog(t,3.0,4.5);heartPop.setAttribute('display',hp>0&&hp<1?'inline':'none');heartPop.setAttribute('transform',`translate(${rx},${900-560-hp*80}) scale(${40*backOut(prog(t,3,3.3))*(1-prog(t,4.2,4.5))})`);
+    const th=t>3.0&&t<4.6;thump.setAttribute('display',th?'inline':'none');const beat=Math.max(pulse((t-3)%0.6,0.05,.002),pulse((t-3)%0.6,.22,.002));
+    thump.setAttribute('transform',`translate(${rx},${900-160}) scale(${22+beat*12})`);
+    bubR(prog(t,7.2,7.6)*(1-prog(t,9.0,9.2)),rx+60,900-560);
+    bubJ(prog(t,8.9,9.3)*(1-prog(t,11.8,12.2)),1180,900-480,-1);
+    bst(prog(t,9.3,10.8),1020,560);
+    camZoom(c,lerp(1,1.12,eio(prog(t,2.9,3.4)))-lerp(0,.12,eio(prog(t,4.4,5.2)))+t*.004,rx+150,560)}});
+
+// ---------- 3. SEASONS montage ----------
+scene(18,25,'heart',c=>{
+  add(c,`<rect class="sky" width="1920" height="1080" fill="#bfe6ff"/><circle class="sun" cx="1600" cy="200" r="90" fill="#ffd27a"/>
+   <path d="M0,700 Q480,600 960,680 T1920,660 V1080 H0Z" class="h1" fill="#9fd98a"/><path d="M0,800 Q500,740 1000,800 T1920,780 V1080 H0Z" class="h2" fill="#7cc46a"/>
+   <path d="M0,880 H1920 V960 H0Z" fill="#e8d4b8"/><path d="M0,880 H1920" stroke="#cdb594" stroke-width="5"/>`);
+  const trees=add(c,'<g></g>');const TR_=[];for(let i=0;i<5;i++){const g=add(trees,`<g><rect x="-14" y="-200" width="28" height="200" fill="#8a5a3c" stroke="${OUT}" stroke-width="5"/>
+    <g class="cr">${[[-60,-230,70],[50,-240,72],[0,-300,80],[-20,-200,60],[40,-190,58]].map(([x,y,r])=>`<circle cx="${x}" cy="${y}" r="${r}" stroke="${OUT}" stroke-width="5"/>`).join('')}</g>
+    <g class="sn">${[[-60,-290,50],[40,-310,52],[0,-370,48]].map(([x,y,r])=>`<ellipse cx="${x}" cy="${y}" rx="${r}" ry="18" fill="#fff"/>`).join('')}</g></g>`);TR_.push({g,x:i*480})}
+  const lamps=add(c,'<g></g>');const LP=[];for(let i=0;i<4;i++)LP.push({g:add(lamps,`<g><rect x="-6" y="-260" width="12" height="260" fill="${OUT}"/><circle cy="-270" r="22" fill="#ffe08a" stroke="${OUT}" stroke-width="5"/></g>`),x:240+i*600});
+  const R=Person(c,'reza'),J=Person(c,'janan');
+  const parts=add(c,'<g></g>');const PT=[];for(let i=0;i<60;i++)PT.push({e:add(parts,'<use/>'),x:rnd()*2000,y:rnd()*1080,v:60+rnd()*120,ph:rnd()*6,s:.7+rnd()*.6});
+  const hf=heartsFX(c,10,{x0:1000,y0:620,spread:200});
+  const label=add(c,`<g transform="translate(960,130)"><rect x="-220" y="-48" width="440" height="96" rx="48" fill="#fffaf5" stroke="${OUT}" stroke-width="6"/><text class="lbl" y="16" text-anchor="middle" font-family="Vaz" font-weight="900" font-size="48" fill="${OUT}"></text></g>`);
+  const lbl=q(label,'lbl');
+  const seasons=[{fa:'بهار',sky:'#bfe6ff',h1:'#9fd98a',h2:'#7cc46a',cr:'#ffb3c9',p:'petal'},{fa:'تابستان',sky:'#7fd0ff',h1:'#8fd16a',h2:'#6cbf55',cr:'#4fb05a',p:'spark'},
+    {fa:'پاییز',sky:'#ffd9b0',h1:'#e0b060',h2:'#d0963f',cr:'#ff8a3d',p:'leaf'},{fa:'زمستان',sky:'#cfe0f0',h1:'#f4f8ff',h2:'#e6eef8',cr:'#9fb38a',p:'snow'}];
+  return t=>{const idx=Math.max(0,Math.min(3,Math.floor(t/1.75)));const S=seasons[idx];
+    q(c,'sky').setAttribute('fill',S.sky);q(c,'h1').setAttribute('fill',S.h1);q(c,'h2').setAttribute('fill',S.h2);
+    TR_.forEach(tr_=>{const x=((tr_.x-t*260)%2400+2400)%2400-240;tr_.g.setAttribute('transform',`translate(${x},880)`);q(tr_.g,'cr').setAttribute('fill',S.cr);q(tr_.g,'sn').setAttribute('display',idx===3?'inline':'none')});
+    LP.forEach(l=>{const x=((l.x-t*420)%2400+2400)%2400-200;l.g.setAttribute('transform',`translate(${x},960)`)});
+    lbl.textContent=S.fa;const lp=t-idx*1.75;label.setAttribute('transform',`translate(960,130) scale(${elastic(prog(lp,0,.5))})`);
+    const wJ=walk(t+.2),wR=walk(t);
+    R.set({x:860,y:930,s:1.25,...wR,uR:40,fR:30,eyes:'open',mouth:'grin',look:1,tilt:4,scarf:idx===3,blink:blinkLoop(t),t});
+    J.set({x:1050,y:930,s:1.25,...wJ,uL:-40,fL:-30,eyes:Math.sin(t*1.3)>.6?'happy':'open',mouth:'grin',look:-1,tilt:-4,scarf:idx===3,blink:blinkLoop(t,1.4),blush:.6,t});
+    PT.forEach(p=>{const kind=S.p;const y=((p.y+t*p.v*(kind==='spark'?-.3:1))%1100+1100)%1100-20,x=((p.x-t*80+Math.sin(t*2+p.ph)*40)%2000+2000)%2000-40;
+      let html;if(kind==='petal'){p.e.setAttribute('href','#heart');p.e.setAttribute('fill','#ffc2d1')}else if(kind==='leaf'){p.e.setAttribute('href','#heart');p.e.setAttribute('fill','#ff8a3d')}
+      else if(kind==='snow'){p.e.setAttribute('href','#star');p.e.setAttribute('fill','#fff')}else{p.e.setAttribute('href','#star');p.e.setAttribute('fill','#fff6b0')}
+      p.e.setAttribute('transform',`translate(${x},${y}) rotate(${t*90+p.ph*50}) scale(${(kind==='snow'?9:kind==='spark'?7*(.5+.5*Math.sin(t*5+p.ph)):12)*p.s})`)});
+    hf(t);camZoom(c,1.04)}});
+
+// ---------- 4. FLIGHT to Paris ----------
+scene(25,30,'whip',c=>{
+  add(c,`<defs><linearGradient id="skyP" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7fb8ff"/><stop offset="1" stop-color="#ffd6e2"/></linearGradient></defs><rect width="1920" height="1080" fill="url(#skyP)"/>`);
+  const C=[];const cl=add(c,'<g></g>');for(let i=0;i<14;i++)C.push({e:add(cl,'<use href="#cloud"/>'),x:rnd()*2600,y:150+rnd()*850,s:.5+rnd()*1.2,v:200+rnd()*500});
+  const trail=add(c,'<g></g>');const TL=[];for(let i=0;i<14;i++)TL.push(add(trail,`<use href="#heart" fill="${i%2?'#ff8fab':'#fff'}" stroke="${OUT}" stroke-width=".08"/>`));
+  const plane=add(c,`<g>
+   <path d="M420,-30 L560,-220 L480,-220 L340,-40Z" fill="#ff8fab" stroke="${OUT}" stroke-width="8" stroke-linejoin="round"/>
+   <path d="M40,40 L280,250 L180,255 L-60,60Z" fill="#ffd1dc" stroke="${OUT}" stroke-width="8" stroke-linejoin="round"/>
+   <path d="M560,-70 Q600,0 560,70 L-420,80 Q-560,70 -580,0 Q-560,-70 -420,-80Z" fill="#fff" stroke="${OUT}" stroke-width="9" stroke-linejoin="round"/>
+   <path d="M560,30 L-560,30 Q-545,62 -420,72 L550,62Z" fill="#ff5d73" opacity=".85"/>
+   <path d="M-470,-62 Q-540,-55 -560,-12 L-470,-12Z" fill="#cdeaff" stroke="${OUT}" stroke-width="6"/>
+   ${Array.from({length:7},(_,i)=>i===2||i===3?'':`<rect x="${-380+i*110}" y="-34" width="50" height="56" rx="22" fill="#cdeaff" stroke="${OUT}" stroke-width="5"/>`).join('')}
+   <g class="win"></g>
+   <path d="M40,-40 L260,-260 L170,-265 L-80,-50Z" fill="#ffc2d1" stroke="${OUT}" stroke-width="8" stroke-linejoin="round"/>
+   <use href="#heart" transform="translate(470,-130) scale(34)" fill="#fff" stroke="${OUT}" stroke-width=".08"/></g>`);
+  const win=q(plane,'win');add(win,`<clipPath id="pw"><rect x="-190" y="-62" width="200" height="110" rx="40"/></clipPath><rect x="-190" y="-62" width="200" height="110" rx="40" fill="#cdeaff" stroke="${OUT}" stroke-width="6"/>`);
+  const inner=add(win,'<g clip-path="url(#pw)"></g>');const R=Person(inner,'reza'),J=Person(inner,'janan');
+  add(win,`<rect x="-190" y="-62" width="200" height="110" rx="40" fill="none" stroke="${OUT}" stroke-width="8"/>`);
+  const map=add(c,`<g transform="translate(1420,120)"><rect width="440" height="230" rx="26" fill="#fffaf5" stroke="${OUT}" stroke-width="6"/>
+   <path d="M60,170 Q120,40 210,60 Q300,80 380,150" fill="none" stroke="#e8d8cf" stroke-width="40" stroke-linecap="round" opacity=".7"/>
+   <path class="rt" d="M370,150 Q230,-10 80,90" fill="none" stroke="#ff5d73" stroke-width="6" stroke-dasharray="4 14" stroke-linecap="round"/>
+   <circle cx="370" cy="150" r="11" fill="${OUT}"/><text x="370" y="200" text-anchor="middle" font-family="Fred" font-weight="700" font-size="24" fill="${OUT}">ISTANBUL</text>
+   <use href="#heart" transform="translate(80,80) scale(18)" fill="#ff5d73" stroke="${OUT}" stroke-width=".12"/><text x="80" y="130" text-anchor="middle" font-family="Fred" font-weight="700" font-size="24" fill="${OUT}">PARIS</text>
+   <g class="mp"><path d="M-14,0 L14,0 M0,-12 L0,12 M-8,10 L8,10" stroke="${OUT}" stroke-width="7" stroke-linecap="round"/></g></g>`);
+  return t=>{C.forEach(k=>{const x=((k.x+t*k.v)%2800+2800)%2800-400;k.e.setAttribute('transform',tr(x,k.y,k.s))});
+    const px=lerp(2400,880,easeOut(prog(t,-.6,1.4)))+Math.sin(t*1.3)*20,py=520+Math.sin(t*2)*20;
+    plane.setAttribute('transform',`translate(${px},${py}) rotate(${Math.sin(t*2+1)*1.5}) scale(.95)`);
+    TL.forEach((h,i)=>{const d=i*55+60;h.setAttribute('transform',`translate(${px+600*.95+d},${py-40+Math.sin(t*4-i*.6)*24}) scale(${Math.max(.01,22-i*1.3)})`)});
+    R.set({x:-40,y:120,s:.48,mouth:'grin',eyes:'happy',look:-1,tilt:-8,t});J.set({x:-130,y:120,s:.48,mouth:'grin',eyes:'open',look:1,tilt:8,blush:.7,blink:blinkLoop(t),t});
+    const u=eio(prog(t,.3,4.6));const bx=(1-u)*(1-u)*370+2*(1-u)*u*230+u*u*80,by=(1-u)*(1-u)*150+2*(1-u)*u*(-10)+u*u*90;
+    q(map,'mp').setAttribute('transform',`translate(${bx},${by}) rotate(${lerp(200,150,u)})`);map.setAttribute('opacity',prog(t,.2,.7))}});
+
+// ---------- 5. PARIS proposal ----------
+scene(30,40,'heart',c=>{
+  add(c,`<defs><linearGradient id="night" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b1640"/><stop offset=".7" stop-color="#4b3a7a"/><stop offset="1" stop-color="#8e5a9a"/></linearGradient>
+   <linearGradient id="seine" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3070"/><stop offset="1" stop-color="#1b1640"/></linearGradient></defs>
+   <rect width="1920" height="1080" fill="url(#night)"/><circle cx="380" cy="200" r="70" fill="#fff6d8"/><circle cx="410" cy="185" r="62" fill="#2a2150"/>`);
+  const S=[];const st=add(c,'<g></g>');for(let i=0;i<80;i++)S.push({e:add(st,'<use href="#star" fill="#fff"/>'),x:rnd()*1920,y:rnd()*600,s:2+rnd()*5,p:rnd()*6});
+  add(c,`<path d="M0,760 V700 H140 V660 H260 V710 H420 V680 H520 V760Z M1500,760 V690 H1620 V650 H1720 V700 H1920 V760Z" fill="#2e2558"/>`);
+  // Eiffel tower
+  const E=add(c,`<g transform="translate(1180,0)">
+   <path d="M-260,780 Q-150,560 -60,330 L-30,120 L-14,40 H14 L30,120 L60,330 Q150,560 260,780 H170 Q90,620 0,600 Q-90,620 -170,780Z" fill="#6b4a3a" stroke="#2a1c30" stroke-width="6" stroke-linejoin="round"/>
+   <path d="M-150,560 H150 M-100,450 H100 M-62,330 H62 M-36,200 H36" stroke="#2a1c30" stroke-width="10"/>
+   <path d="M-150,560 L-62,330 L62,560 M150,560 L62,330 L-62,560 M-62,330 L-30,120 L30,330 M62,330 L30,120 L-30,330" stroke="#8a6250" stroke-width="4" fill="none"/>
+   <rect x="-6" y="0" width="12" height="44" fill="#6b4a3a"/><circle cy="-4" r="8" fill="#ffe08a"/></g>`);
+  const lights=add(E,'<g></g>');const LI=[];
+  for(let i=0;i<120;i++){const y=60+rnd()*710;const half=(y<330?lerp(14,62,(y-40)/290):lerp(62,260,Math.pow((y-330)/450,1.5)));LI.push({e:add(lights,'<circle r="5" fill="#fff6b0"/>'),x:(rnd()*2-1)*half*.95,y,ph:rnd()*6})}
+  const beam=add(E,`<path d="M0,-4 L900,-200 L900,-120Z" fill="#fff6b0" opacity=".15"/>`);
+  add(c,`<rect y="760" width="1920" height="320" fill="url(#seine)"/><rect y="760" width="1920" height="70" fill="#5a4a7a"/><path d="M0,760 H1920" stroke="#2a1c30" stroke-width="5"/>`);
+  const refl=add(c,'<g></g>');for(let i=0;i<10;i++)add(refl,`<rect x="${1180-60+i*4}" y="${860+i*20}" width="${120-i*8}" height="6" rx="3" fill="#ffe08a" opacity=".5"/>`);
+  add(c,`<g transform="translate(160,830)"><rect x="-8" y="-300" width="16" height="300" fill="#1b1640"/><path d="M-30,-300 H30 L20,-350 H-20Z" fill="#ffe08a" stroke="#1b1640" stroke-width="6"/><circle cy="-325" r="60" fill="#ffe08a" opacity=".15"/></g>`);
+  const fw=add(c,'<g></g>');const FW=[[640,250,0],[1500,220,.5],[900,160,1.1],[1750,330,1.6],[420,340,2.0],[1200,120,2.6],[700,300,3.1]].map(([x,y,d])=>({b:burst(fw,22,x,y,{dist:180,size:20,col:['#ff5d73','#ff8fab','#ffd27a','#fff','#b9a3ff']}),d}));
+  const glow=add(c,`<circle r="160" fill="url(#ringGlow)" opacity="0"/>`);
+  const R=Person(c,'reza'),J=Person(c,'janan');
+  const box=add(R.P.pH,`<g transform="translate(14,-8)"><rect x="-26" y="-20" width="52" height="38" rx="8" fill="#c2304f" stroke="${OUT}" stroke-width="4"/><path class="lid" d="M-26,-20 H26 V-30 Q26,-40 16,-40 H-16 Q-26,-40 -26,-30Z" fill="#e0445f" stroke="${OUT}" stroke-width="4"/>
+    <g class="ring"><circle cx="0" cy="-26" r="12" fill="none" stroke="#ffd27a" stroke-width="6"/><path d="M-8,-40 L0,-52 L8,-40 L0,-34Z" fill="#dff8ff" stroke="${OUT}" stroke-width="3"/></g></g>`);
+  const lid=q(box,'lid'),ring=q(box,'ring');
+  const spk=burst(c,10,0,0,{shape:'star',col:['#fff','#fff6b0'],dist:110,size:18});
+  const bubJ=bubble(c,`<text x="0" y="-40" text-anchor="middle" font-family="Vaz" font-weight="900" font-size="48" fill="#e0344f">بله!</text>`);
+  const big=burst(c,36,880,520,{dist:520,size:34});
+  const hf=heartsFX(c,24,{x0:900,y0:900,spread:900});
+  return t=>{ // 0..10
+    S.forEach(s=>s.e.setAttribute('transform',`translate(${s.x},${s.y}) scale(${s.s*(.6+.4*Math.sin(t*4+s.p))})`));
+    const sparkle=t>5.2;LI.forEach(l=>{l.e.setAttribute('cx',l.x);l.e.setAttribute('cy',l.y);l.e.setAttribute('opacity',sparkle?(Math.sin(t*25+l.ph*7)>.2?1:.15):.35+.25*Math.sin(t*2+l.ph));l.e.setAttribute('r',sparkle?6:4)});
+    beam.setAttribute('transform',`rotate(${t*40})`);
+    // walk in
+    const w=prog(t,0,1.6);const rx=lerp(-120,700,eio(w)),jx=lerp(80,960,eio(w));
+    const kneel=eio(prog(t,1.9,2.4));const open=prog(t,3.2,3.5);const yes=prog(t,5.0,5.3);const stand=eio(prog(t,6.6,7.1));const hug=eio(prog(t,7.1,7.7));
+    const k=kneel*(1-stand);
+    const wk=w>0&&w<1?walk(t):{};
+    const rp=Object.assign({uL:8,fL:8,uR:-8,fR:-8},wk);
+    const rk={drop:34*k,tL:lerp(rp.tL||0,KNEEL.tL,k),sL:lerp(rp.sL||0,KNEEL.sL,k),tR:lerp(rp.tR||0,KNEEL.tR,k),sR:lerp(rp.sR||0,KNEEL.sR,k)};
+    if(t>2.4&&stand<1){rp.uR=lerp(-8,75,prog(t,2.5,3.0));rp.fR=lerp(-8,95,prog(t,2.5,3.0))}
+    if(hug>0){rp.uR=lerp(rp.uR,100,hug);rp.fR=lerp(rp.fR,150,hug);rp.uL=lerp(rp.uL,60,hug);rp.fL=lerp(rp.fL,110,hug)}
+    vis(box,t>2.5&&t<7);lid.setAttribute('transform',`rotate(${-110*open},-26,-20)`);vis(ring,open>0);
+    const hugX=lerp(0,55,hug);
+    R.set({x:rx+hugX,y:880,s:1.35,...rp,...rk,eyes:yes>0?'happy':(open>0?'open':'open'),mouth:yes>0?'grin':(open>0?'smile':'smile'),blush:.6,look:1,tilt:yes>0?6:0,blink:blinkLoop(t,.7),t});
+    const jp={uL:8,fL:8,uR:-8,fR:-8,...(w>0&&w<1?walk(t+.3):{})};
+    const gasp=prog(t,3.4,3.7);if(gasp>0&&yes<1){jp.uL=jp.uR=lerp(8,165,gasp)*1;jp.uL=lerp(8,150,gasp);jp.fL=lerp(8,210,gasp);jp.uR=lerp(-8,-150,gasp);jp.fR=lerp(-8,-210,gasp)}
+    if(yes>0){jp.uL=lerp(150,170,yes);jp.fL=lerp(210,175,yes);jp.uR=lerp(-150,-170,yes);jp.fR=lerp(-210,-175,yes)}
+    if(hug>0){jp.uL=lerp(jp.uL,100,hug);jp.fL=lerp(jp.fL,150,hug);jp.uR=lerp(jp.uR,-60,hug);jp.fR=lerp(jp.fR,-110,hug)}
+    const jj=yes>0&&hug<1?Math.abs(Math.sin((t-5)*8))*36*(1-prog(t,6.3,6.8)):0;
+    J.set({x:jx-hugX,y:880-jj,s:1.35,flip:-1,...jp,eyes:gasp>0&&yes<1?'wide':(yes>0?'happy':'open'),mouth:gasp>0&&yes<1?'o':(yes>0?'grin':'smile'),blush:.4+.6*gasp,look:1,tilt:hug>0?-8*hug:0,blink:blinkLoop(t,2),t});
+    // ring glow + sparkles at ring position
+    let rpos={x:0,y:0};if(t>2.5){const m=ring.getCTM(),pt=ring.ownerSVGElement.createSVGPoint();pt.x=0;pt.y=-30;const inv=c.getCTM().inverse();const p=pt.matrixTransform(inv.multiply(m));rpos=p}
+    glow.setAttribute('transform',`translate(${rpos.x},${rpos.y}) scale(${open*(1+.1*Math.sin(t*10))})`);glow.setAttribute('opacity',open*(1-stand));
+    spk(prog(t,3.25,4.4),rpos.x,rpos.y);
+    bubJ(prog(t,5.0,5.3)*(1-prog(t,7.4,7.7)),jx+40,880-560,1);
+    big(prog(t,5.1,6.6),(rx+jx)/2,560);
+    FW.forEach(f=>f.b(prog((t-5.2-f.d)%3.6,0,1.4)*(t>5.2+f.d?1:0)));
+    hf(t-7,t>7);
+    const z=lerp(1,1.45,eio(prog(t,3.0,3.8)))-lerp(0,.45,eio(prog(t,4.6,5.4)))+(t>7?(t-7)*.02:0);
+    camZoom(c,z,lerp(960,rpos.x||960,prog(t,3,3.8)*(1-prog(t,4.6,5.4))),lerp(540,rpos.y||540,prog(t,3,3.8)*(1-prog(t,4.6,5.4))))}});
+
+// ---------- 6. HOME + LUNA ----------
+scene(40,47,'heart',c=>{
+  add(c,`<rect width="1920" height="1080" fill="#ffe8e0"/>${Array.from({length:14},(_,i)=>`<rect x="${i*140}" y="0" width="70" height="760" fill="#ffded4"/>`).join('')}
+  <rect y="760" width="1920" height="320" fill="#d9a77a"/>${Array.from({length:10},(_,i)=>`<path d="M${i*200},760 V1080" stroke="#c89268" stroke-width="4"/>`).join('')}
+  <ellipse cx="960" cy="950" rx="620" ry="90" fill="#ff8fab" opacity=".55"/>
+  <g transform="translate(1300,120)"><rect width="480" height="380" rx="14" fill="#ffc9a3" stroke="${OUT}" stroke-width="8"/>
+   <svg x="8" y="8" width="464" height="364" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice"><rect width="1920" height="1080" fill="#ffb199"/><circle cx="1300" cy="700" r="140" fill="#ffe08a"/><g class="sky2"></g><rect y="780" width="1920" height="300" fill="#8e6bbf"/></svg>
+   <path d="M240,0 V380 M0,190 H480" stroke="${OUT}" stroke-width="7"/></g>
+  <g transform="translate(280,200)"><rect width="200" height="240" rx="8" fill="#fff" stroke="${OUT}" stroke-width="6"/><rect x="18" y="18" width="164" height="204" fill="#2b2350"/>
+   <path d="M100,60 L70,200 H90 Q100,170 110,200 H130Z" fill="#6b4a3a"/><circle cx="60" cy="70" r="3" fill="#fff"/><circle cx="150" cy="50" r="3" fill="#fff"/><use href="#heart" transform="translate(150,190) scale(14)" fill="#ff5d73"/></g>
+  <g transform="translate(560,240)"><rect width="160" height="200" rx="8" fill="#fff" stroke="${OUT}" stroke-width="6"/><rect x="16" y="16" width="128" height="168" fill="#ffd6e2"/><use href="#heart" transform="translate(80,100) scale(40)" fill="#ff5d73" stroke="${OUT}" stroke-width=".06"/></g>
+  <g transform="translate(960,860)"><rect x="-420" y="-260" width="840" height="190" rx="60" fill="#ff8fab" stroke="${OUT}" stroke-width="8"/>
+   <rect x="-460" y="-150" width="110" height="170" rx="40" fill="#ff7a99" stroke="${OUT}" stroke-width="8"/><rect x="350" y="-150" width="110" height="170" rx="40" fill="#ff7a99" stroke="${OUT}" stroke-width="8"/>
+   <rect x="-360" y="-110" width="720" height="110" rx="30" fill="#ffa3bb" stroke="${OUT}" stroke-width="8"/><rect x="-380" y="0" width="30" height="40" fill="#8a5a3c"/><rect x="350" y="0" width="30" height="40" fill="#8a5a3c"/></g>`);
+  const sky2=q(c,'sky2');istanbulSkyline(sky2,'#6b4fa8',780);
+  const R=Person(c,'reza'),J=Person(c,'janan');
+  const L=Luna(c);
+  const bub=bubble(c,`<text x="0" y="-44" text-anchor="middle" font-family="Vaz" font-weight="900" font-size="44" fill="${OUT}">هاپ!</text>`);
+  const tag=add(c,`<g><rect x="-110" y="-44" width="220" height="80" rx="40" fill="#fff" stroke="${OUT}" stroke-width="6"/><text x="0" y="12" text-anchor="middle" font-family="Script" font-weight="700" font-size="52" fill="#e0344f">Luna</text></g>`);
+  const hf=heartsFX(c,16,{x0:960,y0:640,spread:600});
+  const bst=burst(c,20,960,560,{dist:260,size:24});
+  return t=>{ // 0..7
+    const arrive=prog(t,1.0,2.1);const jumpP=prog(t,2.1,2.7);
+    let lx=lerp(2100,1250,eio(arrive)),ly=880;
+    if(jumpP>0){lx=lerp(1250,960,jumpP);ly=lerp(880,640,jumpP)-Math.sin(jumpP*Math.PI)*200}
+    L.set({x:lx,y:ly,s:1.25,flip:-1,run:arrive>0&&arrive<1,wag:1,eyes:t>2.7?'happy':'open',t,rot:jumpP>0&&jumpP<1?-15*Math.sin(jumpP*Math.PI):0});
+    const pet=prog(t,3.0,3.3);const laugh=t>2.7;
+    R.set({x:800,y:880,s:1.3,...SIT,uL:8,fL:8,uR:lerp(-8,60,pet),fR:lerp(-8,110,pet)+Math.sin(t*10)*10*pet,eyes:laugh?'happy':'open',mouth:laugh?'grin':'smile',look:arrive>0&&!laugh?1:0,tilt:laugh?Math.sin(t*12)*3:0,blink:blinkLoop(t),t});
+    J.set({x:1120,y:880,s:1.3,...SIT,uL:lerp(8,-60,pet),fL:lerp(8,-110,pet),uR:-8,fR:-8,eyes:laugh?'happy':(arrive>0?'wide':'open'),mouth:laugh?'grin':(arrive>0&&arrive<1?'o':'smile'),look:arrive>0&&!laugh?1:0,blush:.6,blink:blinkLoop(t,1.1),t});
+    bub(prog(t,2.9,3.2)*(1-prog(t,4.4,4.7)),lx+110,ly-210,1);
+    tag.setAttribute('transform',`translate(${lx},${ly-260}) scale(${elastic(prog(t,4.6,5.1))})`);tag.setAttribute('display',t>4.6?'inline':'none');
+    bst(prog(t,2.7,3.8),960,520);hf(t-3,t>3);camZoom(c,1.02+t*.012,960,600)}});
+
+// ---------- 7. WEDDING ----------
+scene(47,54,'heart',c=>{
+  add(c,`<defs><linearGradient id="skyWd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9fd8ff"/><stop offset="1" stop-color="#fff0f5"/></linearGradient></defs>
+   <rect width="1920" height="1080" fill="url(#skyWd)"/><use href="#cloud" transform="translate(200,160) scale(.7)"/><use href="#cloud" transform="translate(1500,120) scale(.8)"/>
+   <path d="M0,640 H1920" stroke="#8fbfd8" stroke-width="4"/><rect y="640" width="1920" height="80" fill="#7fc3e6"/>
+   <g fill="#9ab3d0">${[[300,60],[700,40],[1300,70],[1600,50]].map(([x,h])=>`<rect x="${x}" y="${640-h}" width="120" height="${h}"/>`).join('')}<rect x="1046" y="520" width="28" height="120"/><path d="M1040,520 H1080 L1060,470Z"/></g>
+   <rect y="720" width="1920" height="360" fill="#a8dc8f"/><path d="M760,1080 L880,720 H1040 L1160,1080Z" fill="#fff6f8"/>
+   ${Array.from({length:6},(_,i)=>`<g transform="translate(${130+i*60*(i<3?1:1)+(i>=3?1300:0)},${780+(i%3)*90})"><rect x="-70" y="-60" width="140" height="70" rx="12" fill="#fff" stroke="${OUT}" stroke-width="5"/><rect x="-70" y="0" width="12" height="50" fill="#fff" stroke="${OUT}" stroke-width="4"/><rect x="58" y="0" width="12" height="50" fill="#fff" stroke="${OUT}" stroke-width="4"/><path d="M-30,-60 V-110 H30 V-60" fill="none" stroke="${OUT}" stroke-width="5"/></g>`).join('')}`);
+  const arch=add(c,`<g transform="translate(960,900)"><path d="M-330,0 V-420 A330,330 0 0 1 330,-420 V0" fill="none" stroke="#fff" stroke-width="34"/><path d="M-330,0 V-420 A330,330 0 0 1 330,-420 V0" fill="none" stroke="${OUT}" stroke-width="5" opacity=".3"/></g>`);
+  for(let i=0;i<46;i++){const u=i/45;let x,y;if(u<.3){x=-330;y=-u/.3*420}else if(u>.7){x=330;y=-(1-u)/.3*420}else{const a=Math.PI*(1-(u-.3)/.4);x=Math.cos(a)*330;y=-420-Math.sin(a)*330}
+    add(arch,`<circle cx="${x+(rnd()-.5)*20}" cy="${y+(rnd()-.5)*20}" r="${18+rnd()*14}" fill="${['#ff8fab','#fff','#ffc2d1','#ff5d8f'][i%4]}" stroke="${OUT}" stroke-width="3"/>`);if(i%3===0)add(arch,`<ellipse cx="${x+24}" cy="${y}" rx="16" ry="8" fill="#3fae6a"/>`)}
+  const lights=add(c,'<g></g>');const LB=[];add(lights,`<path d="M0,120 Q480,260 960,140 T1920,120" fill="none" stroke="${OUT}" stroke-width="3"/>`);for(let i=1;i<24;i++){const x=i*80,y=120+Math.sin(i/24*Math.PI*2)*-40+70*Math.sin(i/12*Math.PI)*(i<12?1:1);LB.push({e:add(lights,`<circle cx="${x}" cy="${y+10}" r="9" fill="#ffe08a" stroke="${OUT}" stroke-width="2"/>`),ph:rnd()*6})}
+  const R=Person(c,'reza',{suit:1}),J=Person(c,'janan',{bride:1});
+  add(J.P.pH,`<g transform="translate(0,6)"><circle cx="-12" cy="-6" r="14" fill="#fff" stroke="${OUT}" stroke-width="3"/><circle cx="10" cy="-10" r="14" fill="#ffc2d1" stroke="${OUT}" stroke-width="3"/><circle cx="0" cy="8" r="14" fill="#ff8fab" stroke="${OUT}" stroke-width="3"/><path d="M-4,20 L0,50 L6,20" fill="#3fae6a" stroke="${OUT}" stroke-width="3"/></g>`);
+  const L=Luna(c);
+  const card=add(c,`<g transform="translate(960,190)"><path d="M-360,-70 H360 L320,0 L360,70 H-360 L-320,0Z" fill="#fffaf5" stroke="${OUT}" stroke-width="6"/>
+   <text y="-8" text-anchor="middle" font-family="Script" font-weight="700" font-size="62" fill="#e0344f">Just Married</text>
+   <text y="48" text-anchor="middle" font-family="Fred" font-weight="700" font-size="34" fill="${OUT}" letter-spacing="6">28 · 08 · 2026</text></g>`);
+  const pet=add(c,'<g></g>');const PE=[];for(let i=0;i<70;i++)PE.push({e:add(pet,`<use href="#heart" fill="${['#ff8fab','#fff','#ffc2d1','#ff5d73'][i%4]}" stroke="${OUT}" stroke-width=".08"/>`),x:rnd()*1920,y0:-50-rnd()*1100,v:150+rnd()*200,ph:rnd()*6,s:8+rnd()*8});
+  const kissH=add(c,`<use href="#heart" fill="#ff3d6a" stroke="${OUT}" stroke-width=".06"/>`);
+  return t=>{LB.forEach(l=>l.e.setAttribute('opacity',.6+.4*Math.sin(t*5+l.ph)));
+    const lean=eio(prog(t,2.6,3.2))*(1-eio(prog(t,4.6,5.0)));
+    R.set({x:870,y:900,s:1.35,uL:8,fL:8,uR:lerp(40,70,lean),fR:lerp(30,60,lean),eyes:lean>.5?'closed':'happy',mouth:lean>.5?'smile':'grin',look:1,tilt:10*lean,blink:1,bob:Math.sin(t*3)*2,t});
+    J.set({x:1050,y:900,s:1.35,flip:-1,uL:lerp(40,70,lean),fL:lerp(30,60,lean),uR:70,fR:120,eyes:lean>.5?'closed':'happy',mouth:'grin',blush:.8,look:1,tilt:10*lean,bob:Math.sin(t*3+1)*2,t});
+    kissH.setAttribute('display',lean>.6?'inline':'none');kissH.setAttribute('transform',`translate(960,${500-lean*30}) scale(${34*backOut(prog(t,3.0,3.4))*(1+.1*Math.sin(t*12))})`);
+    L.set({x:1250,y:905,s:.95,flip:-1,bow:1,eyes:'happy',t,jump:Math.abs(Math.sin(t*5))*12});
+    card.setAttribute('transform',`translate(960,${lerp(-100,200,backOut(prog(t,.4,1.0)))}) rotate(${Math.sin(t*2)*1.5})`);
+    PE.forEach(p=>{const y=p.y0+t*p.v;p.e.setAttribute('transform',`translate(${p.x+Math.sin(t*2+p.ph)*40},${y}) rotate(${t*90+p.ph*60}) scale(${p.s})`)});
+    camZoom(c,1.03+t*.012,960,620)}});
+
+// ---------- 8. END: balcony at sunset ----------
+scene(54,60,'heart',c=>{
+  add(c,`<defs><linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8e6bbf"/><stop offset=".45" stop-color="#ff8fab"/><stop offset="1" stop-color="#ffd27a"/></linearGradient></defs>
+   <rect width="1920" height="1080" fill="url(#gold)"/><circle cx="960" cy="760" r="380" fill="url(#sunGlow)"/><circle cx="960" cy="770" r="150" fill="#ffe08a"/>`);
+  istanbulSkyline(c,'#6b4fa8',820);
+  add(c,`<rect y="820" width="1920" height="260" fill="#8e6bbf"/>`);
+  const rf=add(c,'<g></g>');for(let i=0;i<7;i++)add(rf,`<rect x="${960-(150-i*16)}" y="${840+i*26}" width="${2*(150-i*16)}" height="8" rx="4" fill="#ffe08a" opacity=".7"/>`);
+  const R=Person(c,'reza'),J=Person(c,'janan');const L=Luna(c);
+  add(c,`<g><rect y="930" width="1920" height="26" fill="#fff" stroke="${OUT}" stroke-width="6"/>${Array.from({length:25},(_,i)=>`<rect x="${i*80+30}" y="956" width="16" height="130" fill="#fff" stroke="${OUT}" stroke-width="4"/>`).join('')}
+   ${[[120,'#ff5d8f'],[1800,'#ff8fab']].map(([x,cl])=>`<g transform="translate(${x},930)"><path d="M-60,0 L-50,-60 H50 L60,0Z" fill="#c98a5a" stroke="${OUT}" stroke-width="5"/>${[-40,-10,20,45,-25,5,32].map((dx,i)=>`<circle cx="${dx}" cy="${-70-(i>3?30:0)}" r="20" fill="${cl}" stroke="${OUT}" stroke-width="3"/>`).join('')}</g>`).join('')}</g>`);
+  const hf=heartsFX(c,30,{x0:960,y0:1000,spread:1700});
+  const bigHeart=add(c,`<use href="#heart" fill="none" stroke="#fff" stroke-width=".03" opacity=".6"/>`);
+  return t=>{rf.setAttribute('transform',`translate(${Math.sin(t*2)*8},0)`);
+    R.set({x:860,y:930,s:1.1,uL:8,fL:8,uR:50,fR:40,eyes:'closed',mouth:'smile',tilt:8,look:1,blink:1,bob:Math.sin(t*2)*2,t});
+    J.set({x:1060,y:930,s:1.1,flip:-1,uL:50,fL:40,uR:-8,fR:-8,eyes:'closed',mouth:'smile',blush:.7,tilt:8,look:1,bob:Math.sin(t*2+1)*2,t});
+    L.set({x:1230,y:930,s:.9,flip:-1,eyes:'happy',t});
+    hf(t);bigHeart.setAttribute('transform',`translate(960,700) scale(${lerp(200,330,eio(prog(t,0,2)))+Math.sin(t*3)*6})`);
+    camZoom(c,1.1-t*.015,960,700)}});
+
+/* ================= CAPTIONS ================= */
+const capData=[[5.6,8.0,'جانان، یه قهوه در وادی‌استانبول','A coffee at Vadistanbul…'],[8.2,11.6,'رضا دیدش… و دلش رفت!','Reza saw her… and fell in love'],
+ [12.0,17.6,'پیشنهاد دوستی… و جانان گفت آره!','He asked… and she said yes!'],[18.6,24.7,'دو، سه سال عاشقی','Years of love'],[25.4,29.7,'مقصد: پاریس!','Next stop: Paris!'],
+ [30.6,34.7,'زیر برج ایفل…','Under the Eiffel Tower…'],[35.3,39.7,'جانان گفت: بله!','She said YES!'],
+ [40.6,43.4,'برگشتیم استانبول…','Back home in Istanbul…'],[43.6,46.7,'…و لونا اومد!','…and then came Luna!'],[47.6,53.6,'۲۸ آگوست ۲۰۲۶، بله برای همیشه','28 August 2026 · Forever begins']];
+const caps=capData.map(([a,b,fa,en])=>({a,b,e:add($('caps'),`<div class="cap"><div class="fa">${fa}</div><div class="en">${en}</div></div>`)}));
+const chapters=[[5,18,'CHAPTER 1','We met','آشنایی'],[18,30,'CHAPTER 2','Falling in love','عاشقی'],[30,40,'CHAPTER 3','Paris','پاریس'],[40,47,'CHAPTER 4','Home & Luna','خونه و لونا'],[47,54,'CHAPTER 5','Wedding','عروسی']];
+
+/* ================= HEART IRIS ================= */
+function heartPath(cx,cy,r){const P=[[0,0.9],[-0.6,0.45],[-1,0.1],[-1,-0.3],[-1,-0.75],[-0.55,-1],[-0.25,-0.85],[-0.1,-0.78],[0,-0.65],[0,-0.6],[0,-0.65],[0.1,-0.78],[0.25,-0.85],[0.55,-1],[1,-0.75],[1,-0.3],[1,0.1],[0.6,0.45],[0,0.9]].map(([x,y])=>`${(cx+x*r).toFixed(1)},${(cy+y*r).toFixed(1)}`);
+  return `path('M${P[0]} C${P[1]} ${P[2]} ${P[3]} C${P[4]} ${P[5]} ${P[6]} C${P[7]} ${P[8]} ${P[9]} C${P[10]} ${P[11]} ${P[12]} C${P[13]} ${P[14]} ${P[15]} C${P[16]} ${P[17]} ${P[18]}Z')`}
+
+/* ================= RENDER ================= */
+function render(t){
+  scenes.forEach((s,i)=>{const next=scenes[i+1];const v=t>=s.start-(s.trans==='none'?0:TR)&&t<s.end;s.div.style.display=v?'block':'none';if(!v)return;
+    let tx=0,blur=0,clip='none';
+    if(t<s.start){const p=eio(prog(t,s.start-TR,s.start));if(s.trans==='whip'){tx=(1-p)*W;blur=Math.sin(p*Math.PI)*16}if(s.trans==='heart')clip=heartPath(960,560,p*1500)}
+    if(next&&next.trans==='whip'&&t>=next.start-TR){const p=eio(prog(t,next.start-TR,next.start));tx=-p*W;blur=Math.sin(p*Math.PI)*16}
+    s.div.style.transform=`translateX(${tx}px)`;s.div.style.filter=blur>.5?`blur(${blur}px)`:'none';s.div.style.clipPath=clip;s.update(t-s.start)});
+  [...$('title').children].forEach((e,i)=>{const p=prog(t,.5+i*.45,1.1+i*.45),o=prog(t,4.2,4.7);e.style.opacity=p>0?1-o:0;e.style.transform=`scale(${elastic(p)}) translateY(${-o*30}px)`});
+  [...$('end').children].forEach((e,i)=>{const p=prog(t,55.4+i*.45,56+i*.45);e.style.opacity=p>0?1:0;e.style.transform=`scale(${elastic(p)})`});
+  const ch=chapters.find(c=>t>=c[0]&&t<c[1]);const chap=$('chap');
+  if(ch){const p=prog(t,ch[0]+.3,ch[0]+.8),o=prog(t,ch[1]-.4,ch[1]);chap.style.opacity=Math.min(p,1-o);chap.style.transform=`translateX(${(1-easeOut(p))*-60}px)`;
+    chap.children[0].textContent=ch[2];chap.children[1].textContent=ch[3];chap.children[2].textContent=ch[4]}else chap.style.opacity=0;
+  caps.forEach(c=>{const pin=prog(t,c.a,c.a+.5),pout=prog(t,c.b-.3,c.b);const v=pin>0&&pout<1;c.e.style.display=v?'flex':'none';if(!v)return;
+    c.e.style.opacity=1-pout;c.e.style.transform=`translateX(-50%) translateY(${pout*50}px) scale(${elastic(pin)*(1-pout*.1)}) rotate(${Math.sin(t*2.5)*.7}deg)`});
+  $('flash').style.opacity=Math.max(pulse(t,35.05,.004)*.7,0);
+  $('stage').style.opacity=Math.min(prog(t,0,.5),1-prog(t,59.2,60));
+}
+window.render=render;render(0);
+</script></body></html>
