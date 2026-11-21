@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<title>Antalya Smile Tour — Jokar Dental</title>
+<style>
+@font-face{font-family:Vaz;src:url(fonts/vazirmatn-arabic-900-normal.woff2);font-weight:900}
+@font-face{font-family:Vaz;src:url(fonts/vazirmatn-arabic-700-normal.woff2);font-weight:700}
+@font-face{font-family:Fred;src:url(fonts/fredoka-latin-700-normal.woff2);font-weight:700}
+@font-face{font-family:Fred;src:url(fonts/fredoka-latin-600-normal.woff2);font-weight:600}
+@font-face{font-family:Fred;src:url(fonts/fredoka-latin-ext-700-normal.woff2);font-weight:700;unicode-range:U+0100-024F,U+1E00-1EFF}
+@font-face{font-family:Fred;src:url(fonts/fredoka-latin-ext-600-normal.woff2);font-weight:600;unicode-range:U+0100-024F,U+1E00-1EFF}
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#000}
+#stage{position:relative;width:1920px;height:1080px;overflow:hidden;background:#000}
+.scene{position:absolute;inset:0;display:none;will-change:transform}
+.scene>svg,#hud,#ovl{position:absolute;inset:0}
+.fa{font-family:Vaz,Fred;direction:rtl}
+.en{font-family:Fred}
+.stroke{paint-order:stroke fill}
+.cap{position:absolute;left:50%;bottom:64px;transform-origin:50% 100%;opacity:0;display:flex;flex-direction:column;align-items:center;
+  background:#fff;border:6px solid #173a6a;border-radius:44px;padding:14px 56px 16px;box-shadow:0 10px 0 #173a6a;white-space:nowrap}
+.cap .fa{font-weight:900;font-size:64px;color:#173a6a;line-height:1.25;display:flex;align-items:center;gap:16px}
+.cap .en{font-weight:600;font-size:34px;color:#0a8f9a;letter-spacing:1px;margin-top:-2px}
+#title{position:absolute;left:0;right:0;top:110px;text-align:center}
+.t1{font-family:Vaz;font-weight:900;font-size:150px;color:#fff;-webkit-text-stroke:20px #173a6a;paint-order:stroke fill;direction:rtl;line-height:1.2}
+.t2{font-family:Fred;font-weight:700;font-size:76px;color:#ffde4a;letter-spacing:12px;-webkit-text-stroke:12px #173a6a;paint-order:stroke fill;margin-top:4px}
+.t3{display:inline-block;margin-top:22px;font-family:Fred;font-weight:600;font-size:34px;color:#173a6a;background:#fff;border-radius:40px;padding:8px 34px;box-shadow:0 6px 0 #173a6a}
+.t3 span{font-family:Vaz;font-weight:700}
+#end{position:absolute;left:0;right:0;top:500px;text-align:center}
+#end .a{font-family:Vaz;font-weight:900;font-size:124px;color:#fff;-webkit-text-stroke:16px #0b4a63;paint-order:stroke fill;direction:rtl;line-height:1.2}
+#end .b{font-family:Fred;font-weight:700;font-size:70px;color:#ffde4a;letter-spacing:12px;-webkit-text-stroke:10px #0b4a63;paint-order:stroke fill}
+#end .cpill{display:inline-flex;align-items:center;gap:14px;margin-top:22px;background:#fff;border-radius:60px;padding:10px 40px;font-family:Fred;font-weight:700;font-size:50px;color:#0b6c8a;box-shadow:0 8px 0 #0b4a63}
+#end .d{font-family:Vaz;font-weight:700;font-size:56px;color:#fff;direction:rtl;margin-top:34px;-webkit-text-stroke:9px #0b4a63;paint-order:stroke fill}
+#end .e{font-family:Fred;font-weight:600;font-size:34px;color:#dffcff;margin-top:2px}
+#end>div{opacity:0;transform-origin:50% 50%}
+#logo{position:absolute;right:40px;top:34px;display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.92);border-radius:40px;padding:8px 22px 8px 14px;
+  font-family:Fred;font-weight:700;font-size:28px;color:#173a6a;letter-spacing:2px;box-shadow:0 5px 0 rgba(23,58,106,.6);opacity:0}
+#flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+#vign{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,rgba(0,0,0,0) 60%,rgba(0,20,50,.28) 100%)}
+</style></head>
+<body><div id="stage">
+<svg width="0" height="0" style="position:absolute">
+ <defs>
+  <radialGradient id="toothShade" cx=".4" cy=".35" r=".75"><stop offset="0" stop-color="#ffffff"/><stop offset=".75" stop-color="#f4f7fb"/><stop offset="1" stop-color="#d7e1ee"/></radialGradient>
+  <path id="star" d="M0,-1 Q0.12,-0.12 1,0 Q0.12,0.12 0,1 Q-0.12,0.12 -1,0 Q-0.12,-0.12 0,-1Z"/>
+  <g id="cloud"><circle cx="0" cy="0" r="60" fill="#fff"/><circle cx="60" cy="-28" r="72" fill="#fff"/><circle cx="125" cy="0" r="58" fill="#fff"/><circle cx="62" cy="18" r="60" fill="#fff"/></g>
+  <linearGradient id="seaG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#18c2dd"/><stop offset="1" stop-color="#0a7fb5"/></linearGradient>
+  <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+  <radialGradient id="sunGlow"><stop offset="0" stop-color="#fff6c8" stop-opacity=".9"/><stop offset="1" stop-color="#ffd27a" stop-opacity="0"/></radialGradient>
+ </defs>
+</svg>
+<div id="scenes"></div>
+<div id="vign"></div>
+<svg id="hud" viewBox="0 0 1920 1080"></svg>
+<div id="logo"><svg width="42" height="46" viewBox="20 0 160 220"><path d="M40,30 C60,5 85,20 100,25 C115,20 140,5 160,30 C185,60 175,110 165,140 C158,165 155,210 140,210 C125,210 122,160 100,160 C78,160 75,210 60,210 C45,210 42,165 35,140 C25,110 15,60 40,30Z" fill="#fff" stroke="#173a6a" stroke-width="14"/><path d="M72,112 Q100,140 128,112" stroke="#173a6a" stroke-width="12" fill="none" stroke-linecap="round"/></svg>JOKAR DENTAL</div>
+<div id="title">
+  <div class="t1" id="t1">تور لبخند آنتالیا</div>
+  <div class="t2" id="t2">ANTALYA SMILE TOUR</div>
+  <div id="t3w"><div class="t3">presented by JOKAR DENTAL · <span>دندانپزشکی جوکار</span></div></div>
+</div>
+<div id="caps"></div>
+<div id="end">
+  <div class="a">دندانپزشکی جوکار</div>
+  <div class="b">JOKAR DENTAL</div>
+  <div class="c"><div class="cpill"><svg width="36" height="50" viewBox="0 0 44 60"><path d="M22,58 C22,58 2,32 2,21 A20,20 0 0 1 42,21 C42,32 22,58 22,58Z" fill="#ff5d73"/><circle cx="22" cy="21" r="8" fill="#fff"/></svg>ANTALYA · TÜRKİYE</div></div>
+  <div class="d">لبخندت رو بیار، بقیه‌ش با ما!</div>
+  <div class="e">Bring your smile — we'll do the rest.</div>
+</div>
+<div id="flash"></div>
+</div>
+
+<script>
+const W=1920,H=1080,TR=.5;
+const $=id=>document.getElementById(id);
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const lerp=(a,b,t)=>a+(b-a)*t;
+const prog=(t,a,b)=>clamp((t-a)/(b-a));
+const easeOut=x=>1-Math.pow(1-x,3);
+const easeIn=x=>x*x*x;
+const eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const backOut=x=>{const c1=1.9,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const elastic=x=>x<=0?0:x>=1?1:Math.pow(2,-10*x)*Math.sin((x*10-.75)*(2*Math.PI)/3)+1;
+const hop=(t,rate,h)=>-Math.abs(Math.sin(t*Math.PI*rate))*h;
+let seed=11;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+const add=(parent,html)=>{parent.insertAdjacentHTML('beforeend',html);return parent.lastElementChild};
+const q=(g,c)=>g.querySelector('.'+c);
+const tr=(x,y,s=1,r=0)=>`translate(${x},${y}) rotate(${r}) scale(${s})`;
+const show=(e,v)=>{e.style.display=v?'':'none'};
+
+/* ================= TOOTH CHARACTER ================= */
+const TOOTH="M40,30 C60,5 85,20 100,25 C115,20 140,5 160,30 C185,60 175,110 165,140 C158,165 155,210 140,210 C125,210 122,160 100,160 C78,160 75,210 60,210 C45,210 42,165 35,140 C25,110 15,60 40,30Z";
+function mouthPath(m){const K=[[132,-16,-16],[120,14,14],[114,6,48]];const i=Math.min(1,Math.floor(clamp(m,0,2))),f=clamp(m,0,2)-i;
+  const [y,c1,c2]=K[i].map((v,j)=>lerp(v,K[i+1][j],f));const w=lerp(26,31,clamp(m-1));
+  return `M${100-w},${y} Q100,${y+c1} ${100+w},${y} Q100,${y+c2} ${100-w},${y}Z`}
+function Tooth(parent){
+  const g=add(parent,`<g>
+  <ellipse class="sh" cx="100" cy="224" rx="66" ry="11" fill="#000" opacity=".18"/>
+  <g class="bd">
+   <path class="aL" stroke="#173a6a" stroke-width="7" fill="none" stroke-linecap="round"/>
+   <path class="aR" stroke="#173a6a" stroke-width="7" fill="none" stroke-linecap="round"/>
+   <path d="${TOOTH}" fill="url(#toothShade)" stroke="#173a6a" stroke-width="6" stroke-linejoin="round"/>
+   <path d="M52,45 C62,32 76,34 84,38" stroke="#fff" stroke-width="8" fill="none" stroke-linecap="round"/>
+   <g class="st"><ellipse cx="142" cy="58" rx="15" ry="10" fill="#c9a46b"/><ellipse cx="58" cy="142" rx="9" ry="7" fill="#c9a46b"/><circle cx="150" cy="78" r="5" fill="#c9a46b"/><circle cx="128" cy="150" r="6" fill="#c9a46b"/></g>
+   <circle cx="62" cy="112" r="11" fill="#ff9fb0" opacity=".7"/><circle cx="138" cy="112" r="11" fill="#ff9fb0" opacity=".7"/>
+   <ellipse class="e1" cx="78" cy="86" rx="10" ry="13" fill="#173a6a"/><ellipse class="e2" cx="122" cy="86" rx="10" ry="13" fill="#173a6a"/>
+   <g class="gli"><circle cx="81" cy="81" r="3.5" fill="#fff"/><circle cx="125" cy="81" r="3.5" fill="#fff"/></g>
+   <path class="br" stroke="#173a6a" stroke-width="5" fill="none" stroke-linecap="round"/>
+   <path class="mo" fill="#a8243b" stroke="#173a6a" stroke-width="5" stroke-linejoin="round"/>
+   <path class="sw" d="M170,50 Q179,66 170,73 Q161,66 170,50Z" fill="#7fd3ff" stroke="#173a6a" stroke-width="3"/>
+   <g class="gl">
+    <path d="M47,72 H95 V92 Q95,106 80,106 H62 Q47,106 47,92Z" fill="#111" stroke="#173a6a" stroke-width="3"/>
+    <path d="M105,72 H153 V92 Q153,106 138,106 H120 Q105,106 105,92Z" fill="#111" stroke="#173a6a" stroke-width="3"/>
+    <path d="M95,78 Q100,74 105,78" stroke="#111" stroke-width="5" fill="none"/><path d="M47,76 L30,70 M153,76 L170,70" stroke="#111" stroke-width="5"/>
+    <path d="M55,81 L67,81 M113,81 L125,81" stroke="#fff" stroke-width="4" opacity=".75" stroke-linecap="round"/></g>
+   <g class="pL"></g><g class="pR"></g>
+   <circle class="hL" r="12" fill="#fff" stroke="#173a6a" stroke-width="5"/><circle class="hR" r="12" fill="#fff" stroke="#173a6a" stroke-width="5"/>
+   <use class="sp" href="#star" fill="#fff8b0" stroke="#ffb703" stroke-width=".07"/>
+  </g></g>`);
+  const P={};['sh','bd','aL','aR','st','e1','e2','gli','br','mo','sw','gl','pL','pR','hL','hR','sp'].forEach(c=>P[c]=q(g,c));
+  const arm=(side,a)=>{const sx=side<0?40:160,sy=118,r=a*Math.PI/180;const ex=sx+side*62*Math.sin(r),ey=sy+62*Math.cos(r);
+    const cx=(sx+ex)/2+side*10*Math.cos(r),cy=(sy+ey)/2-8*Math.sin(r);return {d:`M${sx},${sy} Q${cx},${cy} ${ex},${ey}`,ex,ey}};
+  return {g,P,set(o){
+    const d=Object.assign({x:0,y:0,s:1,rot:0,sx:1,sy:1,mouth:1,stain:0,gl:0,blink:1,aL:12,aR:12,sweat:0,shine:0,shadow:1,flip:1,brow:0,t:0},o);
+    g.setAttribute('transform',`translate(${d.x},${d.y}) rotate(${d.rot}) scale(${d.s*d.sx*d.flip},${d.s*d.sy}) translate(-100,-120)`);
+    P.sh.setAttribute('opacity',.18*d.shadow);
+    P.mo.setAttribute('d',mouthPath(d.mouth));
+    const sad=clamp(d.brow);P.br.setAttribute('d',`M64,${66-7*sad} L90,${66+4*sad} M110,${66+4*sad} L136,${66-7*sad}`);P.br.setAttribute('opacity',sad);
+    P.st.setAttribute('opacity',d.stain);
+    const bl=Math.max(.08,d.blink);P.e1.setAttribute('ry',13*bl);P.e2.setAttribute('ry',13*bl);P.gli.setAttribute('opacity',bl>.5?1:0);
+    P.sw.setAttribute('opacity',d.sweat);P.sw.setAttribute('transform',`translate(0,${(d.t*30)%14})`);
+    show(P.gl,d.gl>0);P.gl.setAttribute('transform',`translate(0,${lerp(-320,0,backOut(d.gl))})`);
+    [[P.aL,P.hL,P.pL,-1,d.aL],[P.aR,P.hR,P.pR,1,d.aR]].forEach(([a,h,p,side,ang])=>{const A=arm(side,ang);a.setAttribute('d',A.d);
+      h.setAttribute('cx',A.ex);h.setAttribute('cy',A.ey);p.setAttribute('transform',`translate(${A.ex},${A.ey})`)});
+    show(P.sp,d.shine>0);P.sp.setAttribute('transform',`translate(150,40) rotate(${d.t*120}) scale(${22*d.shine*(1+.25*Math.sin(d.t*9))})`);
+  }};
+}
+const blinkAt=(t,list)=>{let b=1;list.forEach(x=>{const d=Math.abs(t-x);if(d<.09)b=d/.09});return b};
+
+/* ================= SHARED PROPS ================= */
+const suitcase=`<g><rect x="-58" y="-6" width="116" height="84" rx="14" fill="#ff5d73" stroke="#173a6a" stroke-width="6"/><path d="M-22,-6 V-26 H22 V-6" fill="none" stroke="#173a6a" stroke-width="7"/>
+ <path d="M-30,-6 V78 M30,-6 V78" stroke="#c93a52" stroke-width="7"/><rect x="-40" y="22" width="32" height="20" rx="4" fill="#ffde4a" stroke="#173a6a" stroke-width="3"/></g>`;
+function Plane(parent,{body='#ffffff',accent='#12c2b4',windowFace=true}={}){
+  const g=add(parent,`<g>
+   <path d="M-520,-30 L-640,-230 L-560,-230 L-420,-40Z" fill="${accent}" stroke="#173a6a" stroke-width="8" stroke-linejoin="round"/>
+   <path d="M-80,40 L-330,260 L-230,265 L60,60Z" fill="#cfe3f2" stroke="#173a6a" stroke-width="8" stroke-linejoin="round"/>
+   <path d="M-600,-70 Q-640,0 -600,70 L420,80 Q560,70 580,0 Q560,-70 420,-80Z" fill="${body}" stroke="#173a6a" stroke-width="9" stroke-linejoin="round"/>
+   <path d="M-600,30 L560,30 Q545,62 420,72 L-590,62Z" fill="${accent}" opacity=".9"/>
+   <path d="M470,-62 Q540,-55 560,-12 L470,-12Z" fill="#9fe3ff" stroke="#173a6a" stroke-width="6"/>
+   <g class="wins"></g>
+   <path d="M-40,-40 L-260,-260 L-170,-265 L80,-50Z" fill="#b5d2e8" stroke="#173a6a" stroke-width="8" stroke-linejoin="round"/>
+   <rect x="-160" y="80" width="120" height="44" rx="22" fill="#e6eef6" stroke="#173a6a" stroke-width="7"/>
+   <g class="wheels"><path d="M-260,70 V120 M260,70 V120" stroke="#173a6a" stroke-width="10"/><circle cx="-260" cy="128" r="22" fill="#333" stroke="#173a6a" stroke-width="5"/><circle cx="260" cy="128" r="22" fill="#333" stroke="#173a6a" stroke-width="5"/></g>
+   <g class="face"></g>
+  </g>`);
+  const wins=q(g,'wins');for(let i=0;i<9;i++){const x=-480+i*95;if(i===5&&windowFace)continue;add(wins,`<rect x="${x}" y="-34" width="48" height="56" rx="22" fill="#9fe3ff" stroke="#173a6a" stroke-width="5"/>`)}
+  let tooth=null;
+  if(windowFace){const id='wclip'+Math.floor(rnd()*1e9);
+    add(q(g,'face'),`<g><clipPath id="${id}"><circle cx="0" cy="0" r="66"/></clipPath><circle r="74" fill="#173a6a"/><circle r="66" fill="#bff0ff"/><g class="in" clip-path="url(#${id})"></g><circle r="66" fill="none" stroke="#173a6a" stroke-width="8"/><path d="M-40,-30 A50,50 0 0 1 10,-55" stroke="#fff" stroke-width="8" fill="none" opacity=".7" stroke-linecap="round"/></g>`);
+    q(g,'face').setAttribute('transform','translate(-2,-6)');tooth=Tooth(q(g,'in'))}
+  return {g,tooth,wheels:q(g,'wheels')};
+}
+function palm(parent,x,y,s){const g=add(parent,`<g transform="${tr(x,y,s)}"><path d="M0,0 C10,-150 -20,-300 30,-470" stroke="#9a6a3b" stroke-width="34" fill="none" stroke-linecap="round"/>
+  <path d="M0,0 C10,-150 -20,-300 30,-470" stroke="#7a5230" stroke-width="34" stroke-dasharray="6 34" fill="none"/><g class="lv" transform="translate(30,-470)"></g></g>`);
+  const lv=q(g,'lv');const L=[];for(let i=0;i<7;i++)L.push({a:-180+i*30,p:add(lv,`<path d="M0,0 Q90,-60 220,10 Q100,-8 0,0Z" fill="${i%2?'#2e9e4f':'#3fbf62'}" stroke="#1e6e38" stroke-width="4"/>`)});
+  return t=>{L.forEach((l,i)=>l.p.setAttribute('transform',`rotate(${l.a+Math.sin(t*2.2+i)*6})`))}}
+function waves(parent,y0,n,col,gap=80){const P=[];for(let i=0;i<n;i++)P.push(add(parent,`<path fill="none" stroke="${col}" stroke-width="7" stroke-linecap="round" opacity=".75"/>`));
+  return t=>P.forEach((w,i)=>{const y=y0+i*gap,off=(t*80*(i%2?1:-1)+i*70)%240;let d=`M${-480+off},${y}`;for(let x=-480+off;x<2200;x+=120)d+=' q30,-18 60,0 q30,18 60,0';w.setAttribute('d',d)})}
+function polaroid(inner,cap){return `<g><rect x="-110" y="-125" width="220" height="250" rx="8" fill="#fff" stroke="#173a6a" stroke-width="5"/><svg x="-95" y="-110" width="190" height="180" viewBox="0 0 190 180"><rect width="190" height="180" fill="#bfefff"/>${inner}</svg>
+ <text y="105" text-anchor="middle" font-family="Fred" font-weight="700" font-size="26" fill="#173a6a">${cap}</text></g>`}
+
+/* ================= SCENES ================= */
+const scenes=[];
+function scene(start,end,trans,build){const div=add($('scenes'),`<div class="scene"><svg viewBox="0 0 1920 1080" width="1920" height="1080"><g class="cam"></g></svg></div>`);
+  const cam=div.querySelector('.cam');scenes.push({start,end,trans,div,cam,update:build(cam)})}
+
+// 1 — INTRO
+scene(0,6,'none',c=>{
+  add(c,`<defs><linearGradient id="night" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b1640"/><stop offset="1" stop-color="#3a3a7a"/></linearGradient>
+  <linearGradient id="dawn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5cc8f5"/><stop offset=".6" stop-color="#ffc88a"/><stop offset="1" stop-color="#ff9a6b"/></linearGradient></defs>
+  <rect width="1920" height="1080" fill="url(#night)"/><rect class="dawn" width="1920" height="1080" fill="url(#dawn)"/>`);
+  const stars=add(c,'<g></g>');const S=[];for(let i=0;i<90;i++)S.push({e:add(stars,`<use href="#star" fill="#fff"/>`),x:rnd()*1920,y:rnd()*700,s:3+rnd()*6,p:rnd()*6});
+  const sun=add(c,`<g><circle r="420" fill="url(#sunGlow)"/><circle r="170" fill="#ffd23f" stroke="#ffb703" stroke-width="10"/></g>`);
+  add(c,`<path d="M0,820 L200,640 L380,740 L560,560 L760,720 L940,600 L1140,740 L1340,590 L1540,720 L1720,620 L1920,700 V900 H0Z" fill="#6b6fa8"/>
+  <path d="M0,860 L260,720 L480,800 L700,690 L920,810 L1180,700 L1420,800 L1660,710 L1920,780 V900 H0Z" fill="#4e5590"/>`);
+  add(c,`<rect y="860" width="1920" height="220" fill="url(#seaG)"/>`);
+  const refl=add(c,'<g></g>');for(let i=0;i<7;i++)add(refl,`<rect x="${960-140+i*7}" y="${880+i*26}" width="${280-i*14*2}" height="9" rx="5" fill="#fff3b0" opacity=".7"/>`);
+  const wv=waves(c,900,3,'#bff3ff',60);
+  const T=Tooth(c);
+  const sp=add(c,'<g></g>');const SP=[];for(let i=0;i<10;i++)SP.push({e:add(sp,`<use href="#star" fill="#fff8b0" stroke="#ffb703" stroke-width=".06"/>`),a:i/10*6.28,d:230+rnd()*80,ph:rnd()*6});
+  return t=>{const dawn=eio(prog(t,.2,3.4));c.querySelector('.dawn').setAttribute('opacity',dawn);
+    S.forEach(s=>{s.e.setAttribute('transform',`translate(${s.x},${s.y}) scale(${s.s*(.6+.4*Math.sin(t*4+s.p))})`);s.e.setAttribute('opacity',1-dawn)});
+    sun.setAttribute('transform',`translate(960,${lerp(1150,760,eio(prog(t,0,3.2)))})`);refl.setAttribute('opacity',dawn);wv(t);
+    const e=prog(t,2.6,3.3);T.set({x:960,y:lerp(1300,760,backOut(e))+Math.sin(t*5)*8,s:1.45,mouth:2,gl:prog(t,3.4,3.9),aR:lerp(12,150,easeOut(prog(t,3.6,4)))+Math.sin(t*12)*15*prog(t,3.9,4.1),aL:20,shine:prog(t,3.9,4.2),shadow:0,t});
+    SP.forEach(s=>{const p=prog(t,3.4,4.4);const sz=Math.max(.01,(18+8*Math.sin(t*6+s.ph))*Math.sin(Math.min(1,p*1.2)*Math.PI/1.2)*(p>0));s.e.setAttribute('transform',`translate(${960+Math.cos(s.a+t*.6)*s.d*easeOut(p)},${720+Math.sin(s.a+t*.6)*s.d*.7*easeOut(p)}) scale(${sz})`)});
+    c.setAttribute('transform',`translate(960,540) scale(${1+t*.012}) translate(-960,-540)`)};
+});
+
+// 2 — HOME
+scene(6,10,'whip',c=>{
+  add(c,`<rect width="1920" height="1080" fill="#ffe9d6"/><rect y="820" width="1920" height="260" fill="#e2b48a"/><rect y="812" width="1920" height="16" fill="#c99566"/>
+  <g transform="translate(1140,150)"><rect width="560" height="440" rx="12" fill="#9fdcff" stroke="#173a6a" stroke-width="10"/>
+   <path d="M0,330 L60,260 L60,200 L120,200 L120,280 L180,280 L180,150 L250,150 L250,300 L320,300 L320,220 L400,220 L400,170 L460,170 L460,300 L560,300 V440 H0Z" fill="#7fb0d6"/>
+   <g class="wcl"><use href="#cloud" transform="translate(80,90) scale(.6)"/><use href="#cloud" transform="translate(330,60) scale(.45)"/></g>
+   <path d="M280,0 V440 M0,220 H560" stroke="#173a6a" stroke-width="8"/>
+   <path d="M-40,-20 Q60,200 -10,460 L-70,460 L-70,-20Z" fill="#ff8fa3" stroke="#173a6a" stroke-width="6"/><path d="M600,-20 Q500,200 570,460 L630,460 L630,-20Z" fill="#ff8fa3" stroke="#173a6a" stroke-width="6"/>
+   <rect x="-90" y="-36" width="740" height="24" rx="12" fill="#173a6a"/></g>
+  <g transform="translate(240,170)"><rect width="300" height="300" rx="16" fill="#fff" stroke="#173a6a" stroke-width="8"/><rect width="300" height="70" rx="16" fill="#ff5d73" stroke="#173a6a" stroke-width="8"/>
+   <text x="150" y="50" text-anchor="middle" font-family="Fred" font-weight="700" font-size="38" fill="#fff">TRIP DAY</text>
+   ${Array.from({length:20},(_,i)=>`<rect x="${22+(i%5)*54}" y="${94+Math.floor(i/5)*50}" width="40" height="34" rx="6" fill="${i===13?'#ffde4a':'#e7eef7'}"/>`).join('')}
+   <circle class="ring" cx="${22+3*54+20}" cy="${94+2*50+17}" r="34" fill="none" stroke="#ff2d55" stroke-width="8" stroke-dasharray="214" stroke-dashoffset="214" stroke-linecap="round"/></g>
+  <g transform="translate(110,820)"><rect x="-50" y="-120" width="100" height="120" rx="16" fill="#ff9a6b" stroke="#173a6a" stroke-width="7"/>
+   <path d="M0,-120 C-60,-200 -90,-260 -40,-300 M0,-120 C20,-220 70,-260 60,-320 M0,-120 C-10,-210 10,-290 0,-340" stroke="#2e9e4f" stroke-width="16" fill="none" stroke-linecap="round"/></g>`);
+  const wcl=c.querySelector('.wcl'),ring=c.querySelector('.ring');
+  const caseG=add(c,`<g>${suitcase}</g>`);const lid=add(caseG,`<rect x="-58" y="-6" width="116" height="18" rx="9" fill="#ff7a8e" stroke="#173a6a" stroke-width="5"/>`);
+  const T=Tooth(c);
+  return t=>{wcl.setAttribute('transform',`translate(${(t*25)%120},0)`);ring.setAttribute('stroke-dashoffset',214*(1-eio(prog(t,.9,1.6))));
+    const go=prog(t,3.0,4.0);const decided=prog(t,2.2,2.5);
+    const tx=lerp(820,1500,eio(go)),ty=720+hop(t,2.6,go>0&&go<1?40:0);
+    lid.setAttribute('transform',`rotate(${lerp(-70,0,easeOut(prog(t,1.6,2.1)))},-58,-6)`);
+    const holding=t>2.6;
+    caseG.setAttribute('transform',holding?tr(tx+120,ty+110,.9):tr(1060,830,1));
+    T.set({x:tx,y:ty+Math.sin(t*3)*6,s:1.65,mouth:lerp(0,.6,decided),brow:1-decided,stain:1,sweat:1-decided,blink:blinkAt(t,[.8,2.4]),
+      aL:12,aR:holding?28:lerp(12,70,prog(t,1.4,1.7)),sy:1-.06*Math.max(0,Math.sin(t*2))*(1-decided),t});
+    c.setAttribute('transform',`translate(960,540) scale(${1.04-t*.008}) translate(-960,-540)`)};
+});
+
+// 3 — FLIGHT
+scene(10,14.5,'iris',c=>{
+  add(c,`<defs><linearGradient id="skyF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3aa8f0"/><stop offset="1" stop-color="#bfe6ff"/></linearGradient></defs><rect width="1920" height="1080" fill="url(#skyF)"/>`);
+  const L=[0,1,2].map(i=>add(c,'<g></g>'));const C=[];
+  [[6,.5,.55,120],[5,.9,.8,300],[4,1.5,1,700]].forEach(([n,s,o,v],li)=>{for(let i=0;i<n;i++)C.push({e:add(L[li],`<use href="#cloud" opacity="${o}"/>`),x:rnd()*2400,y:120+rnd()*860,s:s*(.8+rnd()*.5),v})});
+  const lines=add(c,'<g stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".7"></g>');const LN=[];for(let i=0;i<8;i++)LN.push({e:add(lines,'<path/>'),y:250+rnd()*600,x:rnd()*2400,l:120+rnd()*200});
+  const P=Plane(c);show(P.wheels,false);
+  const front=add(c,'<g></g>');const FC=[];for(let i=0;i<3;i++)FC.push({e:add(front,`<use href="#cloud"/>`),x:rnd()*2600,y:900+rnd()*150,s:2+rnd()});
+  const map=add(c,`<g transform="translate(60,130)"><rect width="380" height="190" rx="24" fill="#fff" stroke="#173a6a" stroke-width="6" opacity=".95"/>
+    <path d="M50,140 Q190,10 330,120" fill="none" stroke="#173a6a" stroke-width="5" stroke-dasharray="4 14" stroke-linecap="round"/>
+    <circle cx="50" cy="140" r="10" fill="#173a6a"/><path d="M330,124 C330,124 314,104 314,94 A16,16 0 0 1 346,94 C346,104 330,124 330,124Z" fill="#ff5d73"/>
+    <text x="330" y="168" text-anchor="middle" font-family="Fred" font-weight="700" font-size="24" fill="#173a6a">ANTALYA</text>
+    <g class="mp"><path d="M-14,0 L14,0 M0,-12 L0,12 M-8,10 L8,10" stroke="#ff5d73" stroke-width="7" stroke-linecap="round"/></g></g>`);
+  const mp=map.querySelector('.mp');
+  return t=>{C.forEach(k=>{const x=((k.x-t*k.v)%2600+2600)%2600-400;k.e.setAttribute('transform',tr(x,k.y,k.s))});
+    LN.forEach(k=>{const x=((k.x-t*1600)%2400+2400)%2400-200;k.e.setAttribute('d',`M${x},${k.y} h${k.l}`)});
+    FC.forEach(k=>{const x=((k.x-t*1300)%2800+2800)%2800-500;k.e.setAttribute('transform',tr(x,k.y,k.s))});
+    const ent=easeOut(prog(t,-.3,.9));
+    P.g.setAttribute('transform',`translate(${lerp(-500,900,ent)+Math.sin(t*1.3)*20},${560+Math.sin(t*2.2)*18}) rotate(${Math.sin(t*2.2+1)*1.6}) scale(.92)`);
+    P.tooth.set({x:0,y:30,s:.62,mouth:lerp(.6,1,prog(t,1,1.4)),stain:1,aL:12,aR:140+Math.sin(t*14)*25,shadow:0,blink:blinkAt(t,[2.2]),t});
+    const mpP=eio(prog(t,0,4.5));const u=mpP,bx=(1-u)*(1-u)*50+2*(1-u)*u*190+u*u*330,by=(1-u)*(1-u)*140+2*(1-u)*u*10+u*u*120;
+    mp.setAttribute('transform',`translate(${bx},${by}) rotate(${lerp(-40,30,u)})`);
+    map.setAttribute('opacity',prog(t,.3,.8))};
+});
+
+// 4 — ARRIVAL
+scene(14.5,21,'whip',c=>{
+  add(c,`<defs><linearGradient id="skyA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4cc3f5"/><stop offset="1" stop-color="#d8f3ff"/></linearGradient></defs>
+  <rect width="1920" height="1080" fill="url(#skyA)"/>
+  <circle cx="1650" cy="180" r="90" fill="#ffd23f" stroke="#ffb703" stroke-width="8"/>
+  <g class="cl"><use href="#cloud" transform="translate(200,170) scale(.8)"/><use href="#cloud" transform="translate(900,120) scale(.6)"/><use href="#cloud" transform="translate(1300,240) scale(.5)"/></g>
+  <path d="M0,640 L180,470 L330,560 L520,400 L700,540 L900,430 L1100,560 L1280,420 L1480,540 L1680,440 L1920,560 V760 H0Z" fill="#8aa6c4"/>
+  <path d="M520,400 L470,450 L500,445 L530,470 L560,440 L590,450Z M1280,420 L1235,465 L1265,460 L1290,480 L1320,455 L1345,462Z" fill="#fff"/>
+  <path d="M0,690 L220,560 L420,640 L640,540 L860,650 L1080,560 L1300,660 L1520,570 L1740,640 L1920,600 V760 H0Z" fill="#6a8db0"/>
+  <rect y="700" width="1920" height="140" fill="url(#seaG)"/>`);
+  const wv=waves(c,730,2,'#d2f8ff',50);
+  add(c,`<g transform="translate(160,640)">
+   <path d="M0,200 L0,120 L420,110 L720,140 L720,200Z" fill="#c9a46b"/>
+   <rect x="20" y="60" width="110" height="80" fill="#f6e3c3" stroke="#173a6a" stroke-width="5"/><rect x="140" y="40" width="90" height="100" fill="#ffd9b0" stroke="#173a6a" stroke-width="5"/>
+   <path d="M15,62 L75,20 L135,62Z M135,42 L185,5 L235,42Z" fill="#d9573e" stroke="#173a6a" stroke-width="5" stroke-linejoin="round"/>
+   <g transform="translate(300,0)"><rect x="-24" y="-140" width="48" height="270" fill="#c96a4a" stroke="#173a6a" stroke-width="5"/>
+    <path d="M-12,-140 V130 M0,-140 V130 M12,-140 V130" stroke="#a5523a" stroke-width="3"/><rect x="-32" y="-160" width="64" height="22" rx="4" fill="#d98a5f" stroke="#173a6a" stroke-width="5"/>
+    <path d="M-14,-160 L0,-215 L14,-160Z" fill="#7a9bb8" stroke="#173a6a" stroke-width="5"/></g>
+   <g transform="translate(470,0)"><rect x="-34" y="-60" width="68" height="190" fill="#e8d2a6" stroke="#173a6a" stroke-width="5"/><circle cy="-20" r="20" fill="#fff" stroke="#173a6a" stroke-width="4"/>
+    <path d="M0,-20 V-32 M0,-20 L9,-14" stroke="#173a6a" stroke-width="3"/><path d="M-40,-60 L0,-100 L40,-60Z" fill="#d9573e" stroke="#173a6a" stroke-width="5" stroke-linejoin="round"/></g>
+   <rect x="540" y="70" width="140" height="70" fill="#fff4e0" stroke="#173a6a" stroke-width="5"/><path d="M535,72 L610,30 L685,72Z" fill="#d9573e" stroke="#173a6a" stroke-width="5" stroke-linejoin="round"/></g>
+  <g transform="translate(1180,520)">${'ANTALYA'.split('').map((ch,i)=>`<text class="sg" x="${i*92}" y="0" font-family="Fred" font-weight="700" font-size="110" fill="#fff" stroke="#173a6a" stroke-width="10" paint-order="stroke">${ch}</text>`).join('')}</g>
+  <rect y="830" width="1920" height="250" fill="#8d97a3"/><rect y="830" width="1920" height="14" fill="#6c7682"/>
+  <g class="dash"></g>`);
+  const sg=[...c.querySelectorAll('.sg')];const dash=c.querySelector('.dash');for(let i=0;i<14;i++)add(dash,`<rect x="${i*160}" y="945" width="90" height="16" rx="8" fill="#fff"/>`);
+  const pw=palm(c,1820,1000,.75),pw2=palm(c,80,1020,.6);
+  const P=Plane(c,{windowFace:false});
+  const puff=add(c,'<g></g>');const PF=[];for(let i=0;i<8;i++)PF.push({e:add(puff,'<circle fill="#fff" opacity=".8"/>'),a:rnd()*3.14,v:60+rnd()*80});
+  const caseG=add(c,`<g>${suitcase}</g>`);
+  const T=Tooth(c);
+  return t=>{pw(t);pw2(t);wv(t);c.querySelector('.cl').setAttribute('transform',`translate(${t*15},0)`);
+    sg.forEach((s,i)=>{const p=prog(t,3.0+i*.08,3.5+i*.08);s.setAttribute('transform',`translate(0,${lerp(-80,0,backOut(p))})`);s.setAttribute('opacity',p>0?1:0)});
+    const land=prog(t,-.4,2.3);const roll=prog(t,2.3,3.4);
+    const px=lerp(2300,1150,easeOut(land))-lerp(0,280,easeOut(roll)),py=lerp(150,760,eio(land));
+    const touch=Math.exp(-((t-2.3)**2)/.006);
+    P.g.setAttribute('transform',`translate(${px},${py+touch*10}) rotate(${lerp(10,0,eio(prog(t,1.4,2.4)))}) scale(-.5,.5)`);
+    PF.forEach(f=>{const p=prog(t,2.3,3.3);f.e.setAttribute('cx',1050+Math.cos(f.a)*f.v*p*2);f.e.setAttribute('cy',880-Math.sin(f.a)*f.v*p);f.e.setAttribute('r',Math.max(.1,40*Math.sin(p*Math.PI)))});
+    const out=prog(t,3.4,3.8),walk=prog(t,3.9,5.6);
+    const tx=lerp(820,1260,eio(walk)),ty=lerp(800,800,out)+hop(t,2.6,walk>0&&walk<1?36:0);
+    T.g.setAttribute('opacity',out);caseG.setAttribute('opacity',out);
+    T.set({x:tx,y:ty,s:lerp(.4,1.05,backOut(out)),mouth:1,stain:1,aR:28,aL:lerp(12,150,prog(t,5.6,5.9))-Math.sin(t*13)*18*prog(t,5.7,5.9),blink:blinkAt(t,[4.6]),t});
+    caseG.setAttribute('transform',tr(tx+75,ty+70,.58*lerp(.4,1.05,backOut(out))/1.05));
+    c.setAttribute('transform',`translate(960,540) scale(${1+t*.01}) translate(-960,-540)`)};
+});
+
+// 5 — CLINIC EXTERIOR
+scene(21,24.5,'iris',c=>{
+  add(c,`<defs><linearGradient id="skyC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#55c6f2"/><stop offset="1" stop-color="#dff6ff"/></linearGradient>
+   <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b8f0ff"/><stop offset="1" stop-color="#6cc9e8"/></linearGradient></defs>
+  <rect width="1920" height="1080" fill="url(#skyC)"/><g class="cl"><use href="#cloud" transform="translate(150,150) scale(.7)"/><use href="#cloud" transform="translate(1550,110) scale(.6)"/></g>
+  <rect y="900" width="1920" height="180" fill="#d9d2c4"/><rect y="890" width="1920" height="20" fill="#b9b1a2"/>
+  <g transform="translate(520,210)">
+   <rect width="880" height="690" rx="18" fill="#ffffff" stroke="#173a6a" stroke-width="10"/><rect y="0" width="880" height="40" rx="18" fill="#12c2b4" stroke="#173a6a" stroke-width="10"/>
+   ${[60,300,580].map(x=>`<rect x="${x}" y="230" width="240" height="160" rx="10" fill="url(#glass)" stroke="#173a6a" stroke-width="7"/><path d="M${x+40},250 L${x+90},250 L${x+30},370" fill="#fff" opacity=".5"/>`).join('')}
+   <rect x="60" y="70" width="760" height="130" rx="20" fill="#0a6c9a" stroke="#173a6a" stroke-width="7"/>
+   <g transform="translate(110,80) scale(.5)"><path d="${TOOTH}" fill="#fff" stroke="#173a6a" stroke-width="10"/><path d="M72,112 Q100,140 128,112" stroke="#173a6a" stroke-width="9" fill="none" stroke-linecap="round"/></g>
+   <text x="470" y="128" text-anchor="middle" font-family="Fred" font-weight="700" font-size="64" fill="#fff" letter-spacing="6">JOKAR DENTAL</text>
+   <text x="470" y="182" text-anchor="middle" font-family="Vaz" font-weight="700" font-size="40" fill="#ffde4a" direction="rtl">دندانپزشکی جوکار</text>
+   <rect x="300" y="430" width="280" height="260" fill="#173a6a"/>
+   <rect class="dl" x="306" y="436" width="134" height="254" fill="url(#glass)" stroke="#173a6a" stroke-width="5"/><rect class="dr" x="440" y="436" width="134" height="254" fill="url(#glass)" stroke="#173a6a" stroke-width="5"/>
+   <rect x="40" y="610" width="200" height="80" rx="12" fill="#3fbf62" stroke="#173a6a" stroke-width="6"/><rect x="640" y="610" width="200" height="80" rx="12" fill="#3fbf62" stroke="#173a6a" stroke-width="6"/>
+   ${[70,120,170,210,670,720,770,810].map((x,i)=>`<circle cx="${x}" cy="${605-(i%2)*12}" r="30" fill="${i%3?'#ff8fb5':'#ff5d9e'}" stroke="#173a6a" stroke-width="4"/>`).join('')}</g>`);
+  const pw=palm(c,380,900,.95),pw2=palm(c,1560,900,1);
+  const dl=c.querySelector('.dl'),dr=c.querySelector('.dr');
+  const caseG=add(c,`<g>${suitcase}</g>`);const T=Tooth(c);
+  return t=>{pw(t);pw2(t);c.querySelector('.cl').setAttribute('transform',`translate(${t*15},0)`);
+    const op=eio(prog(t,1.6,2.2));dl.setAttribute('transform',`translate(${-120*op},0)`);dr.setAttribute('transform',`translate(${120*op},0)`);
+    const walk=prog(t,0,2.6);const tx=lerp(150,960,eio(walk)),ty=lerp(860,800,walk)+hop(t,2.6,walk<1?34:0);
+    const into=prog(t,2.6,3.3);
+    T.set({x:tx,y:ty,s:lerp(1.05,.75,into),mouth:1,stain:1,aR:28,aL:12,blink:blinkAt(t,[1.2]),t});
+    caseG.setAttribute('transform',tr(tx+75*lerp(1,.72,into),ty+70*lerp(1,.72,into),.58*lerp(1,.72,into)));
+    T.g.setAttribute('opacity',1-prog(t,3.0,3.4));caseG.setAttribute('opacity',1-prog(t,3.0,3.4));
+    c.setAttribute('transform',`translate(960,640) scale(${1+eio(prog(t,1.8,3.5))*.25}) translate(-960,-640)`)};
+});
+
+// 6 — CLINIC INTERIOR
+scene(24.5,31,'iris',c=>{
+  add(c,`<rect width="1920" height="1080" fill="#dff7f3"/><rect y="840" width="1920" height="240" fill="#bfe3de"/><rect y="830" width="1920" height="14" fill="#9fd0c8"/>
+  <g opacity=".6">${Array.from({length:12},(_,i)=>`<rect x="${i*170}" y="842" width="2" height="240" fill="#a5d6cf"/>`).join('')}</g>
+  <rect x="120" y="150" width="300" height="260" rx="14" fill="#a9e4ff" stroke="#173a6a" stroke-width="8"/><path d="M270,150 V410 M120,280 H420" stroke="#173a6a" stroke-width="6"/>
+  <g transform="translate(470,840)"><rect x="-70" y="-30" width="340" height="30" rx="14" fill="#9aa9b8" stroke="#173a6a" stroke-width="6"/><rect x="70" y="-150" width="60" height="120" fill="#c4d1de" stroke="#173a6a" stroke-width="6"/>
+   <path d="M-40,-170 H330 Q350,-170 350,-150 V-130 H-40Z" fill="#12c2b4" stroke="#173a6a" stroke-width="7" stroke-linejoin="round"/>
+   <path d="M260,-170 L380,-420 Q395,-450 420,-430 L440,-410 L330,-170Z" fill="#12c2b4" stroke="#173a6a" stroke-width="7" stroke-linejoin="round"/>
+   <rect x="-90" y="-210" width="70" height="40" rx="14" fill="#12c2b4" stroke="#173a6a" stroke-width="6"/></g>
+  <g transform="translate(300,140)"><path d="M0,0 V120 L180,200" stroke="#9aa9b8" stroke-width="16" fill="none" stroke-linecap="round"/><g transform="translate(200,210) rotate(25)"><rect x="-60" y="-30" width="120" height="60" rx="26" fill="#fff" stroke="#173a6a" stroke-width="7"/><rect x="-44" y="8" width="88" height="16" rx="8" fill="#fff6a8" class="lamp"/></g></g>
+  <path class="beam" d="M455,385 L380,800 L760,800 L545,385Z" fill="url(#glow)" opacity=".0"/>
+  <g transform="translate(1230,200)"><rect x="0" y="0" width="560" height="380" rx="22" fill="#173a6a"/><rect x="14" y="14" width="532" height="352" rx="14" fill="#0d2546"/>
+   <rect x="250" y="380" width="60" height="120" fill="#9aa9b8"/><rect x="170" y="490" width="220" height="24" rx="12" fill="#9aa9b8" stroke="#173a6a" stroke-width="5"/>
+   <g class="scr1"><g transform="translate(60,60) scale(1.25)"><path class="scan" d="${TOOTH}" fill="none" stroke="#3ef0ff" stroke-width="4" stroke-dasharray="900" stroke-dashoffset="900"/></g>
+    ${Array.from({length:6},(_,i)=>`<path d="M30,${50+i*55} H330" stroke="#3ef0ff" stroke-width="1" opacity=".25"/>`).join('')}
+    <text x="440" y="70" text-anchor="middle" font-family="Fred" font-weight="700" font-size="30" fill="#3ef0ff">3D SCAN</text>
+    <text class="pct" x="440" y="130" text-anchor="middle" font-family="Fred" font-weight="700" font-size="56" fill="#fff">0%</text></g>
+   <g class="scr2" opacity="0"><text x="280" y="70" text-anchor="middle" font-family="Fred" font-weight="700" font-size="34" fill="#3ef0ff">TREATMENT PLAN</text>
+    ${['Check-up','3D Scan','Smile Plan'].map((s,i)=>`<g class="ck" transform="translate(70,${130+i*75})"><rect width="420" height="58" rx="14" fill="#173a6a"/><circle class="cc" cx="36" cy="29" r="20" fill="#3fbf62"/><path class="cm" d="M26,29 L34,37 L48,20" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+     <text x="80" y="40" font-family="Fred" font-weight="600" font-size="30" fill="#fff">${s}</text></g>`).join('')}</g></g>`);
+  // dentist
+  const D=add(c,`<g transform="translate(1000,840)">
+   <path d="M-90,0 L-80,-260 Q-80,-300 -40,-300 H40 Q80,-300 80,-260 L90,0Z" fill="#12c2b4" stroke="#173a6a" stroke-width="8" stroke-linejoin="round"/>
+   <path d="M-30,-300 L0,-250 L30,-300" fill="#fff" stroke="#173a6a" stroke-width="5"/>
+   <path class="armA" d="M-70,-250 Q-120,-170 -100,-120" stroke="#12c2b4" stroke-width="34" fill="none" stroke-linecap="round"/>
+   <g class="armB"><path d="M70,-250 Q140,-280 150,-360" stroke="#173a6a" stroke-width="44" fill="none" stroke-linecap="round"/><path d="M70,-250 Q140,-280 150,-360" stroke="#12c2b4" stroke-width="32" fill="none" stroke-linecap="round"/>
+    <circle cx="150" cy="-375" r="26" fill="#9fe3ff" stroke="#173a6a" stroke-width="6"/></g>
+   <g class="head"><circle cy="-380" r="85" fill="#f2c6a0" stroke="#173a6a" stroke-width="8"/>
+    <path d="M-86,-395 Q-86,-480 0,-482 Q86,-480 86,-395 Q40,-420 -86,-395Z" fill="#12c2b4" stroke="#173a6a" stroke-width="7"/>
+    <path d="M-62,-372 Q0,-385 62,-372 L56,-318 Q0,-298 -56,-318Z" fill="#fff" stroke="#173a6a" stroke-width="6"/><path d="M-50,-350 H50 M-46,-332 H46" stroke="#c9d6e3" stroke-width="3"/>
+    <ellipse class="de1" cx="-30" cy="-398" rx="8" ry="10" fill="#173a6a"/><ellipse class="de2" cx="30" cy="-398" rx="8" ry="10" fill="#173a6a"/>
+    <path d="M-46,-386 Q-30,-376 -14,-386 M14,-386 Q30,-376 46,-386" stroke="#173a6a" stroke-width="4" fill="none" opacity=".5"/></g></g>`);
+  const armB=q(D,'armB'),head=q(D,'head');
+  const T=Tooth(c);
+  const beamLine=add(c,`<g><rect x="520" y="0" width="360" height="10" rx="5" fill="#3ef0ff"/><rect x="520" y="-60" width="360" height="60" fill="#3ef0ff" opacity=".18"/></g>`);
+  const scan=c.querySelector('.scan'),pct=c.querySelector('.pct'),scr1=c.querySelector('.scr1'),scr2=c.querySelector('.scr2');
+  const cks=[...c.querySelectorAll('.ck')];
+  return t=>{
+    const wave=prog(t,.3,1.8);armB.setAttribute('transform',`rotate(${Math.sin(t*12)*14*Math.sin(wave*Math.PI)},70,-250)`);
+    head.setAttribute('transform',`rotate(${Math.sin(t*1.5)*3},0,-300)`);
+    ['de1','de2'].forEach(k=>q(D,k).setAttribute('ry',10*Math.max(.1,blinkAt(t,[2.1,5.3]))));
+    c.querySelector('.beam').setAttribute('opacity',.8);
+    const sc=prog(t,1.3,3.3);show(beamLine,sc>0&&sc<1);beamLine.setAttribute('transform',`translate(0,${lerp(330,800,(Math.sin(sc*Math.PI*2-Math.PI/2)+1)/2)})`);
+    scan.setAttribute('stroke-dashoffset',900*(1-sc));pct.textContent=Math.round(sc*100)+'%';
+    const s2=prog(t,3.4,3.8);scr1.setAttribute('opacity',1-s2);scr2.setAttribute('opacity',s2);
+    cks.forEach((k,i)=>{const p=prog(t,3.8+i*.6,4.2+i*.6);q(k,'cc').setAttribute('transform',`translate(36,29) scale(${backOut(p)}) translate(-36,-29)`);q(k,'cm').setAttribute('opacity',p>.5?1:0)});
+    const relief=prog(t,5.6,6.0);
+    T.set({x:660,y:560+Math.sin(t*3)*4,s:1.22,rot:-6,mouth:lerp(.4,1.4,relief),stain:1,aL:20,aR:lerp(20,150,relief)+Math.sin(t*12)*14*relief,blink:blinkAt(t,[1.0,4.6]),shadow:0,t});
+    c.setAttribute('transform',`translate(960,540) scale(${1.02+t*.01}) translate(-960,-540)`)};
+});
+
+// 7 — TRANSFORMATION
+scene(31,38,'whip',c=>{
+  add(c,`<defs><radialGradient id="dark" cx=".5" cy=".45" r=".75"><stop offset="0" stop-color="#2a2f6b"/><stop offset="1" stop-color="#070918"/></radialGradient>
+   <radialGradient id="bright" cx=".5" cy=".5" r=".8"><stop offset="0" stop-color="#7ff5e6"/><stop offset=".6" stop-color="#12c2b4"/><stop offset="1" stop-color="#0a6c9a"/></radialGradient>
+   <linearGradient id="spot" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset="1" stop-color="#fff" stop-opacity=".02"/></linearGradient></defs>
+  <rect width="1920" height="1080" fill="url(#dark)"/><g class="bright"><rect width="1920" height="1080" fill="url(#bright)"/><g class="rays"></g></g>
+  <path class="spot" d="M880,-20 L1040,-20 L1280,900 L640,900Z" fill="url(#spot)"/>
+  <ellipse cx="960" cy="880" rx="300" ry="40" fill="#fff" opacity=".12"/>`);
+  const rays=c.querySelector('.rays');for(let i=0;i<16;i++)add(rays,`<path d="M0,0 L-90,-1400 L90,-1400Z" fill="#fff" opacity=".12" transform="rotate(${i*22.5})"/>`);
+  const ringsG=add(c,'<g></g>');const R=[0,1,2].map(i=>({e:add(ringsG,`<ellipse cx="0" cy="0" rx="${330+i*40}" ry="${90+i*14}" fill="none" stroke="${['#3ef0ff','#ffde4a','#ff8fd0'][i]}" stroke-width="6" opacity=".8"/>`),
+    st:Array.from({length:5},(_,j)=>({e:add(ringsG,`<use href="#star" fill="#fff8b0" stroke="#ffb703" stroke-width=".07"/>`),ph:j/5*6.28})),i}));
+  const T=Tooth(c);
+  const burst=add(c,'<g></g>');const B=[];for(let i=0;i<22;i++)B.push({e:add(burst,`<use href="#star" fill="${i%2?'#fff':'#fff8b0'}" stroke="#ffb703" stroke-width=".06"/>`),a:i/22*6.28+rnd()*.2,d:350+rnd()*350,s:18+rnd()*30});
+  const cards=add(c,`<g>
+   <g class="cb">${polaroid(`<rect width="190" height="180" fill="#e6e0d6"/><g transform="translate(45,22) scale(.5)"><path d="${TOOTH}" fill="#f1ece0" stroke="#173a6a" stroke-width="8"/><ellipse cx="142" cy="58" rx="15" ry="10" fill="#c9a46b"/><ellipse cx="58" cy="142" rx="9" ry="7" fill="#c9a46b"/><path d="M74,132 Q100,116 126,132" stroke="#173a6a" stroke-width="8" fill="none"/></g>`,'BEFORE · قبل')}</g>
+   <g class="ca">${polaroid(`<rect width="190" height="180" fill="#bff7ef"/><g transform="translate(45,22) scale(.5)"><path d="${TOOTH}" fill="#fff" stroke="#173a6a" stroke-width="8"/><path d="M70,114 Q100,170 130,114Z" fill="#a8243b" stroke="#173a6a" stroke-width="8"/></g><use href="#star" transform="translate(150,40) scale(16)" fill="#fff8b0" stroke="#ffb703" stroke-width=".08"/>`,'AFTER · بعد')}</g></g>`);
+  cards.querySelectorAll('text').forEach(x=>x.setAttribute('font-family','Fred, Vaz'));
+  const cb=q(cards,'cb'),ca=q(cards,'ca');
+  return t=>{const F=3.0;const after=t>=F;const bp=prog(t,F,F+.6);
+    q(c,'bright').setAttribute('opacity',after?1:0);q(c,'spot').setAttribute('opacity',after?0:1);rays.setAttribute('transform',`translate(960,540) rotate(${t*12})`);
+    const spin=after?0:Math.pow(prog(t,0,F),2);
+    R.forEach(r=>{const speed=1+spin*8;r.e.setAttribute('transform',`translate(960,${560+(r.i-1)*30}) rotate(${(r.i-1)*12})`);r.e.setAttribute('opacity',after?0:.3+.6*spin);
+      r.st.forEach(s=>{const a=s.ph+t*speed*(r.i%2?1:-1)*1.2;const rx=330+r.i*40,ry=90+r.i*14;const x=Math.cos(a)*rx,y=Math.sin(a)*ry;const rr=(r.i-1)*12*Math.PI/180;
+        s.e.setAttribute('transform',`translate(${960+x*Math.cos(rr)-y*Math.sin(rr)},${560+(r.i-1)*30+x*Math.sin(rr)+y*Math.cos(rr)}) rotate(${t*200}) scale(${after?0.01:14+10*spin})`)})});
+    const lift=after?0:eio(prog(t,1.5,F))*60;const sxs=after?1:Math.cos(Math.pow(prog(t,1.8,F),2)*Math.PI*8);
+    const land=Math.exp(-((t-(F+.5))**2)/.006);
+    T.set({x:960,y:560-lift+(after?-Math.abs(Math.sin(bp*Math.PI))*80+Math.sin(t*4)*8:0),s:2.15,sx:(Math.abs(sxs)<.08?.08*Math.sign(sxs||1):sxs)*(1+land*.12),sy:1-land*.12,
+      mouth:after?2:.5,stain:after?0:1,gl:prog(t,F+.6,F+1.0),blink:after?1:lerp(1,.08,prog(t,.8,1.2)),aL:after?lerp(20,155,easeOut(prog(t,F,F+.4))):18,aR:after?lerp(20,155,easeOut(prog(t,F,F+.4))):18,shine:after?prog(t,F+.4,F+.7):0,shadow:0,t});
+    B.forEach(b=>{const p=prog(t,F,F+1.3);const sz=b.s*Math.sin(p*Math.PI);b.e.setAttribute('transform',`translate(${960+Math.cos(b.a)*b.d*easeOut(p)},${540+Math.sin(b.a)*b.d*easeOut(p)}) rotate(${p*220}) scale(${Math.max(.01,sz)})`)});
+    const cp=prog(t,4.6,5.2);cb.setAttribute('transform',`translate(${lerp(-200,330,backOut(cp))},560) rotate(${-8+Math.sin(t*2)*2})`);ca.setAttribute('transform',`translate(${lerp(2120,1590,backOut(prog(t,4.8,5.4)))},560) rotate(${8+Math.sin(t*2+1)*2})`);
+    const shake=after?0:spin*6;c.setAttribute('transform',`translate(${Math.sin(t*60)*shake},${Math.cos(t*53)*shake}) translate(960,540) scale(${after?1+.02*Math.sin(t):1+spin*.12}) translate(-960,-540)`)};
+});
+
+// 8 — DÜDEN WATERFALLS
+scene(38,42,'whip',c=>{
+  add(c,`<defs><linearGradient id="skyW" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#38b6f2"/><stop offset="1" stop-color="#cdf1ff"/></linearGradient></defs>
+  <rect width="1920" height="1080" fill="url(#skyW)"/><use href="#cloud" transform="translate(1200,140) scale(.7)"/><use href="#cloud" transform="translate(1600,220) scale(.5)"/>
+  <rect y="760" width="1920" height="320" fill="url(#seaG)"/>
+  <path d="M0,330 L760,350 Q800,352 800,390 L820,1080 H0Z" fill="#a8774f" stroke="#173a6a" stroke-width="8"/>
+  <path d="M0,330 L760,350 Q800,352 800,390 L790,420 Q500,400 0,410Z" fill="#3fbf62" stroke="#173a6a" stroke-width="8"/>
+  <path d="M40,520 h160 M120,620 h220 M60,760 h140 M300,860 h200 M420,700 h160" stroke="#8a5f3d" stroke-width="10" stroke-linecap="round"/>
+  ${[60,180,320,460,600].map((x,i)=>`<circle cx="${x}" cy="${330-i%2*10}" r="${46+i%3*10}" fill="${i%2?'#2e9e4f':'#3fbf62'}" stroke="#173a6a" stroke-width="6"/>`).join('')}
+  <path class="rb" d="M600,800 A420,420 0 0 1 1440,800" fill="none" stroke-width="64" stroke="url(#rbG)" opacity=".0"/>
+  <linearGradient id="rbG" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ff5d73"/><stop offset=".25" stop-color="#ffde4a"/><stop offset=".5" stop-color="#3fbf62"/><stop offset=".75" stop-color="#3ec7ff"/><stop offset="1" stop-color="#a77bff"/></linearGradient>
+  <rect x="780" y="362" width="150" height="430" fill="#bdf4ff"/>
+  <g class="fall"></g>
+  <g class="mist"></g>
+  <g transform="translate(1080,760)"><rect width="840" height="40" fill="#9a6a3b" stroke="#173a6a" stroke-width="6"/>${Array.from({length:8},(_,i)=>`<rect x="${20+i*110}" y="-110" width="18" height="110" fill="#9a6a3b" stroke="#173a6a" stroke-width="5"/>`).join('')}<rect x="0" y="-120" width="840" height="20" rx="10" fill="#b8804a" stroke="#173a6a" stroke-width="5"/></g>`);
+  const fall=q(c,'fall');const FL=[];for(let i=0;i<7;i++)FL.push(add(fall,`<path d="M${790+i*20},362 V800" stroke="${i%2?'#ffffff':'#7fdcff'}" stroke-width="${12+i%3*4}" stroke-dasharray="60 40" stroke-linecap="round" opacity=".9"/>`));
+  const mist=q(c,'mist');const M=[];for(let i=0;i<12;i++)M.push({e:add(mist,'<circle fill="#fff" opacity=".7"/>'),x:760+rnd()*220,ph:rnd()});
+  const wv=waves(c,850,3,'#d2f8ff',70);
+  const T=Tooth(c);
+  add(T.P.pR,`<g transform="rotate(-160)"><rect x="-4" y="0" width="8" height="150" rx="4" fill="#555"/><rect x="-30" y="140" width="60" height="96" rx="10" fill="#173a6a"/><circle class="lens" cx="0" cy="170" r="9" fill="#9fe3ff"/></g>`);
+  const fl=add(c,'<circle fill="#fff"/>');
+  return t=>{FL.forEach((f,i)=>f.setAttribute('stroke-dashoffset',-t*(500+i*40)));wv(t);
+    M.forEach(m=>{const p=(t*.8+m.ph)%1;m.e.setAttribute('cx',m.x+(p-.5)*120);m.e.setAttribute('cy',800-p*90);m.e.setAttribute('r',20+p*40);m.e.setAttribute('opacity',.7*(1-p))});
+    q(c,'rb').setAttribute('opacity',.35*prog(t,.3,1.2));
+    const shots=[1.6,2.8];let f=0;shots.forEach(s=>{f=Math.max(f,Math.exp(-((t-s)**2)/.004))});
+    T.set({x:1390,y:550+Math.sin(t*4)*6,s:1.3,mouth:2,gl:1,aR:140+Math.sin(t*2)*4,aL:shots.some(s=>Math.abs(t-s)<.25)?150:20,flip:-1,shine:.8,t});
+    fl.setAttribute('transform',`translate(${1390+120},${330})`);fl.setAttribute('r',f*90);fl.setAttribute('opacity',f*.9);
+    $('flash').dataset.extra=f*.35;
+    c.setAttribute('transform',`translate(${-t*20},0) translate(960,540) scale(1.04) translate(-960,-540)`)};
+});
+
+// 9 — KALEİÇİ
+scene(42,46,'whip',c=>{
+  add(c,`<defs><linearGradient id="skyK" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5cc8f5"/><stop offset="1" stop-color="#ffe9c2"/></linearGradient></defs>
+  <rect width="1920" height="1080" fill="url(#skyK)"/>
+  <g transform="translate(960,560)"><rect x="-330" y="-260" width="660" height="300" fill="#d9b98c" stroke="#173a6a" stroke-width="8"/>
+   ${[-220,0,220].map(x=>`<path d="M${x-80},40 V-120 A80,80 0 0 1 ${x+80},-120 V40Z" fill="#7fc8ea" stroke="#173a6a" stroke-width="7"/>`).join('')}
+   ${[-330,-110,110,330].map(x=>`<rect x="${x-22}" y="-260" width="44" height="300" fill="#e8cfa6" stroke="#173a6a" stroke-width="6"/>`).join('')}
+   <rect x="-350" y="-290" width="700" height="36" fill="#c9a46b" stroke="#173a6a" stroke-width="7"/>
+   ${[-110,110].map(x=>`<rect x="${x-60}" y="-360" width="120" height="70" fill="#d9b98c" stroke="#173a6a" stroke-width="6"/>`).join('')}</g>
+  <path d="M0,1080 L760,600 H1160 L1920,1080Z" fill="#c9b8a2"/>
+  <g opacity=".5" stroke="#a8977f" stroke-width="4">${Array.from({length:9},(_,i)=>`<path d="M${760+i*50},600 L${-200+i*290},1080"/>`).join('')}${Array.from({length:6},(_,i)=>{const y=620+i*i*14+i*20;const k=(y-600)/480;return `<path d="M${760-k*760},${y} H${1160+k*760}"/>`}).join('')}</g>`);
+  const house=(x,w,col,flipX)=>`<g transform="translate(${x},0) scale(${flipX},1)">
+    <path d="M0,0 L${w},180 L${w},760 L0,1080Z" fill="${col}" stroke="#173a6a" stroke-width="8"/>
+    <path d="M${w*.15},${300} L${w*.75},${370} L${w*.75},${560} L${w*.15},${540}Z" fill="#8a5a33" stroke="#173a6a" stroke-width="7"/>
+    <path d="M${w*.22},${340} L${w*.68},${395} L${w*.68},${520} L${w*.22},${505}Z" fill="#9fe3ff" stroke="#173a6a" stroke-width="5"/>
+    <path d="M${w*.1},${560} L${w*.8},${590}" stroke="#173a6a" stroke-width="8"/>
+    ${Array.from({length:9},(_,i)=>`<circle cx="${w*.1+i*w*.09}" cy="${200+Math.sin(i)*30+i*14}" r="${36-i%3*6}" fill="${i%2?'#ff4f9a':'#ff86c0'}" stroke="#173a6a" stroke-width="4"/>`).join('')}</g>`;
+  add(c,house(0,560,'#f4e1c1',1)+house(1920,560,'#ffd6a5',-1));
+  const lights=add(c,'<g></g>');const LB=[];[[180,260,1740,300],[300,400,1620,430]].forEach(([x1,y1,x2,y2])=>{add(lights,`<path d="M${x1},${y1} Q960,${(y1+y2)/2+120} ${x2},${y2}" stroke="#173a6a" stroke-width="4" fill="none"/>`);
+    for(let i=1;i<14;i++){const u=i/14,x=(1-u)*(1-u)*x1+2*(1-u)*u*960+u*u*x2,y=(1-u)*(1-u)*y1+2*(1-u)*u*((y1+y2)/2+120)+u*u*y2;LB.push({e:add(lights,`<circle cx="${x}" cy="${y+10}" r="12" fill="#ffde4a" stroke="#173a6a" stroke-width="3"/>`),ph:rnd()*6})}});
+  const T=Tooth(c);
+  add(T.P.pR,`<g transform="rotate(-15) translate(0,-30)"><path d="M-20,0 L20,0 L0,70Z" fill="#e0a95f" stroke="#173a6a" stroke-width="5" stroke-linejoin="round"/><circle cy="-14" r="24" fill="#ff8fb5" stroke="#173a6a" stroke-width="5"/><circle cx="6" cy="-38" r="18" fill="#fff7e0" stroke="#173a6a" stroke-width="5"/></g>`);
+  return t=>{LB.forEach(l=>l.e.setAttribute('opacity',.6+.4*Math.sin(t*5+l.ph)));
+    const w=prog(t,0,3.2);const tx=lerp(560,1000,eio(w));
+    T.set({x:tx,y:700+hop(t,2.4,w<1?30:0),s:1.25,mouth:2,gl:1,aR:20,aL:12,t,shine:.6});
+    c.setAttribute('transform',`translate(960,540) scale(${1.02+t*.025}) translate(-960,-540) translate(${-t*12},0)`)};
+});
+
+// 10 — KONYAALTI SUNSET
+scene(46,50,'whip',c=>{
+  add(c,`<defs><linearGradient id="skyS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5b3a8e"/><stop offset=".45" stop-color="#ff7e5f"/><stop offset="1" stop-color="#ffd194"/></linearGradient>
+   <linearGradient id="seaS" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff9a6b"/><stop offset="1" stop-color="#5a3d7a"/></linearGradient></defs>
+  <rect width="1920" height="1080" fill="url(#skyS)"/><circle cx="1240" cy="640" r="260" fill="url(#sunGlow)"/><circle cx="1240" cy="650" r="130" fill="#ffd23f"/>
+  <path d="M0,620 L160,420 L300,520 L460,330 L640,520 L800,400 L960,560 L1080,470 L1200,600 L1920,600 V680 H0Z" fill="#7a4a8a"/>
+  <path d="M0,660 L220,520 L420,600 L620,500 L820,640 L1920,650 V700 H0Z" fill="#5b3a6e"/>
+  <rect y="660" width="1920" height="420" fill="url(#seaS)"/>`);
+  const ref=add(c,'<g></g>');const RF=[];for(let i=0;i<9;i++)RF.push(add(ref,`<rect x="${1240-(150-i*12)}" y="${690+i*36}" width="${2*(150-i*12)}" height="10" rx="5" fill="#ffe08a" opacity=".75"/>`));
+  const wv=waves(c,760,4,'#ffc7a8',80);
+  const gulls=add(c,'<g stroke="#2b1d3d" stroke-width="7" fill="none" stroke-linecap="round"></g>');const G=[];for(let i=0;i<4;i++)G.push({e:add(gulls,'<path/>'),x:200+i*260,y:200+rnd()*200,ph:rnd()*6});
+  const boat=add(c,`<g><path d="M-300,0 L300,0 L230,110 L-230,110Z" fill="#9a5a2e" stroke="#173a6a" stroke-width="8" stroke-linejoin="round"/><rect x="-260" y="20" width="520" height="16" fill="#fff" opacity=".8"/>
+   <path d="M-60,0 V-420 M140,0 V-320" stroke="#5a3a1e" stroke-width="12"/><path d="M-50,-410 L-50,-40 L170,-40Z" fill="#fff" stroke="#173a6a" stroke-width="6" stroke-linejoin="round"/><path d="M150,-310 L150,-40 L280,-40Z" fill="#fff4e0" stroke="#173a6a" stroke-width="6"/>
+   <path d="M-60,-420 L-120,-400 L-60,-380" fill="#12c2b4" stroke="#173a6a" stroke-width="4"/><g class="tt"></g></g>`);
+  const T=Tooth(q(boat,'tt'));
+  return t=>{wv(t);RF.forEach((r,i)=>r.setAttribute('transform',`translate(${Math.sin(t*3+i)*14},0)`));
+    G.forEach(g=>{const x=g.x+t*60,f=Math.sin(t*8+g.ph)*18;g.e.setAttribute('d',`M${x-40},${g.y+f} Q${x-20},${g.y-20} ${x},${g.y} Q${x+20},${g.y-20} ${x+40},${g.y+f}`)});
+    boat.setAttribute('transform',`translate(${lerp(520,780,t/4)},${830+Math.sin(t*2.2)*12}) rotate(${Math.sin(t*2.2+.6)*2.5}) scale(.95)`);
+    T.set({x:-200,y:-120,s:.8,mouth:2,gl:1,aL:150+Math.sin(t*13)*20,aR:20,shadow:0,flip:-1,t,shine:.5});
+    c.setAttribute('transform',`translate(960,540) scale(${1.06-t*.012}) translate(-960,-540)`)};
+});
+
+// 11 — FLY HOME
+scene(50,55,'iris',c=>{
+  add(c,`<defs><linearGradient id="skyH" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#25205a"/><stop offset=".6" stop-color="#7a4a9a"/><stop offset="1" stop-color="#ff9a7b"/></linearGradient></defs><rect width="1920" height="1080" fill="url(#skyH)"/>`);
+  const st=add(c,'<g></g>');const S=[];for(let i=0;i<50;i++)S.push({e:add(st,'<use href="#star" fill="#fff"/>'),x:rnd()*1920,y:rnd()*600,s:3+rnd()*5,p:rnd()*6});
+  const cl=add(c,'<g opacity=".55"></g>');const C=[];for(let i=0;i<6;i++)C.push({e:add(cl,'<use href="#cloud"/>'),x:rnd()*2400,y:500+rnd()*500,s:.8+rnd()});
+  const P=Plane(c,{accent:'#ff5d73'});show(P.wheels,false);
+  const pols=add(c,'<g></g>');
+  const defs=[[`<rect y="0" width="190" height="180" fill="#9fdcff"/><path d="M0,40 H70 V180 H0Z" fill="#a8774f"/><path d="M70,40 h30 v140 h-30z" fill="#fff"/><rect y="140" width="190" height="40" fill="#18a8d6"/>`,'Düden',330,250,-10],
+    [`<rect width="190" height="180" fill="#ffe9c2"/><rect x="25" y="50" width="140" height="90" fill="#d9b98c" stroke="#173a6a" stroke-width="4"/><path d="M45,140 V95 A20,20 0 0 1 85,95 V140Z M105,140 V95 A20,20 0 0 1 145,95 V140Z" fill="#7fc8ea" stroke="#173a6a" stroke-width="3"/>`,'Kaleiçi',1590,250,9],
+    [`<rect width="190" height="180" fill="#ff9f7a"/><circle cx="120" cy="100" r="34" fill="#ffd23f"/><rect y="110" width="190" height="70" fill="#7a4a8a"/><path d="M50,140 H130 L120,160 H60Z" fill="#9a5a2e"/><path d="M80,140 V70 L120,138Z" fill="#fff"/>`,'Konyaaltı',360,800,7],
+    [`<rect width="190" height="180" fill="#bff7ef"/><g transform="translate(45,22) scale(.5)"><path d="${TOOTH}" fill="#fff" stroke="#173a6a" stroke-width="8"/><path d="M70,114 Q100,170 130,114Z" fill="#a8243b" stroke="#173a6a" stroke-width="8"/></g>`,'New smile!',1560,800,-8]];
+  const PL=defs.map(([inner,cap,x,y,r],i)=>({e:add(pols,polaroid(inner,cap)),x,y,r,t0:.6+i*.45}));
+  return t=>{S.forEach(s=>s.e.setAttribute('transform',`translate(${s.x},${s.y}) scale(${s.s*(.6+.4*Math.sin(t*4+s.p))})`));
+    C.forEach(k=>{const x=((k.x+t*500)%2600+2600)%2600-400;k.e.setAttribute('transform',tr(x,k.y,k.s))});
+    P.g.setAttribute('transform',`translate(${lerp(2400,960,easeOut(prog(t,-.4,1.2)))+Math.sin(t*1.4)*16},${540+Math.sin(t*2)*14}) rotate(${Math.sin(t*2+1)*1.5}) scale(-.78,.78)`);
+    P.tooth.set({x:0,y:30,s:.62,mouth:2,gl:1,aL:12,aR:150+Math.sin(t*13)*22,shadow:0,flip:-1,t,shine:.7});
+    PL.forEach(p=>{const k=prog(t,p.t0,p.t0+.5);p.e.setAttribute('transform',`translate(${p.x},${p.y+lerp(400,0,backOut(k))+Math.sin(t*2+p.x)*6}) rotate(${p.r*backOut(k)+Math.sin(t*1.5+p.y)*2}) scale(${.85*k+.01})`)})};
+});
+
+// 12 — END CARD
+scene(55,60,'iris',c=>{
+  add(c,`<defs><linearGradient id="endG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#12c2b4"/><stop offset="1" stop-color="#0a6c9a"/></linearGradient></defs><rect width="1920" height="1080" fill="url(#endG)"/>`);
+  const rings=add(c,'<g fill="none" stroke="#fff" stroke-width="6"></g>');const RG=[0,1,2,3].map(()=>add(rings,'<circle cx="960" cy="290"/>'));
+  const conf=add(c,'<g></g>');const CF=[];const cc=['#ffde4a','#ff5d73','#ffffff','#7fe0ff','#9dff8a'];
+  for(let i=0;i<110;i++)CF.push({e:add(conf,`<rect width="18" height="30" rx="4" fill="${cc[i%5]}"/>`),x:rnd()*1920,y0:-80-rnd()*900,v:260+rnd()*320,w:rnd()*8,ph:rnd()*6});
+  const T=Tooth(c);
+  return t=>{RG.forEach((r,i)=>{const p=((t*.45)+i/4)%1;r.setAttribute('r',120+p*900);r.setAttribute('opacity',(1-p)*.22)});
+    CF.forEach(k=>{const y=k.y0+t*k.v;k.e.setAttribute('transform',`translate(${k.x+Math.sin(t*3+k.ph)*40},${y}) rotate(${t*200*k.w+k.ph*60})`)});
+    const e=prog(t,0,.6);T.set({x:960,y:lerp(-200,270,backOut(e))+Math.sin(t*4)*8,s:1.25,mouth:2,gl:1,aR:150+Math.sin(t*12)*20,aL:20,shine:1,shadow:0,rot:Math.sin(t*4)*4,t})};
+});
+
+/* ================= HUD & CAPTIONS ================= */
+const hud=$('hud');
+const steps=[{fa:'سفر',a:6,b:21,icon:`<path d="M-22,4 L22,-4 M-6,-16 L4,0 L-6,16" stroke="#173a6a" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`},
+  {fa:'کلینیک',a:21,b:31,icon:`<path d="M-18,-6 H-6 V-18 H6 V-6 H18 V6 H6 V18 H-6 V6 H-18Z" fill="#ff5d73" stroke="#173a6a" stroke-width="4"/>`},
+  {fa:'لبخند',a:31,b:38,icon:`<use href="#star" transform="scale(22)" fill="#ffde4a" stroke="#173a6a" stroke-width=".18"/>`},
+  {fa:'گردش',a:38,b:50,icon:`<circle r="11" fill="#ffd23f" stroke="#173a6a" stroke-width="4"/>${Array.from({length:8},(_,i)=>`<path d="M0,-16 V-22" stroke="#173a6a" stroke-width="4" stroke-linecap="round" transform="rotate(${i*45})"/>`).join('')}`},
+  {fa:'بازگشت',a:50,b:55,icon:`<path d="M-18,2 L0,-16 L18,2 V18 H-18Z" fill="#12c2b4" stroke="#173a6a" stroke-width="4" stroke-linejoin="round"/>`}];
+const HX=640,HW=640,HY=78;
+const hudG=add(hud,`<g><rect x="${HX-70}" y="${HY-52}" width="${HW+140}" height="140" rx="40" fill="#fff" opacity=".92"/><rect x="${HX}" y="${HY-5}" width="${HW}" height="10" rx="5" fill="#d7e1ee"/><rect class="fill" x="${HX}" y="${HY-5}" width="0" height="10" rx="5" fill="#12c2b4"/></g>`);
+const hFill=q(hudG,'fill');
+const SG=steps.map((s,i)=>{const x=HX+i*HW/4;const g=add(hudG,`<g transform="translate(${x},${HY})"><g class="ic"><circle r="34" fill="#fff" stroke="#173a6a" stroke-width="5" class="bg"/>${s.icon}</g>
+  <text y="66" text-anchor="middle" font-family="Vaz" font-weight="700" font-size="24" fill="#173a6a">${s.fa}</text></g>`);return {g,ic:q(g,'ic'),bg:q(g,'bg'),...s}});
+
+const capData=[[6.3,8.3,'لبخندت خسته‌ست؟','Is your smile tired?'],[8.4,10.4,'وقت یه سفره!','Time for a trip!'],[10.9,14.3,'مقصد: آنتالیا','Next stop: Antalya'],
+  [17.6,20.9,'خوش اومدی به آنتالیا!','Welcome to Antalya!'],[21.4,24.4,'دندانپزشکی جوکار','Jokar Dental Clinic'],[25.0,30.8,'معاینه و برنامه‌ی درمان','Check-up & Treatment Plan'],
+  [31.4,33.7,'آماده‌ای؟','Ready?'],[34.4,37.8,'یه لبخند تازه!','A brand-new smile!'],
+  [38.3,41.9,'آبشار دودن','Düden Waterfalls',1],[42.3,45.9,'شهر قدیم کالئیچی','Kaleiçi Old Town',1],[46.3,49.9,'ساحل کنیالتی','Konyaaltı Beach',1],
+  [50.6,54.8,'با یه لبخند تازه برگرد خونه','Fly home with a brand-new smile']];
+const pin=`<svg width="40" height="54" viewBox="0 0 44 60"><path d="M22,58 C22,58 2,32 2,21 A20,20 0 0 1 42,21 C42,32 22,58 22,58Z" fill="#ff5d73" stroke="#173a6a" stroke-width="3"/><circle cx="22" cy="21" r="8" fill="#fff"/></svg>`;
+const caps=capData.map(([a,b,fa,en,loc])=>({a,b,e:add($('caps'),`<div class="cap"><div class="fa">${fa}${loc?pin:''}</div><div class="en">${en}</div></div>`)}));
+
+/* ================= MAIN RENDER ================= */
+function render(t){
+  $('flash').dataset.extra=0;
+  scenes.forEach((s,i)=>{const next=scenes[i+1];const vis=t>=s.start-(s.trans==='none'?0:TR)&&t<s.end+(next&&next.trans==='whip'?0:0);
+    s.div.style.display=vis?"block":"none";if(!vis)return;
+    let tx=0,blur=0,clip='none';
+    if(t<s.start){const p=eio(prog(t,s.start-TR,s.start));
+      if(s.trans==='whip'){tx=(1-p)*W;blur=Math.sin(p*Math.PI)*16}
+      if(s.trans==='iris'){clip=`circle(${p*1150}px at 50% 50%)`}}
+    if(next&&next.trans==='whip'&&t>=next.start-TR){const p=eio(prog(t,next.start-TR,next.start));tx=-p*W;blur=Math.sin(p*Math.PI)*16}
+    s.div.style.transform=`translateX(${tx}px)`;s.div.style.filter=blur>.5?`blur(${blur}px)`:'none';s.div.style.clipPath=clip;
+    s.update(t-s.start)});
+  // title
+  const ti=[['t1',.5],['t2',1.0],['t3w',1.5]];ti.forEach(([id,a])=>{const p=prog(t,a,a+.6),o=prog(t,5.4,5.9);const e=$(id);e.style.opacity=p>0?1-o:0;e.style.transform=`scale(${elastic(p)}) translateY(${-o*40}px)`});
+  // hud + logo
+  const hv=prog(t,6.2,6.8)*(1-prog(t,54.5,55));hudG.setAttribute('opacity',hv);hudG.setAttribute('transform',`translate(0,${(1-hv)*-40})`);$('logo').style.opacity=hv;
+  let fillW=0;SG.forEach((s,i)=>{const p=prog(t,s.a,s.b);if(t>=s.a)fillW=HW*(i/4)+(i<4?HW/4*p:0);
+    const act=t>=s.a&&t<s.b;const pop=Math.exp(-((t-s.a)**2)/.02);s.ic.setAttribute('transform',`scale(${(act?1.22:1)+pop*.3})`);s.bg.setAttribute('fill',t>=s.a?(act?'#ffde4a':'#bff7ef'):'#fff')});
+  hFill.setAttribute('width',Math.min(HW,fillW));
+  // captions
+  caps.forEach(c=>{const pin=prog(t,c.a,c.a+.5),pout=prog(t,c.b-.3,c.b);const vis=pin>0&&pout<1;c.e.style.display=vis?'flex':'none';if(!vis)return;
+    c.e.style.opacity=1-pout;c.e.style.transform=`translateX(-50%) translateY(${pout*60}px) scale(${elastic(pin)*(1-pout*.15)}) rotate(${Math.sin(t*3)*.8}deg)`});
+  // end card
+  [['a',.5],['b',.8],['c',1.05],['d',1.4],['e',1.6]].forEach(([k,a])=>{const e=$('end').querySelector('.'+k);const p=prog(t,55+a,55+a+.5);e.style.opacity=p>0?1:0;e.style.transform=`scale(${elastic(p)})`});
+  // flashes
+  const f=Math.max(Math.exp(-((t-34)**2)/.02)*(t<34?Math.exp(-((t-34)**2)/.001):1),+$('flash').dataset.extra||0);$('flash').style.opacity=f;
+  // fade in/out
+  $('stage').style.opacity=Math.min(prog(t,0,.4),1-prog(t,59.5,60));
+}
+window.render=render;render(0);
+</script></body></html>
