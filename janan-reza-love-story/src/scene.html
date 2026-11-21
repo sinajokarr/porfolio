@@ -35,6 +35,8 @@ html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#000}
  <path id="star" d="M0,-1 Q0.12,-0.12 1,0 Q0.12,0.12 0,1 Q-0.12,0.12 -1,0 Q-0.12,-0.12 0,-1Z"/>
  <g id="cloud"><circle cx="0" cy="0" r="60" fill="#fff"/><circle cx="60" cy="-28" r="72" fill="#fff"/><circle cx="125" cy="0" r="58" fill="#fff"/><circle cx="62" cy="18" r="60" fill="#fff"/></g>
  <radialGradient id="sunGlow"><stop offset="0" stop-color="#fff3c8" stop-opacity=".95"/><stop offset="1" stop-color="#ffb199" stop-opacity="0"/></radialGradient>
+ <radialGradient id="faceShade" cx=".42" cy=".38" r=".7"><stop offset=".62" stop-color="#c27a5a" stop-opacity="0"/><stop offset="1" stop-color="#b8664a" stop-opacity=".38"/></radialGradient>
+ <radialGradient id="cheekHi" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
  <radialGradient id="ringGlow"><stop offset="0" stop-color="#fffbe0" stop-opacity="1"/><stop offset="1" stop-color="#fff2a8" stop-opacity="0"/></radialGradient>
 </defs></svg>
 <div id="scenes"></div>
@@ -83,26 +85,36 @@ function Person(parent,who,opt={}){
   <g class="up2">
    <path class="aL" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle class="hL" r="11"/>
    ${dress?`<path d="M-34,-152 Q-42,-110 -40,-92 L-66,-36 Q0,-20 66,-36 L40,-92 Q42,-110 34,-152 Q0,-162 -34,-152Z" fill="${top}" stroke="${OUT}" stroke-width="5" stroke-linejoin="round"/>
+     <path d="M16,-150 Q34,-112 32,-92 L58,-38 Q50,-33 40,-32 L16,-92Z" fill="#000" opacity=".1"/>
+     <path d="M-26,-148 Q-34,-112 -32,-96 L-50,-44 L-40,-42 L-22,-96Z" fill="#fff" opacity=".18"/>
      <path d="M-40,-96 Q0,-86 40,-96" stroke="${bride?'#f2d7e0':'#fff'}" stroke-width="7" fill="none" opacity=".8"/>`
     :`<path d="M-38,-152 Q-46,-104 -42,-64 H42 Q46,-104 38,-152 Q0,-162 -38,-152Z" fill="${top}" stroke="${OUT}" stroke-width="5" stroke-linejoin="round"/>
+     <path d="M18,-150 Q36,-104 38,-66 H22 Q22,-104 12,-150Z" fill="#000" opacity=".12"/><path d="M-30,-148 Q-38,-110 -36,-70 H-28 Q-28,-110 -22,-148Z" fill="#fff" opacity=".15"/>
      ${suit?`<path d="M-16,-156 L0,-118 L16,-156Z" fill="#fff" stroke="${OUT}" stroke-width="3"/><path d="M-14,-150 L0,-142 L14,-150 L14,-134 L0,-142 L-14,-134Z" fill="#c2304f" stroke="${OUT}" stroke-width="3"/><circle cx="0" cy="-104" r="4" fill="${OUT}"/><circle cx="0" cy="-84" r="4" fill="${OUT}"/>`
       :`<path d="M-14,-156 L0,-140 L14,-156" stroke="${OUT}" stroke-width="4" fill="#fff"/><path d="M0,-140 V-66" stroke="${OUT}" stroke-width="3" opacity=".4"/>`}`}
    <g class="scarf" display="none"><path d="M-36,-160 Q0,-140 36,-160 L38,-146 Q0,-124 -38,-146Z" fill="#e0344f" stroke="${OUT}" stroke-width="4"/><path d="M16,-146 L22,-100 L36,-104 L28,-150Z" fill="#e0344f" stroke="${OUT}" stroke-width="4"/></g>
    <g class="head">
+    <ellipse cx="0" cy="-160" rx="28" ry="9" fill="#000" opacity=".14"/>
     <circle cx="-62" cy="-222" r="12" fill="${c.skin}" stroke="${OUT}" stroke-width="4"/><circle cx="62" cy="-222" r="12" fill="${c.skin}" stroke="${OUT}" stroke-width="4"/>
     <ellipse cx="0" cy="-226" rx="64" ry="62" fill="${c.skin}" stroke="${OUT}" stroke-width="5"/>
+    <ellipse cx="0" cy="-226" rx="61.5" ry="59.5" fill="url(#faceShade)"/>
+    <ellipse cx="-30" cy="-248" rx="22" ry="12" fill="url(#cheekHi)"/>
+    <path d="M-64,-248 Q0,-278 64,-248 Q58,-242 46,-244 Q0,-268 -46,-244 Q-58,-242 -64,-248Z" fill="#a85a40" opacity=".14"/>
     ${R?`<path d="M-62,-234 Q-66,-170 0,-158 Q66,-170 62,-234 Q58,-206 38,-198 Q0,-186 -38,-198 Q-58,-206 -62,-234Z" fill="${c.hair}" stroke="${OUT}" stroke-width="4" stroke-linejoin="round"/>
       <path d="M-24,-200 Q0,-214 24,-200 Q0,-194 -24,-200Z" fill="${c.hair}" stroke="${OUT}" stroke-width="3"/>`:''}
     <ellipse class="bl1" cx="-40" cy="-204" rx="13" ry="8" fill="#ff7f9a"/><ellipse class="bl2" cx="40" cy="-204" rx="13" ry="8" fill="#ff7f9a"/>
     <g class="eyes"></g>
+    <path d="M-2,-212 Q4,-205 8,-211" stroke="${OUT}" stroke-width="3.2" fill="none" stroke-linecap="round" opacity=".55"/>
     <path class="mo" stroke="${OUT}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
     ${R?`<path d="M-66,-236 Q-70,-300 0,-302 Q70,-300 66,-236 Q60,-266 32,-276 Q0,-262 -32,-276 Q-60,-266 -66,-236Z" fill="${c.hair}" stroke="${OUT}" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M-44,-276 Q-28,-292 -8,-294" stroke="#7a5a40" stroke-width="7" fill="none" stroke-linecap="round" opacity=".8"/>
       <path d="M-30,-286 Q-10,-296 6,-282 M14,-290 Q34,-292 44,-276" stroke="#5a3e2a" stroke-width="4" fill="none" stroke-linecap="round"/>
       <circle cx="4" cy="-322" r="26" fill="${c.hair}" stroke="${OUT}" stroke-width="5"/><path d="M-8,-330 Q6,-338 16,-326" stroke="#5a3e2a" stroke-width="4" fill="none"/>
       <rect x="-14" y="-302" width="36" height="10" rx="5" fill="#c9a04a" stroke="${OUT}" stroke-width="3"/>
       <path d="M-64,-236 Q-70,-212 -62,-196 M64,-236 Q70,-212 62,-196" stroke="${c.hair}" stroke-width="8" fill="none" stroke-linecap="round"/>`
      :`<path d="M-70,-234 Q-72,-304 0,-306 Q72,-302 70,-232 Q58,-284 12,-272 Q-22,-262 -42,-278 Q-62,-266 -70,-234Z" fill="${c.hair}" stroke="${OUT}" stroke-width="5" stroke-linejoin="round"/>
       <path d="M-68,-236 Q-78,-176 -62,-138 L-50,-146 Q-60,-196 -56,-238Z M68,-236 Q78,-176 62,-138 L50,-146 Q60,-196 56,-238Z" fill="${c.hair}" stroke="${OUT}" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M-50,-262 Q-40,-290 -14,-298" stroke="#4a4466" stroke-width="7" fill="none" stroke-linecap="round" opacity=".9"/>
       <path d="M-20,-292 Q10,-300 40,-286" stroke="#3c3550" stroke-width="5" fill="none" stroke-linecap="round"/>
       ${bride?`<g>${[-50,-28,-4,20,44].map((x,i)=>`<circle cx="${x}" cy="${-296-Math.cos(x/40)*10}" r="11" fill="${i%2?'#ffc2d1':'#fff'}" stroke="${OUT}" stroke-width="3"/>`).join('')}</g>`
        :`<g transform="translate(48,-282)"><circle r="12" fill="#ffd27a" stroke="${OUT}" stroke-width="3"/>${[0,72,144,216,288].map(a=>`<ellipse cx="0" cy="-12" rx="7" ry="10" fill="#ff8fab" stroke="${OUT}" stroke-width="2.5" transform="rotate(${a})"/>`).join('')}<circle r="6" fill="#ffd27a"/></g>`}`}
@@ -142,7 +154,9 @@ function Person(parent,who,opt={}){
     if(d.eyes==='heart'){const s=15+2*Math.sin(d.t*14);e=`<use href="#heart" transform="translate(${-24+lx},${ey}) scale(${s})" fill="#ff3d6a" stroke="${OUT}" stroke-width=".12"/><use href="#heart" transform="translate(${24+lx},${ey}) scale(${s})" fill="#ff3d6a" stroke="${OUT}" stroke-width=".12"/>`}
     else if(d.eyes==='happy')e=`<path d="M${-34+lx},${ey+4} Q${-24+lx},${ey-10} ${-14+lx},${ey+4} M${14+lx},${ey+4} Q${24+lx},${ey-10} ${34+lx},${ey+4}" stroke="${OUT}" stroke-width="6" fill="none" stroke-linecap="round"/>`;
     else if(d.eyes==='closed')e=`<path d="M${-34+lx},${ey} Q${-24+lx},${ey+9} ${-14+lx},${ey} M${14+lx},${ey} Q${24+lx},${ey+9} ${34+lx},${ey}" stroke="${OUT}" stroke-width="6" fill="none" stroke-linecap="round"/>`;
-    else{const big=d.eyes==='wide'?1.25:1;const ry=11*big*Math.max(.1,d.blink);e=`<ellipse cx="${-24+lx}" cy="${ey}" rx="${8.5*big}" ry="${ry}" fill="${OUT}"/><ellipse cx="${24+lx}" cy="${ey}" rx="${8.5*big}" ry="${ry}" fill="${OUT}"/>`+(d.blink>.5?`<circle cx="${-21+lx}" cy="${ey-4}" r="3.2" fill="#fff"/><circle cx="${27+lx}" cy="${ey-4}" r="3.2" fill="#fff"/>`:'')}
+    else{const big=d.eyes==='wide'?1.25:1;const bl=Math.max(.1,d.blink),ry=12*big*bl;const iris=R?'#7a4a2a':'#4a2a1e';
+      e=[-24,24].map(ex=>{const X=ex+lx;return `<ellipse cx="${X}" cy="${ey}" rx="${9.5*big}" ry="${ry}" fill="${OUT}"/>`+(bl>.5?`<ellipse cx="${X+lx*.15}" cy="${ey+2}" rx="${6.6*big}" ry="${8*big*bl}" fill="${iris}"/><ellipse cx="${X+lx*.15}" cy="${ey+2}" rx="${3.4*big}" ry="${4.4*big}" fill="#1a0f14"/>
+        <ellipse cx="${X+lx*.15}" cy="${ey+6}" rx="${4.5*big}" ry="${2.5*big}" fill="#fff" opacity=".18"/><circle cx="${X+3}" cy="${ey-5}" r="${3.6*big}" fill="#fff"/><circle cx="${X-3.5}" cy="${ey+5}" r="${1.7*big}" fill="#fff"/>`:'')}).join('')}
     if(!R&&d.eyes!=='heart')e+=`<path d="M${-36+lx},${ey-8} L${-40+lx},${ey-13} M${36+lx},${ey-8} L${40+lx},${ey-13}" stroke="${OUT}" stroke-width="3.5" stroke-linecap="round"/>`;
     P.eyes.innerHTML=e;
     const my=R?-190:-196,mx=d.look*5;let m;
