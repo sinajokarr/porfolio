@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Chapter One: Vadi</title>
+<style>
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#000}
+#stage{position:relative;width:1920px;height:1080px;overflow:hidden;background:#000}
+.scene{position:absolute;inset:0;display:none}
+.scene>svg{position:absolute;inset:0}
+#grade{position:absolute;inset:0;mix-blend-mode:soft-light;pointer-events:none}
+#bloom{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 40%,rgba(255,240,220,.10),rgba(0,0,0,0) 60%);mix-blend-mode:screen}
+#vign{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,rgba(0,0,0,0) 55%,rgba(0,0,0,.42) 100%)}
+#grain{position:absolute;inset:0;width:1920px;height:1080px;opacity:.07;mix-blend-mode:overlay;pointer-events:none}
+.bar{position:absolute;left:0;right:0;height:54px;background:#000}
+#fadeK{position:absolute;inset:0;background:#000;pointer-events:none}
+</style></head>
+<body><div id="stage">
+<svg width="0" height="0" style="position:absolute" id="gdefs"></svg>
+<div id="scenes"></div>
+<div id="grade"></div><div id="bloom"></div><div id="vign"></div>
+<canvas id="grain" width="640" height="360"></canvas>
+<div id="fadeK"></div>
+<div class="bar" style="top:0"></div><div class="bar" style="bottom:0"></div>
+</div>
+<script src="lib.js"></script>
+<script>globalDefs($('gdefs'));</script>
+<script src="scenes1.js"></script>
+<script src="scenes2.js"></script>
+<script>
+initGrain();
+function render(t) {
+  let active = null;
+  SCENES.forEach((s, i) => {
+    const lead = (s.trans === 'dissolve' || s.trans === 'fade') ? s.tl : 0;
+    const v = t >= s.start - lead && t < s.end;
+    s.div.style.display = v ? 'block' : 'none'; if (!v) return;
+    let o = 1; if (t < s.start) o = smooth(prog(t, s.start - lead, s.start));
+    s.div.style.opacity = o;
+    s.update(Math.max(t - s.start, -lead));
+    if (o >= .5 || !active) active = s;
+  });
+  if (active && active.grade) { $('grade').style.background = active.grade[0]; $('grade').style.opacity = active.grade[1] * 2.2; } else $('grade').style.opacity = 0;
+  drawGrain(Math.floor(t * 30));
+  $('fadeK').style.opacity = Math.max(1 - smooth(prog(t, 0, 1.2)), 0);
+}
+window.render = render; render(0);
+</script></body></html>
