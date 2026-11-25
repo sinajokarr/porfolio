@@ -1,0 +1,12 @@
+{
+  "name": "sina-jokar",
+  "owner": { "name": "Sina Jokar", "url": "https://github.com/sinajokarr" },
+  "metadata": { "description": "Sina Jokar's Claude plugins" },
+  "plugins": [
+    {
+      "name": "sina-seo",
+      "description": "SEO manager agent for any website in fa, ru, de, en, tr — orchestrates audit, keyword research, planning, native writing and QA.",
+      "source": "./plugins/sina-seo"
+    }
+  ]
+}

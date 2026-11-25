@@ -5,9 +5,16 @@
         "source": "github",
         "repo": "AgriciDaniel/claude-seo"
       }
+    },
+    "sina-jokar": {
+      "source": {
+        "source": "github",
+        "repo": "sinajokarr/porfolio"
+      }
     }
   },
   "enabledPlugins": {
-    "claude-seo@agricidaniel-claude-seo": true
+    "claude-seo@agricidaniel-claude-seo": true,
+    "sina-seo@sina-jokar": true
   }
 }

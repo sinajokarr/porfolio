@@ -1,4 +1,53 @@
-# Where SEO lives in this repo (Next.js 16 App Router + next-intl)
+# Profile: Sina Jokar portfolio (this repo)
+
+Business: full-stack developer + Google Ads/performance marketer, Antalya, Türkiye. Services: see `content/services.json`. Goal: inquiries (form, WhatsApp, email).
+
+## Keyword seeds per language (validate with real data)
+
+### FA
+- طراحی سایت در آنتالیا · طراحی سایت در ترکیه · برنامه نویس ایرانی در ترکیه
+- طراحی سایت شرکتی · طراحی سایت فروشگاهی · قیمت طراحی سایت · هزینه ساخت سایت
+- برنامه نویس فول استک · برنامه نویس پایتون جنگو · توسعه نرم افزار اختصاصی
+- متخصص گوگل ادز · تبلیغات در گوگل · راه اندازی کمپین گوگل ادز · نصب گوگل تگ منیجر · ردیابی تبدیل
+- سئو سایت · سئو تکنیکال · افزایش سرعت سایت
+- Intent modifiers: قیمت، هزینه، بهترین، نمونه کار، مشاوره رایگان، فریلنسر
+
+
+### RU
+- разработка сайтов Анталья · создание сайта в Турции · заказать сайт Анталья · веб-разработчик Анталья
+- сайт для агентства недвижимости Турция · сайт для бизнеса в Турции · лендинг под ключ
+- настройка Google Ads · контекстная реклама Google в Турции · специалист по Google Ads
+- настройка GA4 и GTM · отслеживание конверсий · SEO продвижение сайта в Турции
+- фрилансер разработчик Python Django · разработка интернет-магазина
+- Intent modifiers: цена, стоимость, под ключ, недорого, отзывы, портфолио, срок
+
+
+### DE
+- Webentwickler Antalya · Webdesign Türkei · Website erstellen lassen · Webentwicklung Freelancer
+- Full-Stack-Entwickler Python Django · Next.js Entwickler · individuelle Webanwendung
+- Google Ads Betreuung · Google Ads Freelancer · Conversion Tracking einrichten · GA4 einrichten · GTM
+- Landingpage erstellen lassen · Onlineshop erstellen lassen · technische SEO
+- Intent modifiers: Kosten, Preis, Angebot, Agentur vs. Freelancer, Erfahrung, Referenzen
+
+
+### EN
+- full-stack developer Antalya · web developer Turkey · freelance Django developer · Next.js developer for hire
+- Google Ads specialist / freelancer · conversion tracking setup · GA4 GTM setup · landing page developer
+- custom web application development · technical SEO and site speed
+- hire remote full-stack developer · website for real estate agency Turkey
+- Intent modifiers: cost, pricing, hire, freelance vs agency, portfolio, case study
+
+
+### TR
+- Antalya web tasarım · Antalya web sitesi yapımı · Antalya yazılım · freelance web tasarımcı Antalya
+- kurumsal web sitesi · e-ticaret sitesi yapımı · otel web sitesi · emlak web sitesi
+- Google Ads uzmanı Antalya · Google reklam yönetimi · dönüşüm takibi kurulumu · GA4 GTM kurulumu
+- özel yazılım geliştirme · Python Django geliştirici · Next.js · SEO hizmeti Antalya · site hızlandırma
+- Intent modifiers: fiyat, fiyatları, ücret, ajans, uzman, referans, en iyi
+
+
+
+## Where SEO lives in this repo (Next.js 16 App Router + next-intl)
 
 Paths are relative to the repo root. Re-read the files before editing — this map can drift.
 
@@ -29,7 +78,7 @@ The locale list is hard-coded in: `i18n/routing.js`, `lib/site.js` (`alternates`
 
 1. `frontend/i18n/routing.js` → add `"de"` to `locales`.
 2. Create `frontend/messages/de.json` with every key of `en.json` — **transcreated** using
-   `languages.md` DE rules, not machine-translated. Verify key parity with a script
+   `../languages.md` DE rules, not machine-translated. Verify key parity with a script
    (same key set as `en.json`).
 3. Update every hard-coded locale list from §2 (or do the single-source refactor first).
 4. Add `de: "de_DE"` to the OG locale map; add `"de"` to `knowsLanguage`.

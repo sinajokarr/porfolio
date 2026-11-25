@@ -1,0 +1,10 @@
+{
+  "name": "sina-seo",
+  "version": "1.0.0",
+  "description": "Sina SEO (سینا سئو): SEO manager agent for any website or business in 5 languages (fa, ru, de, en, tr). Orchestrates claude-seo specialists plus native-language researcher and writer agents to audit, research, plan, execute and report.",
+  "author": { "name": "Sina Jokar", "url": "https://github.com/sinajokarr" },
+  "homepage": "https://github.com/sinajokarr/porfolio/tree/main/plugins/sina-seo",
+  "repository": "https://github.com/sinajokarr/porfolio",
+  "license": "MIT",
+  "keywords": ["seo", "multilingual", "persian", "russian", "german", "turkish", "local-seo", "yandex", "geo"]
+}
